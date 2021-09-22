@@ -8,7 +8,7 @@ body,html{
 }
 
 .bg{
-    background-image: url(css/images/background.jpg);
+    background-image: url(images/background.jpg);
     position: relative;
     opacity: 0.65;
     height: 100%;
