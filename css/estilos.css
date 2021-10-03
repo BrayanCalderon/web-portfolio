@@ -3,7 +3,7 @@
 @font-face {
   /* Relacion de la fuente slkscr desde la ubicacion relativa /fonts/ */
   font-family:consolas; /*Fuente custom*/
-  src: url("CONSOLA.TTF"); /*Ubicacion Fuente*/
+  src: url("CONSOLAB.TTF"); /*Ubicacion Fuente*/
   font-weight: 400; /*Negrita de la letra*/
   font-style: normal;
 }
@@ -11,7 +11,7 @@
 body,html {
   height: 100%;
   background-color: #222831;
-  font: 400 15px/1.8 "Lato", sans-serif;
+  font: 400 15px/1.8 "consolas", sans-serif;
   margin: 0;
 }
 
@@ -43,13 +43,19 @@ body,html {
   font-weight: bold;
 }
 h3 {
-  letter-spacing: 5px;
+  letter-spacing: 1px;
   text-transform: uppercase;
-  font: 20px "Lato", sans-serif;
-  color: #111;
+  font: 20px "consolas", sans-serif;
+  color: #D65A31;
 }
-p {
-  color: #eeeeee;
+h4 {
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-family: "consolas";
+  color: #D65A31;
+}
+p{
+  font-family: consolas;
 }
 
 #navbar {
@@ -84,8 +90,50 @@ p {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-
 }
+.header_algorithms {
+  padding: 200px;
+  background-image: url("../css/images/algoritmos1.jpg");
+  text-align: center;
+  position: relative;
+  opacity: 0.65;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.header_servos {
+  padding: 200px;
+  background-image: url("../css/images/servowallp.png");
+  text-align: center;
+  position: relative;
+  opacity: 0.65;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.header_pai {
+  padding: 200px;
+  background-image: url("../css/images/paiwallp.jpg");
+  text-align: center;
+  position: relative;
+  opacity: 0.65;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.header_tia {
+  padding: 200px;
+  background-image: url("../css/images/tiawallp.png");
+  text-align: center;
+  position: relative;
+  opacity: 0.65;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
+
 .header h1 {
   font-size: 40px;
   color:#222831;
@@ -138,7 +186,23 @@ p {
 
 .fakeimg {
   background-color: #aaa;
+  
+}
+.imgpost{
+    max-width: 100%;
+    height: 200px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+.imgquiz{
   width: 100%;
+  height: 100%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+
 }
 
 /* Add a card effect for articles */
@@ -146,4 +210,88 @@ p {
   background-color: white;
   padding: 20px;
   margin-top: 20px;
+}
+
+
+/* ------------------------------------------------------*/
+
+.body_coursera{
+  box-sizing:border-box;
+  margin: 0;
+
+}
+.container_coursera {
+  padding: 64px;
+  box-sizing:border-box;
+}
+
+.row_coursera:after {
+  content: "";
+  box-sizing:border-box;
+  display: table;
+  clear: both
+}
+
+.column-66 {
+  box-sizing:border-box;
+  float: left;
+  width: 66.66666%;
+  padding: 20px;
+}
+
+.column-33 {
+  float: left;
+  box-sizing:border-box;
+  width: 33.33333%;
+  padding: 20px;
+}
+
+.large-font_coursera {
+  font-size: 48px;
+}
+
+.xlarge-font_coursera {
+  font-size: 64px
+}
+
+.button_coursera {
+  border: none;
+  color: white;
+  padding: 14px 28px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #04AA6D;
+}
+
+.img_coursera {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 70%;
+  transition: .5s ease;
+  backface-visibility: hidden;
+}
+
+.middle {
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 120%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}
+.img_coursera:hover {
+  opacity: 0.3;
+}
+
+.column-33_coursera:hover .middle {
+  opacity: 1;
+}
+.text_coursera{
+  background-color: #eeeeee;
+  color: #222831;
+  font-size: 16px;
+  padding: 16px 32px;
 }

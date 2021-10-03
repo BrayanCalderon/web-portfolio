@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="../css/estilos.css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/styles/default.min.css" />
+  <title>Algorithmic Toolbox</title>
+</head>
+
+<body>
+  <div class="topnav">
+    <a href="../index.html">Home</a>
+    <a class="active" href="../coursera.html">Coursera</a>
+    <a href="../universidad.html">Universidad</a>
+    <a href="../random.html">Random</a>
+  </div>
+
+  <div class="header_algorithms">
+    <div class="caption">
+      <span class="border">Algorithmic Toolbox</span><br />
+      <span class="border">Materiales de Estudio</span>
+    </div>
+  </div>
+
+  <div class="content">
+    <div class="leftcolumn">
+      <div class="card">
+        <h2>Sorting Problem</h2>
+        <h5>Title description, Dec 7, 2017</h5>
+        
+      <p>Some text..</p>
+      </div>
+
+      <div class="card">
+        <h2>Week 4 - Master Theorem</h2>
+        <img class="imgpost" src="../css/images/coursera/algo-toolbox/w4master1.PNG" />
+      <p>
+        Here's what I do. When I have a recurrence of this rough form, I look at the amount of work
+        done at the first level and at the second level (which is a very easy calculation) and then
+        I just say to myself Is that the same amount of work? If it's the same amount of work it's going
+        to be the same amount of work all the way down and so we're going to be in case two. So it's going
+        to be the amount of work at the first level, which we known is O(n to the d), times log n because
+        there are that many levels. On the other hand, if the first term is larger than the second term I
+        know the first term is going to dwarf all the other terms. And so, we're left with just O(n to the d).
+        And finally, if the first term is less than the second term, I know they're going to keep increasing and
+        it's the bottom term that I need.And that is just going to be the number of leaves which is n to the log base b of a.
+      </p>
+      <img class="imgpost" src="../css/images/coursera/algo-toolbox/w4master2.PNG" />
+      <p>
+      
+     </div>
+
+      <div class="card">
+        <h2>Week 4 - Polynomial Multiplication</h2>
+        <h4>Problem Statement</h4>
+        <img class="imgpost" src="../css/images/coursera/algo-toolbox/w4poliy1.PNG" />
+        <p>
+          Given 2 arrays representing two polynomial functions, we need to return the product between each other in
+          terms of its
+          coefficients
+        </p>
+        <p>For example:</p>
+        <img class="imgpost" src="../css/images/coursera/algo-toolbox/w4poliy2.PNG" />
+        <p>
+          A naive divide and conquer algorithm to solve this problem, is separating each function in two sub functions
+          with lower
+          degree, until we got a simple product between two coefficients.
+        </p>
+        <img class="imgpost" src="../css/images/coursera/algo-toolbox/w4poly3.PNG" />
+        <p>Pseudocode for this algorithm is implemented in a recursive way, as we can see below. </p>
+        <img class="imgpost" src="../css/images/coursera/algo-toolbox/w4poly4.PNG" />
+        <p>But the runtime of this algorithm does not improve the overall runtime of this problem, because we are
+          dividing
+          our problem into smaller subproblems as our algorithms says, but we are not getting fewer things to compute,
+          we are separating
+          each others but remains the same.
+        </p>
+        <img class="imgpost" src="../css/images/coursera/algo-toolbox/w4poly5.PNG" />
+        <p>
+          Then we need another approach to solve this problem, and that way is the Karatsuba Approach:
+        </p>
+        <img class="imgpost" src="../css/images/coursera/algo-toolbox/w4poly6.PNG" />
+        <p>
+          This approach says the following: we are only need to multiplicate 3 things instead of 4 as before approach,
+          we only need
+          to compute a_1*b_1, b_1*b0, and (a0+a_1)(b_0+b_1), a fewer product is a big improvement, because we are not
+          only dividing
+          our problem into smaller subproblems instead we are decreasing the amount of operations in each step.
+        </p>
+        <img class="imgpost" src="../css/images/coursera/algo-toolbox/w4poly7.PNG" />
+        <p>
+          For that reason, when we analyze our runtime, we finally got with a lesser runtime than the naive algorithm.
+        </p>
+        <h4>Interesting Application</h4>
+        <p>This polynomial multiplication is a good way to solve a product between huge integers numbers containing
+          hundreds of
+          thousand of digits.
+        </p>
+        <img class="imgquiz" src="../css/images/coursera/algo-toolbox/w4poly8.PNG" />
+
+      </div>
+
+      <div class="card">
+        <h2>Week 4 - Divide and Conquer</h2>
+        <h4>Introduction</h4>
+        <p>Divide and conquer is another method to solve algorithm, this is based on the assumption: "Divide a problem
+          and conquer the smaller ones"
+          , then combining the differents solutions will give you the definitive solution.</p>
+        <p>But we need to set some rules before starting to use this method.
+        <ul>
+          <li>The divisions of the problem should be the same type</li>
+          <img class="imgpost" src="../css/images/coursera/algo-toolbox/w4intro1.PNG" />
+
+          <li>There is not overlapping between subproblems</li>
+          <img class="imgpost" src="../css/images/coursera/algo-toolbox/w4intro2.PNG" />
+        </ul>
+        </p>
+        <h4>Linear Search</h4>
+        <p>Given an array, we need to find where a key is located, if the key is inside the array we should return
+          the index where the key is found, opposite case we should return "NOT FOUND", in the worst case we can assume
+          our
+          key is on the last item of the array or even the key is not contained inside aour array, then we are iterating
+          all over
+          the array giving us a O(n) runtime.
+        </p>
+        <p>There exists two type of linear search, a recursive one, and a iterative one. Some programmers like me, does
+          not like to work
+          with recursion because we cand find it some difficult to understand and in some cases to implement itself.
+        </p>
+        <img class="imgpost" src="../css/images/coursera/algo-toolbox/w4intro3.PNG" />
+        <hr>
+        <img class="imgpost" src="../css/images/coursera/algo-toolbox/w4intro4.PNG" />
+        <h4>Binary Search</h4>
+        <img class="imgpost" src="../css/images/coursera/algo-toolbox/w4intro5.PNG" />
+        <p>Given a sorted array, we need to find where a key is located, if not, we should return where the key should
+          be placed
+          into the array, also we assume that we could have repeated elements inside the array, that is the reason why
+          the least or equal
+          exists in the input parameters.
+        </p>
+        <img class="imgpost" src="../css/images/coursera/algo-toolbox/w4intro6.PNG" />
+        <p>
+          This algorithm fits in divide and conquer because we are sliding our sorted array into two pieces, and then
+          discriminating
+          in which of the sub arrays our keys should be.
+        </p>
+        <img class="imgpost" src="../css/images/coursera/algo-toolbox/w4intro7.PNG" />
+        <p>So we start slicing our array and then checking if our index is on mid-index
+          if yes, we return mid-index, if not, we compare our key with mid-index value, if it is greater we restart our
+          algorithm on the
+          greater sub-array and so on, until we find our key.</p>
+        <img class="imgpost" src="../css/images/coursera/algo-toolbox/w4intro8.PNG" />
+        <img class="imgpost" src="../css/images/coursera/algo-toolbox/w4intro9.PNG" />
+        <p>We also develop this algorithm in a iterative way, quite similar to our recursive way, the only difference is
+          that
+          we are not consumming stack memory in our computer
+        </p>
+        <img class="imgpost" src="../css/images/coursera/algo-toolbox/w4intro11.PNG" />
+        <p>So, finally we know as our array is getting slided by half in each iteration, our running-time in the worst
+          case is
+          almost O(log(n)) </p>
+        <img class="imgpost" src="../css/images/coursera/algo-toolbox/w4intro10.PNG" />
+
+
+
+
+
+
+      </div>
+
+      <div class="card">
+        <h2>Week 3 - Programming Assigment </h2>
+        <h4>Money Change</h4>
+        <div class="highlight" style="background: #f8f8f8">
+          <pre style="line-height: 125%;"><span></span><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">get_change</span>(m):
+          <span style="color: #008000; font-weight: bold">if</span> m<span style="color: #666666">==1</span> <span style="color: #AA22FF; font-weight: bold">or</span> m<span style="color: #666666">==5</span> <span style="color: #AA22FF; font-weight: bold">or</span> m<span style="color: #666666">==10</span>:
+              <span style="color: #008000; font-weight: bold">return</span> m
+          coins <span style="color: #666666">=</span> <span style="color: #666666">0</span>
+          <span style="color: #008000; font-weight: bold">while</span> m<span style="color: #666666">&gt;=1</span>:
+              <span style="color: #008000; font-weight: bold">if</span> m<span style="color: #666666">//10</span> <span style="color: #666666">&gt;=</span> <span style="color: #666666">1</span>:
+                  coins<span style="color: #666666">+=</span>m<span style="color: #666666">//10</span>
+                  m <span style="color: #666666">=</span> m<span style="color: #666666">%10</span>
+              <span style="color: #008000; font-weight: bold">elif</span> m<span style="color: #666666">//5</span> <span style="color: #666666">&gt;=</span> <span style="color: #666666">1</span>:
+                  coins<span style="color: #666666">+=</span>m<span style="color: #666666">//5</span>
+                  m <span style="color: #666666">=</span> m<span style="color: #666666">%5</span>
+              <span style="color: #008000; font-weight: bold">else</span>:
+                  coins <span style="color: #666666">+=</span> m
+                  m <span style="color: #666666">=</span> <span style="color: #666666">0</span>
+          <span style="color: #008000; font-weight: bold">return</span> coins
+      
+      <span style="color: #008000; font-weight: bold">if</span> <span style="color: #19177C">__name__</span> <span style="color: #666666">==</span> <span style="color: #BA2121">'__main__'</span>:
+          m <span style="color: #666666">=</span> <span style="color: #008000">int</span>(<span style="color: #008000">input</span>())
+          <span style="color: #008000">print</span>(get_change(m))
+      </pre>
+        </div>
+        <h4>Maximum value of the loot</h4>
+        <div class="highlight" style="background: #f8f8f8">
+          <pre style="line-height: 125%;"><span></span><span style="color: #408080; font-style: italic"># Uses python3</span>
+        <span style="color: #008000; font-weight: bold">from</span> <span style="color: #0000FF; font-weight: bold">collections</span> <span style="color: #008000; font-weight: bold">import</span> OrderedDict
+        
+        <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">get_optimal_value</span>(capacity, weights, values):
+            value <span style="color: #666666">=</span> <span style="color: #666666">0.</span>
+            values_per_unit <span style="color: #666666">=</span> [ values[i]<span style="color: #666666">/</span>weights[i] <span style="color: #008000; font-weight: bold">for</span> i <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(<span style="color: #008000">len</span>(values)) ]
+        
+            dict_1 <span style="color: #666666">=</span> {values_per_unit[i]:weights[i] <span style="color: #008000; font-weight: bold">for</span> i <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(<span style="color: #008000">len</span>(values_per_unit))}
+            dict_2 <span style="color: #666666">=</span> OrderedDict(<span style="color: #008000">sorted</span>(dict_1<span style="color: #666666">.</span>items(), reverse<span style="color: #666666">=</span><span style="color: #008000; font-weight: bold">True</span>))
+            <span style="color: #008000; font-weight: bold">for</span> value_per_unit <span style="color: #AA22FF; font-weight: bold">in</span> dict_2<span style="color: #666666">.</span>keys():
+                <span style="color: #008000; font-weight: bold">if</span> capacity <span style="color: #666666">==0</span>:
+                    <span style="color: #008000; font-weight: bold">return</span> value
+                a <span style="color: #666666">=</span> <span style="color: #008000">min</span>(dict_2<span style="color: #666666">.</span>get(value_per_unit),capacity)
+                value <span style="color: #666666">+=</span> (a<span style="color: #666666">*</span>value_per_unit)
+                dict_2[value_per_unit] <span style="color: #666666">=</span> dict_2<span style="color: #666666">.</span>get(value_per_unit) <span style="color: #666666">-</span> a
+                capacity <span style="color: #666666">-=</span> a
+            <span style="color: #008000; font-weight: bold">return</span> value
+        
+        
+        
+        <span style="color: #008000; font-weight: bold">if</span> <span style="color: #19177C">__name__</span> <span style="color: #666666">==</span> <span style="color: #BA2121">"__main__"</span>:
+            values <span style="color: #666666">=</span> []
+            weights <span style="color: #666666">=</span> []
+            n, capacity <span style="color: #666666">=</span> [<span style="color: #008000">int</span>(x) <span style="color: #008000; font-weight: bold">for</span> x <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">input</span>()<span style="color: #666666">.</span>split()]
+            <span style="color: #008000; font-weight: bold">for</span> _ <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(n):
+                value,weight <span style="color: #666666">=</span> [<span style="color: #008000">int</span>(x) <span style="color: #008000; font-weight: bold">for</span> x <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">input</span>()<span style="color: #666666">.</span>split()]
+                values<span style="color: #666666">.</span>append(value)
+                weights<span style="color: #666666">.</span>append(weight)
+            opt_value <span style="color: #666666">=</span> get_optimal_value(capacity, weights, values)
+            <span style="color: #008000">print</span>(<span style="color: #BA2121">"</span><span style="color: #BB6688; font-weight: bold">{:.3f}</span><span style="color: #BA2121">"</span><span style="color: #666666">.</span>format(opt_value))
+        </pre>
+        </div>
+        <h4>Car Fueling </h4>
+        <div class="highlight" style="background: #f8f8f8">
+          <pre style="line-height: 125%;"><span></span><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">compute_min_refills</span>(distance, tank, stops):
+          distance_traveled <span style="color: #666666">=</span> <span style="color: #666666">0</span>
+          stops_count <span style="color: #666666">=</span> <span style="color: #666666">0</span>
+          i <span style="color: #666666">=</span> <span style="color: #666666">0</span>
+          gas_available <span style="color: #666666">=</span> tank
+          
+      
+          <span style="color: #008000; font-weight: bold">while</span> i <span style="color: #666666">&lt;</span> <span style="color: #008000">len</span>(stops)<span style="color: #666666">-1</span>:
+              
+              <span style="color: #008000; font-weight: bold">if</span> distance_traveled <span style="color: #666666">+</span> gas_available <span style="color: #666666">&gt;=</span> distance:
+                  <span style="color: #008000; font-weight: bold">return</span> stops_count
+              
+              <span style="color: #008000; font-weight: bold">if</span>   (i <span style="color: #666666">&lt;</span> <span style="color: #008000">len</span>(stops)<span style="color: #666666">-1</span> <span style="color: #AA22FF; font-weight: bold">and</span> stops[i<span style="color: #666666">+1</span>] <span style="color: #666666">&gt;</span> distance_traveled<span style="color: #666666">+</span>tank):
+                  <span style="color: #008000; font-weight: bold">return</span> <span style="color: #666666">-1</span>
+              
+      
+              <span style="color: #008000; font-weight: bold">if</span> gas_available <span style="color: #666666">+</span> distance_traveled <span style="color: #666666">&gt;=</span> stops[i<span style="color: #666666">+1</span>] :
+                  gas_available <span style="color: #666666">=</span> gas_available <span style="color: #666666">-</span> (stops[i<span style="color: #666666">+1</span>] <span style="color: #666666">-</span> stops[i])
+                  i <span style="color: #666666">+=</span> <span style="color: #666666">1</span>
+                  distance_traveled <span style="color: #666666">=</span> stops[i]
+                      
+              <span style="color: #008000; font-weight: bold">else</span>:
+                  stops_count <span style="color: #666666">+=1</span>
+                  gas_available<span style="color: #666666">=</span>tank
+          <span style="color: #008000; font-weight: bold">return</span> <span style="color: #666666">-1</span>
+                      
+                  
+       
+      <span style="color: #008000; font-weight: bold">if</span> <span style="color: #19177C">__name__</span> <span style="color: #666666">==</span> <span style="color: #BA2121">'__main__'</span>:
+          total_distance <span style="color: #666666">=</span> <span style="color: #008000">int</span>(<span style="color: #008000">input</span>())
+          distance_full_tank <span style="color: #666666">=</span> <span style="color: #008000">int</span>(<span style="color: #008000">input</span>())
+          number_stops <span style="color: #666666">=</span> <span style="color: #008000">int</span>(<span style="color: #008000">input</span>())
+          stops <span style="color: #666666">=</span> [<span style="color: #666666">0</span>] <span style="color: #666666">+</span> [<span style="color: #008000">int</span>(x) <span style="color: #008000; font-weight: bold">for</span> x <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">input</span>()<span style="color: #666666">.</span>split()] <span style="color: #666666">+</span> [total_distance]
+          
+          <span style="color: #008000">print</span>(compute_min_refills(total_distance, distance_full_tank, stops))
+      </pre>
+        </div>
+
+        <h4>Maximum Advertisement Revenue (Maximum Dot Product) </h4>
+        <div class="highlight" style="background: #f8f8f8">
+          <pre style="line-height: 125%;"><span></span><span style="color: #408080; font-style: italic">#Uses python3</span>
+
+          <span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">sys</span>
+          
+          <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">max_dot_product</span>(a, b):
+              res <span style="color: #666666">=</span> <span style="color: #666666">0</span>
+              a<span style="color: #666666">.</span>sort(reverse<span style="color: #666666">=</span><span style="color: #008000; font-weight: bold">True</span>)
+              b<span style="color: #666666">.</span>sort(reverse<span style="color: #666666">=</span><span style="color: #008000; font-weight: bold">True</span>)
+              <span style="color: #008000; font-weight: bold">for</span> i <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(<span style="color: #008000">len</span>(a)):
+                  res <span style="color: #666666">+=</span> a[i]<span style="color: #666666">*</span>b[i]
+              <span style="color: #008000; font-weight: bold">return</span> res
+          
+          <span style="color: #008000; font-weight: bold">if</span> <span style="color: #19177C">__name__</span> <span style="color: #666666">==</span> <span style="color: #BA2121">'__main__'</span>:
+              n <span style="color: #666666">=</span> <span style="color: #008000">int</span>(<span style="color: #008000">input</span>())
+              a <span style="color: #666666">=</span> [<span style="color: #008000">int</span>(x) <span style="color: #008000; font-weight: bold">for</span> x <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">input</span>()<span style="color: #666666">.</span>split()]
+              b <span style="color: #666666">=</span> [<span style="color: #008000">int</span>(x) <span style="color: #008000; font-weight: bold">for</span> x <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">input</span>()<span style="color: #666666">.</span>split()]
+              <span style="color: #008000">print</span>(max_dot_product(a, b))
+              
+          </pre>
+        </div>
+
+        <h4>Collecting Signatures (Covering Segments by Points) </h4>
+        <div class="highlight" style="background: #f8f8f8">
+          <pre style="line-height: 125%;"><span></span><span style="color: #408080; font-style: italic"># Uses python3</span>
+          <span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">sys</span>
+          <span style="color: #008000; font-weight: bold">from</span> <span style="color: #0000FF; font-weight: bold">collections</span> <span style="color: #008000; font-weight: bold">import</span> namedtuple
+          
+          Segment <span style="color: #666666">=</span> namedtuple(<span style="color: #BA2121">'Segment'</span>, <span style="color: #BA2121">'start end'</span>)
+          
+          <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">optimal_points</span>(segments):
+              points <span style="color: #666666">=</span> []
+              
+              <span style="color: #008000; font-weight: bold">while</span> segments:
+                  start,end <span style="color: #666666">=</span> segments<span style="color: #666666">.</span>pop(<span style="color: #666666">0</span>)
+                  right_points <span style="color: #666666">=</span> []
+                  inner_points <span style="color: #666666">=</span> []
+                  right_points<span style="color: #666666">.</span>append(end)
+                  inner_points<span style="color: #666666">.</span>append(start)
+                  <span style="color: #008000; font-weight: bold">while</span> segments <span style="color: #AA22FF; font-weight: bold">and</span> start <span style="color: #666666">==</span> segments[<span style="color: #666666">0</span>][<span style="color: #666666">0</span>]:
+                      start,end <span style="color: #666666">=</span> segments<span style="color: #666666">.</span>pop(<span style="color: #666666">0</span>)
+                      right_points<span style="color: #666666">.</span>append(end)
+                  min_inner <span style="color: #666666">=</span> <span style="color: #008000">min</span>(right_points)
+                  <span style="color: #008000; font-weight: bold">while</span> segments <span style="color: #AA22FF; font-weight: bold">and</span> min_inner <span style="color: #666666">&gt;=</span> segments[<span style="color: #666666">0</span>][<span style="color: #666666">0</span>]:
+                      a,b <span style="color: #666666">=</span> segments<span style="color: #666666">.</span>pop(<span style="color: #666666">0</span>)
+                      right_points<span style="color: #666666">.</span>append(b)
+                      min_inner <span style="color: #666666">=</span> <span style="color: #008000">min</span>(right_points)
+                  points<span style="color: #666666">.</span>append(min_inner)
+              <span style="color: #008000; font-weight: bold">return</span> points
+          
+           
+          
+          <span style="color: #008000; font-weight: bold">if</span> <span style="color: #19177C">__name__</span> <span style="color: #666666">==</span> <span style="color: #BA2121">'__main__'</span>:
+              n <span style="color: #666666">=</span> <span style="color: #008000">int</span>(<span style="color: #008000">input</span>())
+              segments <span style="color: #666666">=</span> []
+              <span style="color: #008000; font-weight: bold">for</span> _ <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(n):
+                  tupla <span style="color: #666666">=</span> <span style="color: #008000">tuple</span>(<span style="color: #008000">int</span>(x) <span style="color: #008000; font-weight: bold">for</span> x <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">input</span>()<span style="color: #666666">.</span>split())
+                  segments<span style="color: #666666">.</span>append(tupla)
+              segments<span style="color: #666666">.</span>sort()
+              res <span style="color: #666666">=</span> optimal_points(segments)
+              <span style="color: #008000">print</span>(<span style="color: #008000">len</span>(res))
+              <span style="color: #008000; font-weight: bold">for</span> point <span style="color: #AA22FF; font-weight: bold">in</span> res:
+                  <span style="color: #008000">print</span>(point,end<span style="color: #666666">=</span><span style="color: #BA2121">" "</span>)
+              
+          </pre>
+        </div>
+
+
+        <h4>Maximum Number of Prizes (Different Summands) </h4>
+        <div class="highlight" style="background: #f8f8f8">
+          <pre style="line-height: 125%;"><span></span><span style="color: #408080; font-style: italic"># Uses python3</span>
+          <span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">sys</span>
+          
+          <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">optimal_summands</span>(n):
+              summands <span style="color: #666666">=</span> []
+              prize <span style="color: #666666">=</span> <span style="color: #666666">0</span>
+              <span style="color: #008000; font-weight: bold">if</span> n <span style="color: #666666">&lt;=</span> <span style="color: #666666">2</span>:
+                  <span style="color: #008000; font-weight: bold">return</span> [n]
+              <span style="color: #008000; font-weight: bold">while</span> n<span style="color: #666666">&gt;0</span>:
+                  prize <span style="color: #666666">+=</span> <span style="color: #666666">1</span>
+                  temp_total <span style="color: #666666">=</span> n <span style="color: #666666">-</span> prize
+                  <span style="color: #008000; font-weight: bold">if</span> temp_total <span style="color: #666666">&gt;</span> prize:
+                      summands<span style="color: #666666">.</span>append(prize)
+                      n <span style="color: #666666">-=</span> prize
+                  <span style="color: #008000; font-weight: bold">else</span>:
+                      summands<span style="color: #666666">.</span>append(n)
+                      n <span style="color: #666666">=</span> <span style="color: #666666">0</span>
+          
+              <span style="color: #008000; font-weight: bold">return</span> summands
+          
+          <span style="color: #008000; font-weight: bold">if</span> <span style="color: #19177C">__name__</span> <span style="color: #666666">==</span> <span style="color: #BA2121">'__main__'</span>:
+              candies <span style="color: #666666">=</span> <span style="color: #008000">int</span>(<span style="color: #008000">input</span>())
+              summands <span style="color: #666666">=</span> optimal_summands(candies)
+              <span style="color: #008000">print</span>(<span style="color: #008000">len</span>(summands))
+              <span style="color: #008000; font-weight: bold">for</span> x <span style="color: #AA22FF; font-weight: bold">in</span> summands:
+                  <span style="color: #008000">print</span>(x, end<span style="color: #666666">=</span><span style="color: #BA2121">' '</span>)
+          </pre>
+        </div>
+
+        <h4>Maximum Salary (Largest Number)</h4>
+        <div class="highlight" style="background: #f8f8f8">
+          <pre style="line-height: 125%;"><span></span><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">IsGreaterOrEqual</span>(digit, max_digit):
+          <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">int</span>(<span style="color: #008000">str</span>(digit)<span style="color: #666666">+</span><span style="color: #008000">str</span>(max_digit))<span style="color: #666666">&gt;=</span><span style="color: #008000">int</span>(<span style="color: #008000">str</span>(max_digit)<span style="color: #666666">+</span><span style="color: #008000">str</span>(digit))
+      
+      <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">largestnumber</span>(lst):
+          answer <span style="color: #666666">=</span> []
+          
+          <span style="color: #008000; font-weight: bold">while</span> lst<span style="color: #666666">!=</span>[]:
+              max_digit <span style="color: #666666">=</span> <span style="color: #666666">0</span>
+              <span style="color: #008000; font-weight: bold">for</span> digit <span style="color: #AA22FF; font-weight: bold">in</span> lst:
+                  <span style="color: #008000; font-weight: bold">if</span> IsGreaterOrEqual(digit, max_digit):
+                      max_digit <span style="color: #666666">=</span> digit
+              answer<span style="color: #666666">.</span>append(max_digit)
+              lst<span style="color: #666666">.</span>remove(max_digit)
+      
+          <span style="color: #008000; font-weight: bold">return</span> answer
+      
+      
+                        
+      
+      <span style="color: #008000; font-weight: bold">if</span> <span style="color: #19177C">__name__</span> <span style="color: #666666">==</span> <span style="color: #BA2121">'__main__'</span>:
+          n <span style="color: #666666">=</span> <span style="color: #008000">int</span>(<span style="color: #008000">input</span>())
+          numbers <span style="color: #666666">=</span> [<span style="color: #008000">int</span>(number) <span style="color: #008000; font-weight: bold">for</span> number <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">input</span>()<span style="color: #666666">.</span>split()]    
+          <span style="color: #008000">print</span>(<span style="color: #BA2121">""</span><span style="color: #666666">.</span>join([<span style="color: #008000">str</span>(number) <span style="color: #008000; font-weight: bold">for</span> number <span style="color: #AA22FF; font-weight: bold">in</span> largestnumber(numbers)]))
+          
+      </pre>
+        </div>
+
+      </div>
+
+      <div class="card">
+        <h2>Week 3 - Quizes</h2>
+        <h4>Greedy Algorithm</h4>
+        <img class="imgquiz" src="../css/images/quizgreedyq1.PNG" />
+        <hr>
+        <img class="imgquiz" src="../css/images/quizgreedyq2.PNG" />
+        <hr>
+        <img class="imgquiz" src="../css/images/quizgreedyq3.PNG" />
+        <h4>Fractional Knapsack</h4>
+        <img class="imgquiz" src="../css/images/quizfractionalq1.PNG" />
+        <hr>
+        <img class="imgquiz" src="../css/images/quizfractionalq2.PNG" />
+        <hr>
+        <img class="imgquiz" src="../css/images/quizfractionalq3.PNG" />
+        <h4>Ball in Boxes</h4>
+        <img class="imgquiz" src="../css/images/quizboxq1.PNG" />
+        <hr>
+        <img class="imgquiz" src="../css/images/quizboxq2.PNG" />
+        <hr>
+        <img class="imgquiz" src="../css/images/quizboxq3.PNG" />
+        <h4>Activity Selection</h4>
+        <img class="imgquiz" src="../css/images/quizsegmentq1.PNG" />
+        <hr>
+        <img class="imgquiz" src="../css/images/quizsegmentq2.PNG" />
+        <hr>
+        <img class="imgquiz" src="../css/images/quizsegmentq3.PNG" />
+        <h4>Touch all segments</h4>
+        <img class="imgquiz" src="../css/images/quiztouchq1.PNG" />
+        <hr>
+        <img class="imgquiz" src="../css/images/quiztouchq2.PNG" />
+        <hr>
+        <img class="imgquiz" src="../css/images/quiztouchq3.PNG" />
+      </div>
+
+      <div class="card">
+        <h2>Week 3 - Long Hike Problem</h2>
+
+        <h4>Problem Statement</h4>
+        <p>
+          You are going to start a long Hike and you need to prepare yourself with a lot of food because you do not know
+          how many days you are going to be on the hike. So, yo need to prepare yourself a snackpack with the most
+          valuable
+          snack to eat during the hike in order to avoid any hungry disaster.
+        </p>
+        <img class="imgpost" src="../css/images/hikestatement..PNG" />
+
+        <h4>Naive Algorithm</h4>
+
+        <p>
+          Let´s organize the problem into the next way:
+        <ul>
+          <li><span>Input</span> Weights w_1,....,w_n and values
+            v_1,...,v_n of n items; capacity W. </li>
+          <li><span>Output</span> The maximum total value of fraction
+            of items that fit into a bag of capacity W.</li>
+        </ul>
+        </p>
+        <img class="imgpost" src="../css/images/examplehike.PNG" />
+        <p>
+          There exist an optimal solution that uses as much
+          as possible of an item with the maximal value per unit
+          of weight.
+        </p>
+
+        <h4>Efficient Algorithm</h4>
+        <p>
+          To start with our problem we are going to follow the next step-by-step
+        </p>
+        <ol>
+          <li>While snackpack is not full</li>
+          <li>Choose item i with maximum value per unit </li>
+          <li>If items fit into snackpack, take all of it </li>
+          <li>Otherwise take so much as to fill the snackpack</li>
+          <li>Return total value and amounts </li>
+        </ol>
+        <p>We can optimize the runtime of the algorithm by first, sorting the elements in a decrease order by their
+          value per unit v/w.
+        </p>
+        <img class="imgpost" src="../css/images/effalgorithmhike.PNG" />
+        <p>Now each iteration is O(1) while Sort+Snackpack is O(n*log(n)) </p>
+
+
+
+
+      </div>
+
+
+      <div class="card">
+        <h2>Week 3 - Celebration Party Problem</h2>
+
+        <h4>Problem Statement</h4>
+        <p>
+          Many children came to a celebration. Organize them into the minimum
+          possible number of groups such that the age of any two children in
+          the same group differ by at most one year.
+        </p>
+        <h4>Naive Algorithm</h4>
+        <img class="imgpost" src="../css/images/partyproblemalgorithm.PNG" />
+        <p>
+          The number of operations in MinGroups(C) is at least 2**n, where n
+          is the number of children in C.
+        </p>
+        <img class="imgpost" src="../css/images/proofruntimeparty.PNG" />
+
+        <h4>Efficient Algorithm</h4>
+        <p>
+          We start setting our problem in a mathematical way, looking our
+          children´s age like points in a line. Then we can make a safe
+          move to cover all points within a segment of unit lenght starting from the leftmost point.
+        </p>
+        <img class="imgpost" src="../css/images/safemovepartyproblem.PNG" />
+
+        <p>
+          Then we assume our points are covered so we do not need to worry about sorting it.
+          Then we start from the leftmost point and sum it 1, and all the points within this range are going to be
+          grouped
+          in 1 set. Then we add it like subset in a bigger set called R, and start again the proccess with less points
+          until
+          we got cover all the points.
+        </p>
+        <img class="imgpost" src="../css/images/effpartyproblemalgo.PNG" />
+        <p>
+          Our problem now run in a O(n) time that is because we are going through our points from 1 to n, one by one,
+          then in the
+          worst case we are creating 1 group for each point concluding in n groups at the end.
+        </p>
+        <img class="imgpost" src="../css/images/conclusionpartyproblem.PNG" />
+
+      </div>
+
+      <div class="card">
+        <h2>Week 1 Maximum Pairwise Product</h2>
+        <h5>
+          Find the maximum product of two distinct numbers in a sequence of
+          non-negative integers
+        </h5>
+
+        <div class="highlight" style="background: #f8f8f8">
+          <pre style="line-height: 125%"><span></span><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">max_pairwise_product</span>(numbers):
+                  <span style="color: #008000">max</span> <span style="color: #666666">=</span> <span style="color: #666666">0</span>
+                  second_max <span style="color: #666666">=</span> <span style="color: #666666">0</span>
+                  <span style="color: #008000; font-weight: bold">for</span> value <span style="color: #AA22FF; font-weight: bold">in</span> numbers:
+                      <span style="color: #008000; font-weight: bold">if</span> value <span style="color: #666666">&gt;</span> <span style="color: #008000">max</span>:
+                       <span style="color: #008000">max</span>,second_max <span style="color: #666666">=</span> value,<span style="color: #008000">max</span>
+                      <span style="color: #008000; font-weight: bold">elif</span> value <span style="color: #666666">&lt;=</span> <span style="color: #008000">max</span> <span style="color: #AA22FF; font-weight: bold">and</span> value<span style="color: #666666">&gt;</span>second_max:
+                          second_max <span style="color: #666666">=</span> value
+                  <span style="color: #008000; font-weight: bold">return</span> <span style="color: #008000">max</span><span style="color: #666666">*</span>second_max
+              
+              
+              <span style="color: #008000; font-weight: bold">if</span> <span style="color: #19177C">__name__</span> <span style="color: #666666">==</span> <span style="color: #BA2121">'__main__'</span>:
+                  input_n <span style="color: #666666">=</span> <span style="color: #008000">int</span>(<span style="color: #008000">input</span>())
+                  input_numbers <span style="color: #666666">=</span> [<span style="color: #008000">int</span>(x) <span style="color: #008000; font-weight: bold">for</span> x <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">input</span>()<span style="color: #666666">.</span>split()]
+                  <span style="color: #008000">print</span>(max_pairwise_product(input_numbers))
+              </pre>
+        </div>
+      </div>
+      <div class="card">
+        <h2>Week 1 - Solving a Programming Challenge in Five Easy Steps</h2>
+
+        <h4>Reading Problem Statement</h4>
+        <p>
+          Start by reading the problem statement trying to understand their
+          implies, sample tests, time and memory limit.
+        </p>
+        <p>
+          Try to understand how an ouput matches an input in each sample case.
+        </p>
+        <h4>Designing an Algorithm</h4>
+        <img class="imgpost" src="../css/images/approxruntimes.PNG" />
+        <p>
+          After designing a algorithm prove that is correct and try to
+          estimate its spected running time on the most complex inputs
+          specified in the constraints sections.
+        </p>
+        <h4>Implementing an Algorithm</h4>
+        <p>
+          Start implementing your algorithm in one of the following
+          programming languages: C, C++, Python, etc.
+        </p>
+        <h4>Testing and Debugging</h4>
+        <p>
+          Start with small datasets and make sure that your program produces
+          correct results on all sample datasets.Test it with large datasets
+          generated randomly trying to prove your running-time estimation
+        </p>
+        <p>
+          Check the boundaries values to ensure your program processes
+          correctly both short and long secuences. Check degenerate cases like
+          an empty set, three points on a line, a tree with a single path
+        </p>
+        <p>
+          Think about other possible tests which could be peculiar in some
+          sense. For example, if you are generating graphs, try generating
+          trees, disconnected graphs, complete graphs, bipartite graphs, etc.
+          If you generate trees, try generating paths, binary trees, stars,
+          etc. If you are generating integers, try generating both prime and
+          composite numbers.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/highlight.min.js"></script>
+</body>
+
+</html>
