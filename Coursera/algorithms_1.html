@@ -27,11 +27,161 @@
 
   <div class="content">
     <div class="leftcolumn">
+
+      <div class="card">
+        <h2>Quick Sort</h2>
+      <h4>OverView </h4>
+      <img class="imgpost" src="../css/images/coursera/algo-toolbox/w4quick1.PNG" />
+      <p>
+        Quick Sort is another kind of sorting algorithm but this is a special one, because we are not bounding our running-time
+        in the worst-case but on the average-case.
+      </p>
+      <img class="imgpost" src="../css/images/coursera/algo-toolbox/w4quick2.PNG" />
+      <p>
+        The main idea of this algorithm is to split our array taking into account a pivot, this pivot is selected firstly in
+        a naive way giving us in the worst case a running-time of O(n^2). But if we handle an array which all the elements are differents
+        we achieve an average running-time of O(nlog(n)). 
+      </p>
+      <img class="imgpost" src="../css/images/coursera/algo-toolbox/w4quick3.PNG" />
+      <p>
+        The core of this algorithm is on the split of two sub-arrays, we can select our pivot as the first element in our array,
+        then we need to move 2 indexes which each one tell us the ending of each partition, at the end of the scan we swap our pivot
+        with the last item indexed at position j that mean that all elements before that position are that element o less.
+      </p>
+      <img class="imgpost" src="../css/images/coursera/algo-toolbox/w4quick4.PNG" />
+      <p>
+        An easy implementation of this algorithm is show below:
+      </p>
+      <img class="imgpost" src="../css/images/coursera/algo-toolbox/w4quick5.PNG" />
+      <p>
+        The ideal array used in this algorithm is one with all diferents elements and balance partitions in each iteration,
+        but this is not always possible in certain situations, so, we have said that in the worst-case this running-time algorithm
+        is O(n^2) and getting unbalaced partitions we obtain this runtime.
+      </p>
+      <img class="imgpost" src="../css/images/coursera/algo-toolbox/w4quick6.PNG" />
+      <p>
+        Insted of balance partition where each subdivision of the array is nearly to the half, when this occurs we can say 
+        our running-time is nearly to O(nlog(n)) because the recurrence of the problem is nearly the half on each iteration.
+      </p>
+      <img class="imgpost" src="../css/images/coursera/algo-toolbox/w4quick7.PNG" />
+      <p>
+        So one way to solve unbalance partitions is getting random pivots, we select a random pivot, then swapping them anf finally
+        making the partition again.
+      </p>
+      <img class="imgpost" src="../css/images/coursera/algo-toolbox/w4quick8.PNG" />
+      <p>
+        Another incovenient handling with unbalanced partitions are equal elements if we have a great quantity of equal elements
+        our running-time could be harm getting a bad O(n^2). To avoid this destiny we are not only spliting our array into 2 sub-arrays 
+        but in 3 sub-array where the middle one are all the elements equal to our pivot and the contigous sub-arrays are greate or less 
+        strictily in each case.
+      </p>
+      <img class="imgpost" src="../css/images/coursera/algo-toolbox/w4quick9.PNG" />
+      <p>
+        We can see a representation below:
+      </p>
+      <img class="imgpost" src="../css/images/coursera/algo-toolbox/w4quick10.PNG" />
+      <p>
+        Finally our algorithm is the next one:
+      </p>
+      <img class="imgpost" src="../css/images/coursera/algo-toolbox/w4quick11.PNG" />
+      <p>
+        But we dont finish here, we can improve our algorithm even more, we can improve our space-requirement and this is 
+        achieved by eliminating the half of the recursion needed, we call this a tail recursion elimination.
+      </p>
+      <img class="imgpost" src="../css/images/coursera/algo-toolbox/w4quick12.PNG" />
+      <p>
+        But unfortunatly our algorithm is not always the best in all situations, we need that our algorithm always give us
+        the best performance no matter the input we give it, so we create a kind of branch of this algorithm and it is called Intro Sort.
+      </p>
+      <img class="imgpost" src="../css/images/coursera/algo-toolbox/w4quick13.PNG" />
+      <p>
+        Basically, we are selecting our sort algorithm based on our requirements if our array is nearly to a random distribution,
+        a sorting algorithm like quick sort is the best one, if we are handling wich outliers arrays we can use another type of
+         algorithm like heap-sort which is anoter O(nlogn) sorting algorithm.
+      </p>
+      <img class="imgpost" src="../css/images/coursera/algo-toolbox/w4quick14.PNG" />
+
+
+      </div>
+
+
       <div class="card">
         <h2>Sorting Problem</h2>
-        <h5>Title description, Dec 7, 2017</h5>
+        <h4>Problem Statement</h4>
+        <img class="imgpost" src="../css/images/coursera/algo-toolbox/w4sort1.PNG" />
+        <p>
+          Given an unsorted array, we need to return a permutation of the array where each of the elements inside arrays
+          are ordered. Sorting data is an important step of many efficient algoritims.
+          Sorted data allows for more efficient queries.
+        </p>
+        <h4>Selection Sort</h4>
+        <img class="imgpost" src="../css/images/coursera/algo-toolbox/w4sort2.PNG" />
+        <p>
+          The first naive algorithm is called Selection-Sort
+          , with this algorithm we are scanning all the array
+          searching the minimum value and after that we swap it 
+          with the first element in the array, then we forgot that element
+          and do the same with the remaining part.
+        </p>
+        <img class="imgpost" src="../css/images/coursera/algo-toolbox/w4sort3.PNG" />
+        <p>
+          This algorithm being naive is slow in its running-time,
+          because we need to compare each element with the rest of the elements
+          giving us a running-time of O(n^2). Addionaly, the are other quadratic
+          time sorting algorithms like insertion sort, bubble sort.
+        </p>
+        <h4>Merge Sort</h4>
+        <p>
+          Merge sort is a compare-based algorithm but implemented in a efficient way
+          with this algorithm we directly apply a divide and conquer algorithm.
+          We started splitting our array into two subarrays with the same size and until we got 
+          two arrays of size 1 then we compare to a contigous array size and swap it if necessary.
+        </p>
+        <img class="imgpost" src="../css/images/coursera/algo-toolbox/w4sort4.PNG" />
+        <img class="imgpost" src="../css/images/coursera/algo-toolbox/w4sort5.PNG" />
+
+        <p>
+          Merging two sorted array in a merge sort is the core of the algorithm, because we create a new array with size p+q 
+          where p and q are the sizes of the arrays sorted, then we start comparing the first element of each array and move it
+          to the new array until we got sorted both of two arrays in a new bigger one.
+        </p>
+        <img class="imgpost" src="../css/images/coursera/algo-toolbox/w4sort6.PNG" />
+        <p>
+          Since we are talking about a divide-and-conquer algorithm we can represent the work of the algorithm in a tree representation
+          where we can look al the work done by each step.
+        </p>
+        <img class="imgpost" src="../css/images/coursera/algo-toolbox/w4sort7.PNG" />
+        <p>
+          The runtime of Merge Sort is O(n log(n)) as we can see at 
+          the bottom of the tree. If we separated the work done, the work done
+          by merging two arrays is O(n) and hence the running time of MergeSort satisfies
+          a recurrence T(n)<= 2T(n/2) + O(n) 
+        </p>
+        <h4>Lower Bound for Comparison Based Sorting</h4>
+        <img class="imgpost" src="../css/images/coursera/algo-toolbox/w4sort8.PNG" />
+        <p>
+          A comparison based sorting algorithm sorts objects by comparing pairs of them. This is true because we need at least to compare
+          an element in a direct or indirect way.
+        </p>
+        <h4>Counting Sort</h4>
+        <p>
+          Counting Sort is a special type of algorithm where we do not need to compare each elements with someone in the array,
+          instead we get some knowledger a priori, for example, our array is feeded by small integers in a certain range.
+          Therefore the only thing we need to do is a linear scan on the array counting the ocurrences of each integer.
+        </p>
+        <img class="imgpost" src="../css/images/coursera/algo-toolbox/w4sort9.PNG" />
+        <p>
+          After counting all the elements inside the array we can create a new array filling each space with ocurrences got by the 
+          linear scan.
+        </p>
+        <img class="imgpost" src="../css/images/coursera/algo-toolbox/w4sort10.PNG" />
+        <h4>Summary</h4>
+        <img class="imgpost" src="../css/images/coursera/algo-toolbox/w4sort11.PNG" />
+
         
-      <p>Some text..</p>
+
+
+
       </div>
 
       <div class="card">
@@ -49,7 +199,7 @@
         it's the bottom term that I need.And that is just going to be the number of leaves which is n to the log base b of a.
       </p>
       <img class="imgpost" src="../css/images/coursera/algo-toolbox/w4master2.PNG" />
-      <p>
+
       
      </div>
 
