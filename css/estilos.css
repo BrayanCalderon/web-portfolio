@@ -111,6 +111,16 @@ p{
   background-repeat: no-repeat;
   background-size: cover;
 }
+.header_ds_ibm {
+  padding: 200px;
+  background-image: url("../css/images/coursera/intro-ds-ibm/ds-wallpaper.jpg");
+  text-align: center;
+  position: relative;
+  opacity: 0.65;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 .header_pai {
   padding: 200px;
   background-image: url("../css/images/paiwallp.jpg");
