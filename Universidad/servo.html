@@ -27,10 +27,89 @@
 
       <div class="leftcolumn">
             <div class="card">
-                  <h2>Cosenos Directores</h2>
-                <h5>Title description, Dec 7, 2017</h5>
-                <div class="fakeimg" style="height: 200px">Image</div>
-                <p>Some text..</p>
+                <h2>Introducción 5/10 </h2>
+                <h4>Que conforma un sistema de control de lazo cerrado?</h4>
+                <p>
+                    Lo primero es tener un algo a controlar, en términos generales se conoce como planta, a esta planta, tendremos 
+                    una variable a controlar, la cual puede estar sujeta a perturbaciones. La retroalimentación por tanto nos permite 
+                    conocer la variable que queremos controlar y ajustar los controladores necesarios para dirigir esta variable al punto deseado. <br>
+                    El movimiento deseado de una variable se conoce como perfil de movimiento. La referencia o el perfil de movimiento, usualmente no será
+                    tipo paso o rampa, en ciclos repetitivos este perfil será cambiante en el tiempo, por tanto deberemos tener en cuenta las variables dinamicas del cuerpo. <br>
+
+                </p>
+                <img class="imgquiz" src="../css/images/Universidad/Servos/5-10-1.PNG" />
+                <p>
+                  En este curso estaremos trabajando con elementos electricos, por tanto estaremos utilizando motores electricos, elementos que se situará, 
+                  entre el controlador y la planta, es decir nuestro actuador.
+                </p>
+
+                <h4>Mecanismo o Planta</h4>
+                <p>
+                  Existen variables de interés como posición, velocidad, torque. Las dos variables 
+                  de mayor interés suelen ser posición y/o velocidad. Por ejemplo una banda que transporta 
+                  elementos en una linea suele tener control de velocidad. Mecanismos de corte suele tener 
+                  sistema de control de posición. En otras aplicaciones estaremos usando el torque como variable de 
+                  interes. Por ejemplo en el enrollamiento de papel higienico, a medida que el papel se va enrollando 
+                  en capas, por tanto si controlasemos velocidad, si aumentamos el radio, la velocidad aumentará, y puede que 
+                  en un momento que la tensión que sufre el papel sea muy grande y termine rompiendose. Por tanto mantendremos 
+                  el torque uniforme sin importar que el rollo aumente su diametro. <br>
+                  <img class="imgquiz" src="../css/images/Universidad/Servos/5-10-3.PNG" />
+
+
+
+                  Estas variables tienen un orden jerarquico, por tanto, podemos controlar distintas variables, se puede hablar 
+                  de un sistema de control en cascada donde un lazo interno se controla la posición, luego uno intermedio la velocidad, 
+                  finalmente un lazo mayor donde la variable a controlar seria el torque.
+                </p>
+                <img class="imgquiz" src="../css/images/Universidad/Servos/5-10-2.PNG" />
+                <h4>Sistema de Transmisión de potencia Mecanica</h4>
+                <img class="imgquiz" src="../css/images/Universidad/Servos/5-10-4.PNG" />
+                <p>
+                  Algunos ejemplos de sistemas de transmisión de potencia mecanica, son: Correas, reductores, 
+                  engranajes, trenes, transmisión por cadena, tornillos de transmisión de movimiento. La función 
+                  principal de este elemento es ayudarnos a realizar un dimensionamiento apropiado del motor. Tenemos 
+                  la opción de conectar el mecanismo directamente al eje del motor, esto se conoce como direct drive, cuando realizamos 
+                  esta conexión estamos diciendo que nuestro motor tendrá que dar el 100% de la potencia para mover el mecanismo, 
+                  nuestro STPM tendrá la tarea de funcionar como transformador, en este caso de transformador mecanico y estáriamos hablando 
+                  de potencia mecánica, donde la velocidad angular y el torque son las protagonistas de este transformador. 
+                  Inicialmente se asume que la potencia mecanica que entra y sale no tiene perdidas, aunque esto sea falso en la practica. 
+                  Sin embargo, se diseñan y se seleccionan los motores en base al peor caso o a la peor situación posible. <br>
+                  Si utilizamos un tren de engranajes o una caja de reductora de velocidad, bajaremos la velocidad angular total del motor, sin embargo 
+                  estaremos obteniendo un aumento del torque para mantener la relación matematica.
+                </p>
+                <h4>Driver o Amplificador</h4>
+                <img class="imgquiz" src="../css/images/Universidad/Servos/5-10-5.PNG" />
+                <p>
+                  Este bloque intermedio entre el actuador y controlador, es un bloque potencia electrica debido a que nuestro controlador, suele trabajar 
+                  en tensiones y corrientes bajas, y nuestro actuador trabaja con tensiones o potencia media y alta. Por tanto las variables que se trabajan 
+                  son las de potencia electrica, asociada a la tensión, corriente y a la frecuencia. <br>
+                </p>
+                <h4>Controlador</h4>
+                <p>
+                  El controlador, es uno de los bloques más importantes y es el que nos permite de una u otra forma, 
+                  controlar las variables en cuestión por medio de los actuadores. Uno de los controladores más utilizados de manera 
+                  profesional es el controlador PID, (Proportional-Integral-Derivative) por tanto el controlador aplica una función correctiva de manera activa 
+                  . También podemos por tanto agregar un bloque en paralelo al PID que no dependa del error sino de la referencia, el cual será llamado Feed Forward, 
+                  También llamado control por prealimentación.
+                </p>
+                <img class="imgpost" src="../css/images/Universidad/Servos/5-10-6.PNG" />
+                <p>
+                  Nuestro controlador por tanto tiene como objetivo, seguir la referencia o el perfil de movimiento 
+                  que hemos asignado desde un comienzo, el PID nos ayudará con el error y las perturbaciones que sufre el mecanismo. <br>
+
+                </p>
+
+                <h4>Sensor</h4>
+                <p>
+                  El sensor es el bloque que nos permite conocer una o más variables ya sea de manera directa o indirecta, por ejemplo, podemos 
+                  conocer de manera indirecta el torque ejercido por un motor, debido a la corriente que está circulando y la relación matematica que existe entre 
+                  estos dos. De manera directa podemos utilizar encoders, resolvers, potenciometros y otros elementos que nos permiten conocer nuestra variable 
+                  de manera directa.
+                </p>
+
+
+
+
             </div>
             <div class="card">
                 <h2>Matriz de Rotación</h2>
