@@ -502,202 +502,270 @@
         <h4>Modeling Concepts </h4>
 
         <p>
-          Modelling is the stage in the data science methodology where the data scientist has the chance to sample the sauce 
-          and determine if it´s bang on ir in need for more seasoning. This portion is geared to answer two questions: First:
+          Modelling is the stage in the data science methodology where the data scientist has the chance to sample the
+          sauce
+          and determine if it´s bang on ir in need for more seasoning. This portion is geared to answer two questions:
+          First:
           What is the purpose of data modelling, and second, what are some characteristics of this process?
         </p>
         <img class="imgquiz" src="../css/images/coursera/intro-ds-ibm/c2-m4-1.PNG" />
         <p>
-          Data modelling focuses on developing models that are either descriptive or predictive. An example of a descriptive model 
-          might examine things like: if a person did this, then they are likely to prefer that. A predictive model tries to yield 
-          yes/no, or stop/go type outcomes.These models are based on the analytic approach that was taken, either statically driven 
+          Data modelling focuses on developing models that are either descriptive or predictive. An example of a
+          descriptive model
+          might examine things like: if a person did this, then they are likely to prefer that. A predictive model tries
+          to yield
+          yes/no, or stop/go type outcomes.These models are based on the analytic approach that was taken, either
+          statically driven
           or machine learning driven.
         </p>
         <img class="imgquiz" src="../css/images/coursera/intro-ds-ibm/c2-m4-2.PNG" />
         <p>
-          Data Scientist also split the data into two groups, the training set and the test set, the training set is used as its name says 
-          to train the model or differents algorithms and the test set determine how accurate or effective our algorithm is. We also need to be aware 
+          Data Scientist also split the data into two groups, the training set and the test set, the training set is
+          used as its name says
+          to train the model or differents algorithms and the test set determine how accurate or effective our algorithm
+          is. We also need to be aware
           of overfitting our model or giving it few data that in uncapable to get the behaviour we need.
         </p>
         <img class="imgquiz" src="../css/images/coursera/intro-ds-ibm/c2-m4-3.PNG" />
         <p>
-          The data compilation, preparation and modelling is succeded when we understand deeply three things, starting with understanding 
-          the question at hand, then selecting the correct analytic approach or method to solve the problem and finally obtain, understand, and model the data.
+          The data compilation, preparation and modelling is succeded when we understand deeply three things, starting
+          with understanding
+          the question at hand, then selecting the correct analytic approach or method to solve the problem and finally
+          obtain, understand, and model the data.
 
         </p>
         <img class="imgquiz" src="../css/images/coursera/intro-ds-ibm/c2-m4-4.PNG" />
         <p>
-          After all the steps were done, we need to answers ourselves if we are good enough with our model, it corresponds to the reality?
-          it is near and relevant to the cases we expect? we need to tweak it more to be more accurate? we need to collect more data for its corrects building?
+          After all the steps were done, we need to answers ourselves if we are good enough with our model, it
+          corresponds to the reality?
+          it is near and relevant to the cases we expect? we need to tweak it more to be more accurate? we need to
+          collect more data for its corrects building?
           We hope all these questions were affirmatively correct and go through the next step.
         </p>
-        
+
         <h4>Case Study</h4>
         <p>
-          In our caste study in the congestive heart failure readmission, we are looking for patients with high-risk readmission, 
-          so the outcome of interest will be congestive heart failure equals "yes". In this first model, overall accuracy in clasifying 
-          the yes and no outcomes was 85%. This sounds good, but it represents only 45% of the "yes". The actual readmission are correctly 
+          In our caste study in the congestive heart failure readmission, we are looking for patients with high-risk
+          readmission,
+          so the outcome of interest will be congestive heart failure equals "yes". In this first model, overall
+          accuracy in clasifying
+          the yes and no outcomes was 85%. This sounds good, but it represents only 45% of the "yes". The actual
+          readmission are correctly
           classified, meaning that the model is not very accurate.
         </p>
         <img class="imgquiz" src="../css/images/coursera/intro-ds-ibm/c2-m4-5.PNG" />
         <p>
-          The question then becomes: How could the accuracy of the model be improved in predecting the yes outcome?. For decision tree 
+          The question then becomes: How could the accuracy of the model be improved in predecting the yes outcome?. For
+          decision tree
           classification, the best parameter to adjust is the relative cost of missclasified yes or no outcomes. <br>
-          When a true, non-readmission is missclasified, and action taken is to reduce that patient´s risk, the cost of that error 
-          is the wasted intervention. A statistician call this a false-positive. But when a true readmission is missclasified, and no action 
-          is no taken to reduce that risk, than the cost of that error is the readmission and all its attended costs, plus the trauma to the patient, this
-          is a false-negative . So we can see the cost of both missclassification errors  can be quite different. For this reason, it is 
-          reasonable to adjust the relative weights of missclasifying the yes and no outcomes. The default is 1-1, but the decision tree algorithm, 
+          When a true, non-readmission is missclasified, and action taken is to reduce that patient´s risk, the cost of
+          that error
+          is the wasted intervention. A statistician call this a false-positive. But when a true readmission is
+          missclasified, and no action
+          is no taken to reduce that risk, than the cost of that error is the readmission and all its attended costs,
+          plus the trauma to the patient, this
+          is a false-negative . So we can see the cost of both missclassification errors can be quite different. For
+          this reason, it is
+          reasonable to adjust the relative weights of missclasifying the yes and no outcomes. The default is 1-1, but
+          the decision tree algorithm,
           allows setting of a higher value for a yes. For the second model the relative cost was set at 9:1. <br>
-          This is a very high ratio, but gives more insight to the model´s behaviour. This time the model correctly classified the 97% 
-          of the yes, but at the expense of a very low accuracy on the no, with an overall accuracy of only 49%. The problem with this 
-          outcome is the large number of false-positives, which would recommend unnecesary and costly intervention for patients, who 
+          This is a very high ratio, but gives more insight to the model´s behaviour. This time the model correctly
+          classified the 97%
+          of the yes, but at the expense of a very low accuracy on the no, with an overall accuracy of only 49%. The
+          problem with this
+          outcome is the large number of false-positives, which would recommend unnecesary and costly intervention for
+          patients, who
           would not have been re-admitted anyway. <br>
-          Therefore, the data-scientist needs to try again to find a better balance between the yes and no accuracies. For the third model, 
-          the relative cost was set at a more reasonable 4-to-1. This time a 68% accuracy was obtained only in yes, called sensivity  by statistician, 
-          and 85% accuracy on the no, called specificity, with an overall accuracy of 81%. This is the best balance that can be obtained with a 
-          rather small training set trough adjusting the relative cost of missclasified yes and no outcomes parameters. <br>
-          A lot more work goes into the modeling, including iterating back to the data preparation stage to redefine some of other variables
+          Therefore, the data-scientist needs to try again to find a better balance between the yes and no accuracies.
+          For the third model,
+          the relative cost was set at a more reasonable 4-to-1. This time a 68% accuracy was obtained only in yes,
+          called sensivity by statistician,
+          and 85% accuracy on the no, called specificity, with an overall accuracy of 81%. This is the best balance that
+          can be obtained with a
+          rather small training set trough adjusting the relative cost of missclasified yes and no outcomes parameters.
+          <br>
+          A lot more work goes into the modeling, including iterating back to the data preparation stage to redefine
+          some of other variables
           , so as to better represent the underlygin information, and thereby improve the model.
 
         </p>
 
         <h4>Evaluation</h4>
         <p>
-          A model evaluation goes hand-in-hand with model building, such as the evalutaion and modeling stages are donde iteratively.
-          Model evaluation is performed during model development and before the model is deployed. Evaluation allows the quality of the model
-          to be assessed but it is also an opportunity to see if it meets the initial request. Evaluation answers the question: Does the Model 
+          A model evaluation goes hand-in-hand with model building, such as the evalutaion and modeling stages are donde
+          iteratively.
+          Model evaluation is performed during model development and before the model is deployed. Evaluation allows the
+          quality of the model
+          to be assessed but it is also an opportunity to see if it meets the initial request. Evaluation answers the
+          question: Does the Model
           used really answer the initial question or does it need to be adjusted? <br>
           <img class="imgquiz" src="../css/images/coursera/intro-ds-ibm/c2-m4-6.PNG" />
 
-          Model evaluation can have two main phases: The first is the diagnostic measures phase, which is ensured the model is working as intended. 
-          If the model is a predictive model, a decision tree can be used to evaluate if the answers the model can ouput, is aligned to the initial design.
-          It can be used to see where there are areas that require adjustments. If the model is a descriptive model, one in which relationships 
-          are being assessed, then a testing set with unknown outcomes can be applied, and the model can be refined as needed. <br>
-          The second fase of the evaluation that may be used is statistical significance testing. This type of evaluation can be applied to the model 
-          to ensure that the data is being properly handle and interpreted within the model. This is designed to avoid unnecesary second 
+          Model evaluation can have two main phases: The first is the diagnostic measures phase, which is ensured the
+          model is working as intended.
+          If the model is a predictive model, a decision tree can be used to evaluate if the answers the model can
+          ouput, is aligned to the initial design.
+          It can be used to see where there are areas that require adjustments. If the model is a descriptive model, one
+          in which relationships
+          are being assessed, then a testing set with unknown outcomes can be applied, and the model can be refined as
+          needed. <br>
+          The second fase of the evaluation that may be used is statistical significance testing. This type of
+          evaluation can be applied to the model
+          to ensure that the data is being properly handle and interpreted within the model. This is designed to avoid
+          unnecesary second
           guessing when the answer is revealed.
 
         </p>
         <img class="imgquiz" src="../css/images/coursera/intro-ds-ibm/c2-m4-7.PNG" />
-        
+
         <h4>Case Study </h4>
         <p>
-          One way to find the optimal model through a diagnostic measured based on tuning one of the parameters in model building. 
+          One way to find the optimal model through a diagnostic measured based on tuning one of the parameters in model
+          building.
           Specifically we will see how to tune the relative cost of missclasifying yes and no outcomes.
         </p>
         <img class="imgquiz" src="../css/images/coursera/intro-ds-ibm/c2-m4-8.PNG" />
 
         <p>
-          As shown in the table 4 models were built, with diffferents relative cost to yes and no outcomes. As wee see each model 
-          increases the true-positive rate of the accuracy of predicting yes, at the expense of accuracy in predicting no, that is an 
-          increasing false-positive rate. The question to be made is: which of this model is the best based on tuning this parameter?.
+          As shown in the table 4 models were built, with diffferents relative cost to yes and no outcomes. As wee see
+          each model
+          increases the true-positive rate of the accuracy of predicting yes, at the expense of accuracy in predicting
+          no, that is an
+          increasing false-positive rate. The question to be made is: which of this model is the best based on tuning
+          this parameter?.
         </p>
         <img class="imgquiz" src="../css/images/coursera/intro-ds-ibm/c2-m4-9.PNG" />
         <p>
-          There is a curve called "ROC Curve" that is a diagnostic tool for classification model evaluation. So the optimal model is the 
-          one giving the maximum separation between the relative ROC curve relative to the red base line. We can see that model 3 with a 
+          There is a curve called "ROC Curve" that is a diagnostic tool for classification model evaluation. So the
+          optimal model is the
+          one giving the maximum separation between the relative ROC curve relative to the red base line. We can see
+          that model 3 with a
           relative cost at 4-to-1 is giving the maximum separation so this is the optimal model.
         </p>
         <img class="imgquiz" src="../css/images/coursera/intro-ds-ibm/c2-m4-10.PNG" />
-        
+
       </div>
 
       <div class="card">
         <h2>From Deployment to Feedback</h2>
-      <h4>Deployment</h4>
-      <p>
-        While a data science model will provide an answer, the key to making the answer relevant and useful involves getting the stakeholder 
-        familir with the tool produce.
-      </p>
-      <img class="imgquiz" src="../css/images/coursera/intro-ds-ibm/c2-m5-1.PNG" />
-      <p>
-        Once the model is evaluated and the data scientist is confident it will work, it is deployed and put to the ultimate test.
-        Depending on the model it will be putted into a test scenario or public to people.
-      </p>
-      <h4>Case Study</h4>
-      <p>
-        The first step was to assimiliate the knowledge for the bussines group who would be designing and managing the invertion program 
-        to reduce readmission risk, in this scenario, the bussines people translated the model results so that the clinical staff could understand 
-        how to identify high-risk patient and design suitable intervention actions. The goal, of course, was to reduce the likelihoodt that 
-        these patients would be readmitted within a month after discharge. 
-      </p>
-       <img class="imgquiz" src="../css/images/coursera/intro-ds-ibm/c2-m5-2.PNG" />
-      <p>
-          During the bussiness requirements stage, the intervention program director and her team had wanted an application that would 
-          provided automated, near real-time risk assesments of congestive heart failure, it also has to be easy to use by the clinical staff 
-          and preferably through browser-based application on a tablet. This patient data was generated througout the hospital stay. It would be 
-          prepared automatically prepared in a format needed by the model and each patient would be scored near the time of discharge. <br>
-          Clinicians most have the most up-to-date risk assesments for each patient, helping them to select which patients to target for intervention 
-          after discharge. 
-      </p>
-      <img class="imgquiz" src="../css/images/coursera/intro-ds-ibm/c2-m5-3.PNG" />
-      <p>
-        As part of solution of deployment, the intervention team would develop and deliver training for the clinical staff. Also 
-        processes and tracking and monitoring patients receiving the intervention would have to be develop in collaboration wit IT developers 
-        and database administrators so that results could go through the feedback stage and the model could be refine over time.
+        <h4>Deployment</h4>
+        <p>
+          While a data science model will provide an answer, the key to making the answer relevant and useful involves
+          getting the stakeholder
+          familir with the tool produce.
+        </p>
+        <img class="imgquiz" src="../css/images/coursera/intro-ds-ibm/c2-m5-1.PNG" />
+        <p>
+          Once the model is evaluated and the data scientist is confident it will work, it is deployed and put to the
+          ultimate test.
+          Depending on the model it will be putted into a test scenario or public to people.
+        </p>
+        <h4>Case Study</h4>
+        <p>
+          The first step was to assimiliate the knowledge for the bussines group who would be designing and managing the
+          invertion program
+          to reduce readmission risk, in this scenario, the bussines people translated the model results so that the
+          clinical staff could understand
+          how to identify high-risk patient and design suitable intervention actions. The goal, of course, was to reduce
+          the likelihoodt that
+          these patients would be readmitted within a month after discharge.
+        </p>
+        <img class="imgquiz" src="../css/images/coursera/intro-ds-ibm/c2-m5-2.PNG" />
+        <p>
+          During the bussiness requirements stage, the intervention program director and her team had wanted an
+          application that would
+          provided automated, near real-time risk assesments of congestive heart failure, it also has to be easy to use
+          by the clinical staff
+          and preferably through browser-based application on a tablet. This patient data was generated througout the
+          hospital stay. It would be
+          prepared automatically prepared in a format needed by the model and each patient would be scored near the time
+          of discharge. <br>
+          Clinicians most have the most up-to-date risk assesments for each patient, helping them to select which
+          patients to target for intervention
+          after discharge.
+        </p>
+        <img class="imgquiz" src="../css/images/coursera/intro-ds-ibm/c2-m5-3.PNG" />
+        <p>
+          As part of solution of deployment, the intervention team would develop and deliver training for the clinical
+          staff. Also
+          processes and tracking and monitoring patients receiving the intervention would have to be develop in
+          collaboration wit IT developers
+          and database administrators so that results could go through the feedback stage and the model could be refine
+          over time.
 
-      </p>
-      <img class="imgquiz" src="../css/images/coursera/intro-ds-ibm/c2-m5-4.PNG" />
-      <p>
-        One example of deployment application was the cognos application where shows state where diabetes has more risk in juveniles.
-      </p>
-      <img class="imgquiz" src="../css/images/coursera/intro-ds-ibm/c2-m5-5.PNG" />
+        </p>
+        <img class="imgquiz" src="../css/images/coursera/intro-ds-ibm/c2-m5-4.PNG" />
+        <p>
+          One example of deployment application was the cognos application where shows state where diabetes has more
+          risk in juveniles.
+        </p>
+        <img class="imgquiz" src="../css/images/coursera/intro-ds-ibm/c2-m5-5.PNG" />
 
-      <h4>Feedback</h4>
-      <p>
-        Once in play, feedback from the users will help to refine the model and assess it for performance and impact. The value of the 
-        model will be dependent on succesfully incorporating feedback and making adjustments for long as the solutions requires. 
-      </p>
-      <img class="imgquiz" src="../css/images/coursera/intro-ds-ibm/c2-m5-6.PNG" />
-      <p>
-        Throghout the data science methodology, each step sets the stage for the next, making the methodoly cyclical, ensures 
-        refinement at each stage in the game. The feedback process is rooted in the notion that, the more you know, the more that you will 
-        want to know 
-      </p>
-      <img class="imgquiz" src="../css/images/coursera/intro-ds-ibm/c2-m5-7.PNG" />
+        <h4>Feedback</h4>
+        <p>
+          Once in play, feedback from the users will help to refine the model and assess it for performance and impact.
+          The value of the
+          model will be dependent on succesfully incorporating feedback and making adjustments for long as the solutions
+          requires.
+        </p>
+        <img class="imgquiz" src="../css/images/coursera/intro-ds-ibm/c2-m5-6.PNG" />
+        <p>
+          Throghout the data science methodology, each step sets the stage for the next, making the methodoly cyclical,
+          ensures
+          refinement at each stage in the game. The feedback process is rooted in the notion that, the more you know,
+          the more that you will
+          want to know
+        </p>
+        <img class="imgquiz" src="../css/images/coursera/intro-ds-ibm/c2-m5-7.PNG" />
 
-      <h4>Case Study</h4>
-      <img class="imgquiz" src="../css/images/coursera/intro-ds-ibm/c2-m5-8.PNG" />
-      <img class="imgquiz" src="../css/images/coursera/intro-ds-ibm/c2-m5-9.PNG" />
-      <img class="imgquiz" src="../css/images/coursera/intro-ds-ibm/c2-m5-10.PNG" />
+        <h4>Case Study</h4>
+        <img class="imgquiz" src="../css/images/coursera/intro-ds-ibm/c2-m5-8.PNG" />
+        <img class="imgquiz" src="../css/images/coursera/intro-ds-ibm/c2-m5-9.PNG" />
+        <img class="imgquiz" src="../css/images/coursera/intro-ds-ibm/c2-m5-10.PNG" />
 
-      <h4>Course Summary</h4>
-      <p>
-        We start forming a concrete bussines or research problem, to collecting and 
-        analyzing data, building a model, and understanding the feedback after the deployment. 
-      </p>
-      <img class="imgquiz" src="../css/images/coursera/intro-ds-ibm/c2-m5-11.PNG" />
-      <p>
-        We also learned methodical ways of working with the data, Specifically determining the data requirements, collecting 
-        the data, understanding the data, and then preparing the data for modeling.
+        <h4>Course Summary</h4>
+        <p>
+          We start forming a concrete bussines or research problem, to collecting and
+          analyzing data, building a model, and understanding the feedback after the deployment.
+        </p>
+        <img class="imgquiz" src="../css/images/coursera/intro-ds-ibm/c2-m5-11.PNG" />
+        <p>
+          We also learned methodical ways of working with the data, Specifically determining the data requirements,
+          collecting
+          the data, understanding the data, and then preparing the data for modeling.
 
-      </p>
-      <img class="imgquiz" src="../css/images/coursera/intro-ds-ibm/c2-m5-12.PNG" />
-      <p>
-        We also learned how to model the data by using the appropiate analytics approach, 
-        based on the data requirements and the problem that you were trying to solve.
-      </p>
-      <img class="imgquiz" src="../css/images/coursera/intro-ds-ibm/c2-m5-13.PNG" />
+        </p>
+        <img class="imgquiz" src="../css/images/coursera/intro-ds-ibm/c2-m5-12.PNG" />
+        <p>
+          We also learned how to model the data by using the appropiate analytics approach,
+          based on the data requirements and the problem that you were trying to solve.
+        </p>
+        <img class="imgquiz" src="../css/images/coursera/intro-ds-ibm/c2-m5-13.PNG" />
 
-      <img class="imgquiz" src="../css/images/coursera/intro-ds-ibm/c2-m5-14.PNG" />
+        <img class="imgquiz" src="../css/images/coursera/intro-ds-ibm/c2-m5-14.PNG" />
 
-     </div>
+      </div>
 
-     <hr>
-     
-     <div class="card">
-      <h2>Language of Data Science</h2>
-      <h4>Languages of Data Science</h4>
-      <p>
-        When starting on Data Science there are many languages to start with, selecting one of them depends on many aspects, 
-        what is the problem you are solving, how old is the application, base language for a company, etc. You dont need to master 
-        all of them, but knowing you can use them there would be easier to swap to another language if the case needed.
-        <br>
-        Python, R, and SQL maybe be the principals or the first progamming languages we must learn in our Data Science Journey, python 
-        because its facility in working with science applications and learning, R for statistics and, SQL for working with the data. Also 
-        there are other programming languages that we can use for data science, for example, Scala, Java, C++, Julia, JavaScript, php, Go, Ruby <br>
-        There are many roles we can aspire in Data Science:
+      <hr>
+
+      <div class="card">
+        <h2>Language of Data Science</h2>
+        <h4>Languages of Data Science</h4>
+        <p>
+          When starting on Data Science there are many languages to start with, selecting one of them depends on many
+          aspects,
+          what is the problem you are solving, how old is the application, base language for a company, etc. You dont
+          need to master
+          all of them, but knowing you can use them there would be easier to swap to another language if the case
+          needed.
+          <br>
+          Python, R, and SQL maybe be the principals or the first progamming languages we must learn in our Data Science
+          Journey, python
+          because its facility in working with science applications and learning, R for statistics and, SQL for working
+          with the data. Also
+          there are other programming languages that we can use for data science, for example, Scala, Java, C++, Julia,
+          JavaScript, php, Go, Ruby <br>
+          There are many roles we can aspire in Data Science:
         <ul>
           <li>Busyness Analyst</li>
           <li>Database Engineer</li>
@@ -710,191 +778,296 @@
           <li>Product Manager</li>
           <li>Project Manager</li>
         </ul>
-      </p>
+        </p>
 
-      <h4>Introduction to Python </h4>
-     <p>
-       Python is a powerhouse language, is by far the most popular language in data science, python is a good for those people 
-       whos already know how to programm, also for the new ones who want to learn because of the huge community and documentation available 
-       nearly 80% of data proffesiona used it. Python is also heavily used in Data Science, IA, and machine learning, web development, 
-       Internet of Things with devices like Raspberry Pi.
-     </p>
-     <p>
-       Python is great to used because it is a general purpose language, so it has a huge amount of libraries to use with, 
-       we can use libraries to work with, databases, automation, web scrapping, text processing, image processing, machine learning 
-       and data analytics. <br>
-       For Data Science we have come computing libraries like: Numpy, Pandas, SciPy, and MatplotLib. <br>
-       For Artificial intelligence it has Pytorch, TensorFlow, Keras, and Scikit-Learn <br>
-       Python also can be used for Natural Language processing (NLP) using the Natural Language toolkit (NLTK)
-     </p>
+        <h4>Introduction to Python </h4>
+        <p>
+          Python is a powerhouse language, is by far the most popular language in data science, python is a good for
+          those people
+          whos already know how to programm, also for the new ones who want to learn because of the huge community and
+          documentation available
+          nearly 80% of data proffesiona used it. Python is also heavily used in Data Science, IA, and machine learning,
+          web development,
+          Internet of Things with devices like Raspberry Pi.
+        </p>
+        <p>
+          Python is great to used because it is a general purpose language, so it has a huge amount of libraries to use
+          with,
+          we can use libraries to work with, databases, automation, web scrapping, text processing, image processing,
+          machine learning
+          and data analytics. <br>
+          For Data Science we have come computing libraries like: Numpy, Pandas, SciPy, and MatplotLib. <br>
+          For Artificial intelligence it has Pytorch, TensorFlow, Keras, and Scikit-Learn <br>
+          Python also can be used for Natural Language processing (NLP) using the Natural Language toolkit (NLTK)
+        </p>
 
-     <h4>Introduction to R</h4>
-     <p>
-       We start this introduction by saying R is a free software while Python is a open source project, they are similar but no equal.
-      <br>
-     
-      <ul>
-       
-        Similiarties: <br><br>
-       
-        <li>Both commonly refers to the same set of licenses</li>
-        <li>Both support collaboration </li>
-        <li>In many cases these terms can be used interchangeably </li>
-        <br> 
-        
-        Differences:<br><br>
-        <li>Open Source Iniative (OSI) champions open source while the Free Software Foundations (FSF) defines Free Software </li>
-        <li>Open Source is more bussines focused while Free Software is more focused on a set of values  </li>
+        <h4>Introduction to R</h4>
+        <p>
+          We start this introduction by saying R is a free software while Python is a open source project, they are
+          similar but no equal.
+          <br>
+
+        <ul>
+
+          Similiarties: <br><br>
+
+          <li>Both commonly refers to the same set of licenses</li>
+          <li>Both support collaboration </li>
+          <li>In many cases these terms can be used interchangeably </li>
+          <br>
+
+          Differences:<br><br>
+          <li>Open Source Iniative (OSI) champions open source while the Free Software Foundations (FSF) defines Free
+            Software </li>
+          <li>Open Source is more bussines focused while Free Software is more focused on a set of values </li>
+          <br>
+        </ul>
+        R is most used by Statistician, mathematicians, and data miners for developing statistical software, graphing
+        and data visualization.
         <br>
-      </ul>
-      R is most used by Statistician, mathematicians, and data miners for developing statistical software, graphing and data visualization.
-      <br>
-      The array-oriented syntax make it easier to translate from math to code. <br>
-      Most folks learn R few years later started their jorney in Data Science, but they also says that R is a good starting programming 
-      language for data science with those who does not have programming background before. <br>
-      R is mostly used in academia, but there are also some companies who work with R, include IBM, Facebook, Google, Microsoft, etc.
-      <br>
-      R is a great programming language becase it has the biggest statistical repository in the world, also R has over 15000 publicly released 
-      packages to work with complex exploratory data analysis. <br>
-      R integrates well with other programming languages like python, Java, .Net, C++, etc. And have some operations like matrix multiplications 
-      work out of the box. <br>
-      Finally R has stronger object-oriented programming facilities than most statistical computing languages.
-      </p>
-     <h4>Introduction to SQL</h4>
-     <p>
-       SQL is a different programming language that Python and R and it is because is a non-procedural language. SQL means 
-       Structured Query Language an it is useful to handle structured data, data incorporating relations amongs entities and variables. <br>
-       SQL was designed for mananing data in relational databses.
-     </p>
-     <img class="imgquiz" src="../css/images/coursera/intro-ds-ibm/c3-m1-1.PNG" />
-     <p>
-       A relational database is formed by collections of two-dimensional tables; 
-       for example,datasets and Microsoft Excel Spreadsheets. <br>
-       The SQL language is subdivided into several language elements, incluiding  clauses, expressions, 
-       predicates, queries, and statements.
-     </p>
-     <img class="imgquiz" src="../css/images/coursera/intro-ds-ibm/c3-m1-2.PNG" />
-     <p>
-       What makes SQL great is that it helps you to obtain 
-       jobs as business and data analyst and is a must in data 
-       engineering and data science. When performing operations 
-       with SQL the data is accessed directly (without any need to copy it 
-       beforehand). This cand considerably speed up workflow executions. <br>
-       SQL is the interpreter between you and the database. <br>
-       There are many SQL databases available, including MySQL, IBM Db2, 
-       PostgresSQL, Apache, SQlite and more. <br>
+        The array-oriented syntax make it easier to translate from math to code. <br>
+        Most folks learn R few years later started their jorney in Data Science, but they also says that R is a good
+        starting programming
+        language for data science with those who does not have programming background before. <br>
+        R is mostly used in academia, but there are also some companies who work with R, include IBM, Facebook, Google,
+        Microsoft, etc.
+        <br>
+        R is a great programming language becase it has the biggest statistical repository in the world, also R has over
+        15000 publicly released
+        packages to work with complex exploratory data analysis. <br>
+        R integrates well with other programming languages like python, Java, .Net, C++, etc. And have some operations
+        like matrix multiplications
+        work out of the box. <br>
+        Finally R has stronger object-oriented programming facilities than most statistical computing languages.
+        </p>
+        <h4>Introduction to SQL</h4>
+        <p>
+          SQL is a different programming language that Python and R and it is because is a non-procedural language. SQL
+          means
+          Structured Query Language an it is useful to handle structured data, data incorporating relations amongs
+          entities and variables. <br>
+          SQL was designed for mananing data in relational databses.
+        </p>
+        <img class="imgquiz" src="../css/images/coursera/intro-ds-ibm/c3-m1-1.PNG" />
+        <p>
+          A relational database is formed by collections of two-dimensional tables;
+          for example,datasets and Microsoft Excel Spreadsheets. <br>
+          The SQL language is subdivided into several language elements, incluiding clauses, expressions,
+          predicates, queries, and statements.
+        </p>
+        <img class="imgquiz" src="../css/images/coursera/intro-ds-ibm/c3-m1-2.PNG" />
+        <p>
+          What makes SQL great is that it helps you to obtain
+          jobs as business and data analyst and is a must in data
+          engineering and data science. When performing operations
+          with SQL the data is accessed directly (without any need to copy it
+          beforehand). This cand considerably speed up workflow executions. <br>
+          SQL is the interpreter between you and the database. <br>
+          There are many SQL databases available, including MySQL, IBM Db2,
+          PostgresSQL, Apache, SQlite and more. <br>
 
-     </p>
-     <h4>Other Languages</h4>
-     <p>
-       Languages like Scala, Java, C++ and Julia are the most popular after 
-       python, R and SQL. <br>
-       Java is tried an true general purpose object oriented programming language.
-       Huge adoption in the enterprise space, designed to be fast and scalable. <br>
-      Scala is a general purpose programming language that provides supoprt for functional programming. <br>
-      C++ is a general purpose language, improve processing speed, enables system programming, and 
-      gives you broader control over the application. <br>
-      JavaScript core techonology for the world wide web. Is a a general purpose 
-      language that extended beyond the browser with Node.js and other server side approaches.
-      Tensorflow is possible in Javascript. <br>
-      Julia was designed at MIT for high-performance numerical 
-      analysis and computational science.
-      Same speedy development like python or R while producing programs that runs 
-      as fast as C or Fortran programs would.
-      Is a young language with a lot promise in Data Science future.
-     </p>
-     <h4>Categories of Data Science Tools</h4>
-     <img class="imgquiz" src="../css/images/coursera/intro-ds-ibm/c3-m2-1.PNG" />
+        </p>
+        <h4>Other Languages</h4>
+        <p>
+          Languages like Scala, Java, C++ and Julia are the most popular after
+          python, R and SQL. <br>
+          Java is tried an true general purpose object oriented programming language.
+          Huge adoption in the enterprise space, designed to be fast and scalable. <br>
+          Scala is a general purpose programming language that provides supoprt for functional programming. <br>
+          C++ is a general purpose language, improve processing speed, enables system programming, and
+          gives you broader control over the application. <br>
+          JavaScript core techonology for the world wide web. Is a a general purpose
+          language that extended beyond the browser with Node.js and other server side approaches.
+          Tensorflow is possible in Javascript. <br>
+          Julia was designed at MIT for high-performance numerical
+          analysis and computational science.
+          Same speedy development like python or R while producing programs that runs
+          as fast as C or Fortran programs would.
+          Is a young language with a lot promise in Data Science future.
+        </p>
+        <h4>Categories of Data Science Tools</h4>
+        <img class="imgquiz" src="../css/images/coursera/intro-ds-ibm/c3-m2-1.PNG" />
 
-     <p>
-       <li>Data Management</li>
-       Is the process of persisting and retrieving data. The most widely used open source data management tools are relational 
-       databases such as MySQL, PostgreSQL and noSQL databases like MongoDB, CouchDB, and Cassandra. File based tools such as the 
-       Hadoop File System or Cloud System like Ceph. 
-       <img class="imgquiz" src="../css/images/coursera/intro-ds-ibm/c3-m2-2.PNG" />
-       There are other data management tools in a commercial enviroment, tools like Oracle, IBM db2, and microsoft SQL server are example of them.
+        <p>
+          <li>Data Management</li>
+          Is the process of persisting and retrieving data. The most widely used open source data management tools are
+          relational
+          databases such as MySQL, PostgreSQL and noSQL databases like MongoDB, CouchDB, and Cassandra. File based tools
+          such as the
+          Hadoop File System or Cloud System like Ceph.
+          <img class="imgquiz" src="../css/images/coursera/intro-ds-ibm/c3-m2-2.PNG" />
+          There are other data management tools in a commercial enviroment, tools like Oracle, IBM db2, and microsoft
+          SQL server are example of them.
 
-       <li>Data Integration and transformation</li>
-       Referred to as Extract, transform, and load, or "ETL" 
-       is the process of retrieving data from remote data management 
-       systems. Transforming data and loading it into a local data 
-       management system is also part of Data Integration and transformation. Most widely used open source software 
-       used for data integration and transformation are: Apache Airflow, KubeFlow, which enables you to execute data 
-       science pipelines on top of kubernetes, Apache Kafka which is originated from Linkedin, Nifi, which delivers 
-       a very nice visual editor, SparkSQL which enables you to use ANSI SQL and scales up to computer clusters, and NodeRed, which 
-       also provides a visual editor.
-       <img class="imgquiz" src="../css/images/coursera/intro-ds-ibm/c3-m2-3.PNG" />
-       In the commercial enviroment are other etl tools, for example: IBM Watson Studio, IBM InfoSphere DataStage, Informatica,  Talend
-       <li>Data Visualization</li>
-       Is part of an initial data exploration process, as well as 
-       being part of a final deliverable. Some widely used tools are: Hue, which can create visualizations from SQL queries, Kibana, 
-       a data exploration and visualization web application, is limited to elasticsearch, Apache SuperSet, is a data exploration and visualization 
-       web application.
-       <img class="imgquiz" src="../css/images/coursera/intro-ds-ibm/c3-m2-4.PNG" />
-       Are utilizing most promiment Tableau, Microsft BI, IBM Cognos Analytics also IBM Watson Studio dekstop
-       <li>Model Building</li>
-       Is the process of creating a machine learning or deep learning model using an appropiate 
-       algorithm with a lot of data. 
-       The most prominent of these types of products are: SPSS Modeler an SAS, also Watson Studio Desktop
-       
-
-       <li>Model Deployment</li>
-       Makes such a machine learning or deep learning model available to third-party applications.Once you have created a 
-       machine learning model capable of predicting some key aspects of the future, you should make that model consumable by other 
-       developers and turn it into an API. <br>
-       Apache Prediction IO, currently only supports Apache spark ML models for deployment,Seldon is an interesting product since it 
-       supports nearly every framework, including TensorFlow, Spark ML, R, and scikit-learn. Seldon can run on top of kubernetes and 
-       Redhat Openshift, MLeap is another way to deply sparkML. Finally TensorFlow can serve any of its model using the tensorflow service 
-       you can deploy even in smartphones, Raspberry PI and also in the web. 
-       <img class="imgquiz" src="../css/images/coursera/intro-ds-ibm/c3-m2-5.PNG" />
-       IBM SPSS Collaboration is one tool availabe for this stage in a commercial enviroment.
+          <li>Data Integration and transformation</li>
+          Referred to as Extract, transform, and load, or "ETL"
+          is the process of retrieving data from remote data management
+          systems. Transforming data and loading it into a local data
+          management system is also part of Data Integration and transformation. Most widely used open source software
+          used for data integration and transformation are: Apache Airflow, KubeFlow, which enables you to execute data
+          science pipelines on top of kubernetes, Apache Kafka which is originated from Linkedin, Nifi, which delivers
+          a very nice visual editor, SparkSQL which enables you to use ANSI SQL and scales up to computer clusters, and
+          NodeRed, which
+          also provides a visual editor.
+          <img class="imgquiz" src="../css/images/coursera/intro-ds-ibm/c3-m2-3.PNG" />
+          In the commercial enviroment are other etl tools, for example: IBM Watson Studio, IBM InfoSphere DataStage,
+          Informatica, Talend
+          <li>Data Visualization</li>
+          Is part of an initial data exploration process, as well as
+          being part of a final deliverable. Some widely used tools are: Hue, which can create visualizations from SQL
+          queries, Kibana,
+          a data exploration and visualization web application, is limited to elasticsearch, Apache SuperSet, is a data
+          exploration and visualization
+          web application.
+          <img class="imgquiz" src="../css/images/coursera/intro-ds-ibm/c3-m2-4.PNG" />
+          Are utilizing most promiment Tableau, Microsft BI, IBM Cognos Analytics also IBM Watson Studio dekstop
+          <li>Model Building</li>
+          Is the process of creating a machine learning or deep learning model using an appropiate
+          algorithm with a lot of data.
+          The most prominent of these types of products are: SPSS Modeler an SAS, also Watson Studio Desktop
 
 
-       <li>Model monitoring and Assesment</li>
-       Ensures continous performance quality checks on the deployed models. These checks are for accuracy, 
-       fairness, and adversarial robustness. Once you´ve deployed a machine learning model, you need to keep track of its prediction 
-       performance as new data arrives in order to mantain outdated models. <br>
-       ModelDB, is is a machine model metadatabase where information about the models are stored and can be queried, it supports Spark ML pipelines and scikit-learn, 
-       Prometheus, is a generic and multi-purpose tool used for machine learning model monitoring, although is not mainly created for this purpose. 
-       IBM Fairness 360, is a tool that detects and mitigates against bias in machine learning model. Machine learning models are susceptible to suffered 
-       attacks, the IBM Adversarial Toolbox can be used to detect vulnerabilities to adversarial attacks and help make the model more robust. 
-       Finally IBM AI Explainability 360 is a toolkit that makes the machine learning process more understandable by finding similar examples 
-       with a dataset that can be represented to a user for manual comparison. It can also illustrate training for a simple machine learning model 
-       by explaining how the differents inputs variables affect the final decision. 
-       <img class="imgquiz" src="../css/images/coursera/intro-ds-ibm/c3-m2-6.PNG" />
-       <li>Code Asset management</li>
-       Uses versioning and other collaborative features to facilitate teamwork. Also referred to  as version management or version control, 
-       GIT is now the standard, multiple services have emerged to support git like Github, GitLab, and BitBucket.
-       <img class="imgquiz" src="../css/images/coursera/intro-ds-ibm/c3-m2-7.PNG" />
-
-       <li>Data Asset Management </li>
-       Also supports replication, backup, and access right management. Data has to be versioned and annotated with metadata. 
-       Apache Atlas, is a tool that support this task, ODPI Egeria, is managed through the Linux Foundations and is a open ecosystem, and Kylo.
-       <img class="imgquiz" src="../css/images/coursera/intro-ds-ibm/c3-m2-8.PNG" />
+          <li>Model Deployment</li>
+          Makes such a machine learning or deep learning model available to third-party applications.Once you have
+          created a
+          machine learning model capable of predicting some key aspects of the future, you should make that model
+          consumable by other
+          developers and turn it into an API. <br>
+          Apache Prediction IO, currently only supports Apache spark ML models for deployment,Seldon is an interesting
+          product since it
+          supports nearly every framework, including TensorFlow, Spark ML, R, and scikit-learn. Seldon can run on top of
+          kubernetes and
+          Redhat Openshift, MLeap is another way to deply sparkML. Finally TensorFlow can serve any of its model using
+          the tensorflow service
+          you can deploy even in smartphones, Raspberry PI and also in the web.
+          <img class="imgquiz" src="../css/images/coursera/intro-ds-ibm/c3-m2-5.PNG" />
+          IBM SPSS Collaboration is one tool availabe for this stage in a commercial enviroment.
 
 
-       <li>Development Enviroments</li>
-       Tools that help the data scientist to implement, execute, test, and deploy their work. <br>
-       Jupyter is the most widely used IDE to work with data Science, it first emerged as a tool of interactive python programming, 
-       it nows supports more than a hundred differents programming languages trough kernels, A key property of Jupyter Notebooks is 
-       the ability to unify documentation, code, output from the code, shell commands, and visualizations into a single document. Jupyter Lab 
-       is the next generation of Jupyter Notebook and in the long term it would be replaced. 
-       <img class="imgquiz" src="../css/images/coursera/intro-ds-ibm/c3-m2-9.PNG" />
+          <li>Model monitoring and Assesment</li>
+          Ensures continous performance quality checks on the deployed models. These checks are for accuracy,
+          fairness, and adversarial robustness. Once you´ve deployed a machine learning model, you need to keep track of
+          its prediction
+          performance as new data arrives in order to mantain outdated models. <br>
+          ModelDB, is is a machine model metadatabase where information about the models are stored and can be queried,
+          it supports Spark ML pipelines and scikit-learn,
+          Prometheus, is a generic and multi-purpose tool used for machine learning model monitoring, although is not
+          mainly created for this purpose.
+          IBM Fairness 360, is a tool that detects and mitigates against bias in machine learning model. Machine
+          learning models are susceptible to suffered
+          attacks, the IBM Adversarial Toolbox can be used to detect vulnerabilities to adversarial attacks and help
+          make the model more robust.
+          Finally IBM AI Explainability 360 is a toolkit that makes the machine learning process more understandable by
+          finding similar examples
+          with a dataset that can be represented to a user for manual comparison. It can also illustrate training for a
+          simple machine learning model
+          by explaining how the differents inputs variables affect the final decision.
+          <img class="imgquiz" src="../css/images/coursera/intro-ds-ibm/c3-m2-6.PNG" />
+          <li>Code Asset management</li>
+          Uses versioning and other collaborative features to facilitate teamwork. Also referred to as version
+          management or version control,
+          GIT is now the standard, multiple services have emerged to support git like Github, GitLab, and BitBucket.
+          <img class="imgquiz" src="../css/images/coursera/intro-ds-ibm/c3-m2-7.PNG" />
 
-       <li>Execution Enviroment</li>
-       Tools where data processing, model training, and deployment take place. Sometimes your data does not fit into a single computer storage 
-       or main memory capacity. That´s where cluster execution enviroments come in. <br>
-       The well known cluster-computing framework Apache Spark is among the most active Apache projects and is used across all industries, 
-       including in many Fortune 500 companies. The Key property of Spark is the linear scalability. <br>
-       Apache Spark is a batch data process engine, capable of processing huge amounts of data file by file. Apache Flink is a stream 
-       processing image, with is main focus on processing real-time data streams. 
-        <img class="imgquiz" src="../css/images/coursera/intro-ds-ibm/c3-m2-10.PNG" />
+          <li>Data Asset Management </li>
+          Also supports replication, backup, and access right management. Data has to be versioned and annotated with
+          metadata.
+          Apache Atlas, is a tool that support this task, ODPI Egeria, is managed through the Linux Foundations and is a
+          open ecosystem, and Kylo.
+          <img class="imgquiz" src="../css/images/coursera/intro-ds-ibm/c3-m2-8.PNG" />
 
-     </p>
 
-     
+          <li>Development Enviroments</li>
+          Tools that help the data scientist to implement, execute, test, and deploy their work. <br>
+          Jupyter is the most widely used IDE to work with data Science, it first emerged as a tool of interactive
+          python programming,
+          it nows supports more than a hundred differents programming languages trough kernels, A key property of
+          Jupyter Notebooks is
+          the ability to unify documentation, code, output from the code, shell commands, and visualizations into a
+          single document. Jupyter Lab
+          is the next generation of Jupyter Notebook and in the long term it would be replaced.
+          <img class="imgquiz" src="../css/images/coursera/intro-ds-ibm/c3-m2-9.PNG" />
 
-     
+          <li>Execution Enviroment</li>
+          Tools where data processing, model training, and deployment take place. Sometimes your data does not fit into
+          a single computer storage
+          or main memory capacity. That´s where cluster execution enviroments come in. <br>
+          The well known cluster-computing framework Apache Spark is among the most active Apache projects and is used
+          across all industries,
+          including in many Fortune 500 companies. The Key property of Spark is the linear scalability. <br>
+          Apache Spark is a batch data process engine, capable of processing huge amounts of data file by file. Apache
+          Flink is a stream
+          processing image, with is main focus on processing real-time data streams.
+          <img class="imgquiz" src="../css/images/coursera/intro-ds-ibm/c3-m2-10.PNG" />
+
+        </p>
+        <h4>Libraries for Data Science</h4>
+        <p>
+          Libraries are a collection of functions and methods that enable you to perform a wide variety of actions
+          without writing
+          the code yourself. <br>
+        <dl>
+          <dt>Pandas</dt>
+          <dd>- Data Structures and tools for effective data cleaning, manipulation and analysis</dd>
+          <dt>Numpy</dt>
+          <dd>- Are based on arrays, enabling you to apply mathematical functions to these arrays.</dd>
+          <dt>MatplotLib</dt>
+          <dd>- The most well-known library for data visualization, and its excellent for making graphs and plots</dd>
+          <dt>SeaBorn</dt>
+          <dd>- Is based on matplotlib, makes it easy to generate plots like heat maps, time series, and violin plots.
+          </dd>
+          <dt>Scikit-Learn</dt>
+          <dd>- Machine learning, regression classification, clustering and others </dd>
+          <dt>Keras</dt>
+          <dd>- Deep Learning Neural Networks </dd>
+          <dt>TensorFlow</dt>
+          <dd>- Deep Learning, production and deployment</dd>
+          <dt>PyTorch</dt>
+          <dd>- Deep Learning, regression, classification </dd>
+          <dt>Apache Spark</dt>
+          <dd>- Is a general purpose cluster-computing framework that enables you to process data using compute
+            clusters. It has
+            similar functionalities as Pandas, Numpy, and Scikit-Learn. Data Processing jobs can use Python, R, Scala,
+            or SQL.
+          </dd>
+          <dt></dt>
+        </dl>
+        </p>
+
+
+        <h4>Application Programming Interfaces (API) </h4>
+        <p>
+          An API lets two pieces of software talk to each other. You use the API to communicate with the other software components. 
+          You dont have to know how the API works, you just need to know there are inputs and outputs. 
+        </p>
+        <img class="imgquiz" src="../css/images/coursera/intro-ds-ibm/c3-m3-1.PNG" />
+        <li>REST API</li>
+        <p>
+          They enable you to communicate using the internet, taking advantage of storage, greater data access, artificial intelligence 
+          algorithms, and many other resources. <br>
+          <i>Re</i>presentational  <i>S</i>tate <i>T</i>ransfer API. The API communicates with a web service that you call through 
+          the internet.
+        </p>
+        <img class="imgquiz" src="../css/images/coursera/intro-ds-ibm/c3-m3-2.PNG" />
+        <p>
+          HTTP methods are a way of transmitting data over the internet, We tell the REST APIs what to do by sending a request. 
+          The request is usually communicated through an HTTP message. <br>
+          The HTTP message usually contains a JSON file, which contains instructions for the operation that we would like the service 
+          to perform. 
+        </p>
+        <img class="imgquiz" src="../css/images/coursera/intro-ds-ibm/c3-m3-3.PNG" />
+        <p>
+          
+        </p>
+
+
+
+
+
+
+
+
+
 
       </div>
 
