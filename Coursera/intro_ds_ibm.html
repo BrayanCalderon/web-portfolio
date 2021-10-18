@@ -1030,7 +1030,7 @@
             similar functionalities as Pandas, Numpy, and Scikit-Learn. Data Processing jobs can use Python, R, Scala,
             or SQL.
           </dd>
-          <dt></dt>
+          
         </dl>
         </p>
 
@@ -1056,9 +1056,172 @@
           to perform. 
         </p>
         <img class="imgquiz" src="../css/images/coursera/intro-ds-ibm/c3-m3-3.PNG" />
+        
+        <h4>Data Sets</h4>
         <p>
+          A dataset is a structured colleciont of data. Data embodies information that might be represented as text, numbers, 
+          or media such as images or video files. <br>
+          A Dataset that is structured as tabular data comprises a collection of rows, which in turn comprise columns that store that information.
+          <br>
+          Hierarchical data is organized in a tree-like structure, whereas network data might be stored as a graph. For example 
+          , the connections between people on a social networking website are often represented in the form of a graph.
+          <br>
+          Finding good datasets to improve our algorithms are always crucial. So Open data portal list from around the world. <br>
+          <a href="http://www.datacatalogs.org/">DataCatalogs</a> <br>
+          Governmental, intergovernmental, and organization websites:
+          <a href="http://data.un.org/">United Nations</a>
+          <a href="http://www.data.gov/">USA</a>
+          <a href="http://www.europeandataportal.eu/en/">Europe</a> <br>
+          Kaggle:
+          <a href="http://www.kaggle.com/datasets">Kaggle</a> <br>
+          Google Data set Research:
+          <a href="http://datasetsearch.research.google.com/">Google</a> <br>
           
+          IBM also has a large dataset repository to be used whenever we want, it also has some Jupyter notebooks 
+          to guide us through a cleaning, preprocessing and data exploratory stages. It is called Data Asset eXchange.
+
+          <h4>Machine Learning Models</h4>
+          <p>
+            Data contains a wealth of information that can be used to solve certain types of problem. 
+            Traditional data analysis approach, such a person manually inspecting the data or a specialized computer 
+            program, quickly reach their limits. <br>
+            Machine learning models identify patterns in data. The process by which the model learns this 
+            patterns from data is called "model training" <br>
+            A model must be trained on data before it can be used to make predictions <br>
+            It can be separated in three big groups, Supervised learning, Unsupervised Learning, and reinforcement learning. <br>
+            <li>Supervised Learning</li>
+            Is one of the most commonly used type of machine learning models. A human provides input data and the correct ouputs. 
+            The model try to identify relationships and dependencies between input data and the correct output.
+            Generally speaking, supervised learning is used to solve regression and classification problems. <br>
+            <dl>
+              <dt>Regression:</dt>
+              <dd>- Predicts real numerical values</dd>
+              <dd>- eg.home sales prices, stock market prices</dd>
+              <dt>Classification</dt>
+              <dd>- Classify things into categories</dd>
+              <dd> email spam filters, fraud detection, image classification</dd>
+            </dl>
+            <li>Unsupervised Learning</li>
+            Data is not labeled by a human, model tries to identify patterns without external helps. <br>
+            Common learning problems are clustering and anomaly detection.
+            <li>Reinforcement Learning</li>
+            Conceptually similar to human learning process.
+            <li>Deep Learning</li>
+            Refers to a general set of models and techniques that tries to loosely emulate the way 
+            the human brain solves a wide range of problems. It is commonly used to analyze 
+            natural language processing, as well as images, audio and video, to forecast time series data 
+            and much more.
+          </p>
+          <h4>Model Asset Exchange</h4>
+          <p>
+            Model Asset Exchange is a free open source for deep learning models for ready-to-use and customizable models.
+            These microservices are configured to use pre-trained or custom-trainable state-of-the-art deep learning problems to 
+            solve common bussines problems. <br>
+            These models have been reviewed, tested, and can be quickly deployed in local and cloud enviroments. All models 
+            in MAX are available under permissive open source licenses, making it easier to use them for personal and for commercial 
+            purposes and reducing the risk of legal liabilities. <br>
+            Available on differents domains like:
+            <ul>
+              <li>Object Detection : Which objects are in this image?</li>
+              <li>Image,audio, text classification: What is this?</li>
+              <li>Named Entity recognition: Identify entities in text</li>
+              <li>Image-to-text translation: generate image caption</li>
+              <li>Human Pose detection</li>
+            </ul>
+
+          </p>
+          <img class="imgquiz" src="../css/images/coursera/intro-ds-ibm/c3-m3-4.PNG" />
+          <h4>Lab </h4>
+          <p>
+            This is how a web application is deploy using a object detector as example. This website is  <a href="https://max-object-detector.codait-prod-41208c73af8fca213512856c7a09db52-0000.us-east.containers.appdomain.cloud/app/?file=">Object Detector</a> <br>
+
+          </p>
+          <img class="imgquiz" src="../css/images/coursera/intro-ds-ibm/c3-m3-5.PNG" />
+
         </p>
+        <h4>GIT Y GITHUB</h4>
+        <p>
+          Version control is a fundamental key in development, because it allows you to keep track of your work and unmade changes 
+          if something does not work properly, there are differents ways to do control version but GIT is the most widely used since 
+          their distributed capacities. Github therefore is an online host service where you can put your project in serve to others. <br>
+          <li>SSH protocol:A method for secure remote login from one computer to other</li>
+          <li>Repository: The folders of your project that are set up for version control </li>
+          <li>Fork: A copy of the repository </li>
+          <li>Pull request: The process you use to request someone to review and approves your changes before they become final.</li>
+          <li>Working Directory: A directory on your file system, including its files and subdirectories, that is associated with a git repository</li>
+          When starting a new github repository, you only need to create it once: either locally, and then push to Github, or by cloning an 
+          existing repository by using the command <i>git init</i> <br>
+          <dl>
+            <li>add</li>
+            <dd> Moves changes from the working directory to the staging area</dd>
+            <li>Status</li>
+            <dd> Allows you to see the state of your working directory and the staged snapshot of your changes</dd>
+            <li>commit</li>
+            <dd> Takes your staged snapshots of changes and commits them to the project</dd>
+            <li>reset</li>
+            <dd> Undoes the changes that you have made to the files in your working directory</dd>
+            <li>log</li>
+            <dd> Enables you browse previous changes to a project </dd>
+            <li>branch</li>
+            <dd> Lets you create an isolated enviroment within your repository to make changes</dd>
+            <li>checkout</li>
+            <dd> Lets you see and change existing branches</dd>
+            <li>merge</li>
+            <dd>Lets you put everything back togheter again</dd>
+          </dl>
+          
+
+        </p>
+        <img class="imgquiz" src="../css/images/coursera/intro-ds-ibm/c3-m4-1.PNG" />
+        <p>
+          To start with a new project we can start creating a repository in Github, that would be the remote repository, 
+          once we have created our remote repository we can clone it via git or make a initial commit from our computer.
+        </p>
+        <img class="imgquiz" src="../css/images/coursera/intro-ds-ibm/c3-m4-2.PNG" />
+        <p>
+          We can clone our repository via HTTPS or SSH, but SSH is easier than HTTPS protocol, since the only need we need to do 
+          is to obtain a publick key to make the connection. in this step we use <i>git clone url</i><br>
+          Once we have created our repo and sync with our local machine we can start adding files to our repository trough all the 
+          developments we are making within the time. To see all the changes we have currently made we use <i>git status</i> and all those 
+          changes are located in a staging area, waiting to be commited.
+        </p>
+        <img class="imgquiz" src="../css/images/coursera/intro-ds-ibm/c3-m4-3.PNG" />
+        <p>
+          We can add this new files to the stage area using <i>git add "file"</i>. and then to commit these changes to the principal 
+          branch we only need to write the following code <i>git commit -m "reason commit" </i> that puts our changes into our local 
+          repository. <br>
+          Then we want to push all the work we have donde to the remote repository waiting to be reviewed and approbed by the team leader or pair 
+          <i>git push</i> .  After doing these steps we can upload these changes. <br>
+          To create a repository from scratch we do the following: <br>
+
+        </p>
+        <img class="imgquiz" src="../css/images/coursera/intro-ds-ibm/c3-m4-4.PNG" />
+        <p>
+           If we want to sync our local repository with the remote repository to download the new features a pair have made before, the code  
+           to do that is <i>git pull</i> <br>
+           If you want to create a new branch that does not intefiere with the master branch because you are working on a big feature, you can do it 
+           writing <i>git branch "nameofthebranch"</i> but that does not switch the branch you are, that only creates the branch, to switch 
+           to the new branch you need to type <i>git checkout "nameofthebranch" </i>. This new branch is created in your local machine 
+           to create it also in the remote repository you write <i>git push --set-upstream origin mybranch</i>. <br>
+           Once we have done all the features we need in the separated branch an we also want to merge those branch in the master branch to be principal 
+           you need to type <i>git merge "nameofthebranch"</i> from the master branch and then push it to the master branch. 
+        </p>
+        <img class="imgquiz" src="../css/images/coursera/intro-ds-ibm/c3-m4-5.PNG" />
+        <p>
+          To Fork a foreign remote repository all what you need to do is to click on <i>Fork</i> button in the remote repository 
+          to create a clone of that repository in your account, once you have cloned you can download it into your machine and make 
+          all the changes you want, once you have done this work, you are able to request a <i>pull request</i> to the owner of the original 
+          remote repository to add your changes in their repository. Once the author of the repository reads your changes he/she will accept/deny 
+          those changes and merged it to the original.
+        </p>
+
+
+
+
+
+
+
+
 
 
 

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="../css/estilos.css" rel="stylesheet" type="text/css" />
+    <title>DS IBM</title>
+  </head>
+  <body>
+    <div class="topnav">
+      <a href="../index.html">Home</a>
+      <a class="active"  href="../coursera.html">Coursera</a>
+      <a href="../universidad.html">Universidad</a>
+      <a href="../random.html">Random</a>
+    </div>
+
+    <div class="header_algorithms">
+        <div class="caption">
+            <span class="border">Applied Data Science with Python</span><br>
+            <span class="border">Cognitive Class Material Studio</span>
+          </div>
+
+    </div>
+
+    <div class="content">
+
+      <div class="leftcolumn">
+            <div class="card">
+                <h2>Introduction</h2>
+                <h4>Introduction to Data Analysis with Python</h4>
+                <p>
+                    In this section our goal is to answer: "Can we stimate the price of a car based on its characteristics?", 
+                    we are going to go through this question using differentes tools along the journey.
+                </p>
+                <img class="imgquiz" src="../css/images/coursera/applied_ds_ibm/c1-m1-1.PNG" />
+                <p>
+                    The first question we should ask is, Why data Analysis?, with data Analysis	we can give value to our data, 
+                    data itself does not mean information by its own, it is our job to discover those insights through the data 
+                    is collected to us.
+                </p>
+                <h4>The problem</h4>
+                <p>
+                    Tom is a normal person that want to sell his car, his car is used, but he do not know how much does the car cost,
+                    he wants to sell it at the maximum price but he also knows that price needs to be reasonable to someone wants to
+                    buy it, so How can we help tom to determine the best price to his car?
+                </p>
+                <img class="imgquiz" src="../css/images/coursera/applied_ds_ibm/c1-m1-2.PNG" />
+                <p>
+                    We need to understand what features or characteristics make a car valuable or what determine its price, we can also 
+                    compare data which other selling cars or car´s that were sold in the past. We have a lot of information to start dig around.
+                </p>
+                <img class="imgquiz" src="../css/images/coursera/applied_ds_ibm/c1-m1-3.PNG" />
+                <p>
+                    The first thing we need to do is Understand our Data, what we got? which format it is?, what kind of information each row 
+                    give us, trough this example we are going to work with a csv file, which is comma separated value, that means each row of 
+                    the data is actually one record to be aware of. each columns give us some kind of information and we can relate with documentation 
+                    a priori.
+                </p>
+                <img class="imgquiz" src="../css/images/coursera/applied_ds_ibm/c1-m1-4.PNG" />
+                <p>
+                    We also notice column 26 is "Price" that is our actual target value, or label, this means, price is the value 
+                    that we want to predict from the dataset, and the predictors should be all the others variables listed.
+                </p>
+                <h4>Importing and Exporting Data</h4>
+                <p>
+                  Importing is the process of loading data from different sources using Python. <br>
+                  When we load new data into our enviroment we need to keep in mind two factors:
+                  <ul>
+                    <li>Format: Some common format are csv,json, xlslsx, hdf </li>
+                    <li>Path File: Tell us where data is stored, it could be locally or on the internet</li>
+                  </ul>
+                  In Python the way to import these data is through Pandas using <i>read_csv</i>
+                </p>
+                <div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><span style="color: #008000; font-weight: bold">import</span> <span style="color: #008000; font-weight: bold">pandas</span> <span style="color: #008000; font-weight: bold">as</span> <span style="color: #008000; font-weight: bold">pd</span>
+
+                  <span style="color: #008000; font-weight: bold">url</span> <span style="color: #666666">=</span> <span style="color: #BA2121">"https://archive.ics.uci.edu/ml/machine-learningdatabases/autos/imports-85.data"</span>
+                  
+                  <span style="color: #008000; font-weight: bold">df</span> <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">pd</span>.<span style="color: #0000FF; font-weight: bold">read_csv</span><span style="color: #666666">(</span><span style="color: #008000; font-weight: bold">url</span><span style="color: #666666">)</span>
+                  </pre></div>
+                 <p>
+                   Our Data has no columns header, so we need to specify to our program that.
+                 </p> 
+                 <div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><span style="color: #008000; font-weight: bold">import</span> <span style="color: #008000; font-weight: bold">pandas</span> <span style="color: #008000; font-weight: bold">as</span> <span style="color: #008000; font-weight: bold">pd</span>
+
+                  <span style="color: #008000; font-weight: bold">url</span> <span style="color: #666666">=</span> <span style="color: #BA2121">"https://archive.ics.uci.edu/ml/machine-learningdatabases/autos/imports-85.data"</span>
+                  
+                  <span style="color: #008000; font-weight: bold">df</span> <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">pd</span>.<span style="color: #0000FF; font-weight: bold">read_csv</span><span style="color: #666666">(</span><span style="color: #008000; font-weight: bold">url</span><span style="color: #666666">,</span> <span style="color: #008000; font-weight: bold">header</span><span style="color: #666666">=</span><span style="color: #008000; font-weight: bold">None</span><span style="color: #666666">)</span>
+                  </pre></div>
+                <p>
+                  It is recommend to check out the data to get familiar with, using <i>df</i> is not recommended because it use a lot of 
+                  computing resources, instead we can use <i>df.head(n)</i> where n are n first rows of our dataset. Similarly, 
+                  <i>df.tail(n)</i> retrieves us the n last rows of the dataset.
+                </p>   
+                <img class="imgquiz" src="../css/images/coursera/applied_ds_ibm/c1-m1-6.PNG" />
+                <p>
+                  It is too difficult to work without headers in our dataset, we can assign it then, we create an array within 
+                  all the headers associated with the data and then we assign it using <i>df.columns = headers</i>
+                </p>
+                <img class="imgquiz" src="../css/images/coursera/applied_ds_ibm/c1-m1-7.PNG" />
+                <p>
+                  After working with your dataset, maybe you want to save it locally in same format as you load it, you can do this 
+                  using the method <i>df.to_csv(path)</i>
+                </p>
+                <div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%;"><span></span><span style="color: #008000; font-weight: bold">path</span> <span style="color: #666666">=</span> <span style="color: #BA2121">"C:\Windows\...\automobile.csv"</span>
+
+                  <span style="color: #008000; font-weight: bold">df</span>.<span style="color: #0000FF; font-weight: bold">to_csv</span><span style="color: #666666">(</span><span style="color: #008000; font-weight: bold">path</span><span style="color: #666666">)</span>
+                  </pre></div>
+                <p>
+                  You can load and save data in a variety of formats, so here are some examples of how to use it:    
+                </p>           
+                <img class="imgquiz" src="../css/images/coursera/applied_ds_ibm/c1-m1-8.PNG" />
+
+                <h4>Getting Started Analyzing Data</h4>
+                <p>
+                  Before any analysis you need to understand your data, what datatypes are in the data, how the data is distributed along the dataset, 
+                  taking into account these things you maybe point out potential issues, which may need to be resolved later on.  <br>
+                  Data has variety of types, the would object, strings, int, float, etc.
+                </p>
+                <img class="imgquiz" src="../css/images/coursera/applied_ds_ibm/c1-m1-9.PNG" />
+                <p>
+                  In pandas, we use <i>df.types</i> to check datatypes of all columns, we need to make sure all columns datatypes make sense, 
+                  and later on try to solve it, because some methods depends on the datatype they rely.
+                </p>
+                <img class="imgquiz" src="../css/images/coursera/applied_ds_ibm/c1-m1-10.PNG" />
+                <p>
+                  The first Insight of our dataset maybe is <i>df.describe</i> which retrieve a statistical summary of each colum, telling us 
+                  information like, mean, std, min_vale, max_value, etc.
+                </p>
+                <img class="imgquiz" src="../css/images/coursera/applied_ds_ibm/c1-m1-11.PNG" />
+                <p>
+                  This <i>df.describe()</i> only works with numeric data, columns or features that are non-numeric will be skipped, 
+                  but this is not a issue at all, if we want all the information including non-numeric data, we need to add a parameter 
+                  inside our method, so if we type <i>df.describe(include="all")</i> we retrieve all the information both numeric and non-numeric.
+                </p>
+                <img class="imgquiz" src="../css/images/coursera/applied_ds_ibm/c1-m1-12.PNG" />
+                <p>
+                  Another useful method is <i>df.info()</i> which retrieves concise summary of our dataset with the first and last 
+                  30 rows of data.
+                </p>
+                <img class="imgquiz" src="../css/images/coursera/applied_ds_ibm/c1-m1-13.PNG" />
+
+                
+
+
+
+
+
+
+
+       
+
+
+              
+
+
+
+
+
+
+            </div>
+            <div class="card">
+                <h2>Matriz de Rotación</h2>
+                <h5>Title description, Sep 2, 2017</h5>
+                <div class="fakeimg" style="height: 200px">Image</div>
+                <p>Some text..</p>
+            </div>
+      </div>
+    
+    
+    </div>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>
