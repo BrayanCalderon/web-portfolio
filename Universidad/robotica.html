@@ -188,29 +188,68 @@
                   Para representar un cuerpo matematicamente en un espacio lo tratamos como una nube de puntos
                 </p>
                 <img class="imgpost" src="../css/images/Universidad/Robotica/6-10-descripcion.PNG" />
-                
-
-
-
-
-
-
-
-
-
-
-                
-                  
-
-
+          
 
             </div>
 
             <div class="card">
-                <h2>Matriz de Rotación</h2>
-                <h5>Title description, Sep 2, 2017</h5>
-                <div class="fakeimg" style="height: 200px">Image</div>
-                <p>Some text..</p>
+                <h2>Descripción de Eslabones 27-10-2021</h2>
+                <p>
+                  Todos los eslabones tienen minimo dos articulaciones, y una distancia asociada entre articulaciones. Por tanto  
+                  un parametro caracteristico es la longitud, el cual se encuentra como la perpendicular común entre las dos articulaciones.
+                </p>
+                <img class="imgquiz" src="../css/images/Universidad/Robotica/27-70-1.PNG" />
+                <p>
+                  Observando las dos articulaciones, siempre se observará un eje que une a ambas articulaciones y un ángulo entre dichos ejes que proyectan las articulaciones. 
+                  El ángulo de torsión (\alpha) del eslabón se mide sobre la normal común entre ambos ejes. Con esos dos parametros, seremos capaces 
+                  de graficar cualquier eslabón. La normal común puede ir en ambas direcciones pero esta dirección influye en la dirección de alfa, por tanto 
+                  el signo del ángulo está asociado a la regla de la mano derecha.
+                </p>
+                <img class="imgquiz" src="../css/images/Universidad/Robotica/27-10-2.PNG" />
+                <h4>Conexiones de eslabones</h4>
+                <p>
+                  Dos eslabones se pueden unir mediante pares cinematicos menores, estás pueden ser prismaticas o pueden ser tipo, restrigiendo por tanto los tipos de movimiento 
+                  que son capaces de realizar. <br>
+                  Un eslabón es un cuerpo rígido que hace parte de una cadena cinematica, sin embargo un eslabón tambien se puede definir como una longitud y un ángulo de torsión. 
+                  Tengo que ver por tanto donde está ubicada la perpendicular común, el ángulo de torsión y el punto donde se encuentra la perpendicular común. <br>
+
+                </p>
+                <img class="imgquiz" src="../css/images/Universidad/Robotica/27-10-3.PNG" />
+                <p>
+                  La distancia de la articulación es la longitud que existe entre dos eslabones que están únidos mediante una articulación. 
+                  Esta distancia de articulación puede ser variable si la articulación es de tipo prismatica que se puede desplazar a través del eje. <br>
+                  Tenemos 4 parametros hasta el momento, 2 parametros para definir el eslabón y 2 parametros para definir una articulación. 
+                  En una articulación de tipo rotacional la longitud será fija, sin embargo, el ángulo de torsión será variable en contraste a la articulación traslacional 
+                  o prismatica.
+                  En resumen, la longitud y el ángulo de torsión en un eslabón es constante y fijo, en contraposición de la articulación, donde o la longitud o el ángulo pueden ser variable.
+                </p>
+                <img class="imgquiz" src="../css/images/Universidad/Robotica/27-10-4.PNG" />
+                <p>
+                  Por convención la dimensión de la base siempre será 0, de igual forma el ángulo de torsión para la base la puedo tomar como 0.
+                  De igual forma para el efector final puedo tomar su dimensión como 0, y el ángulo de torsión también sea cero. <br>
+                  Eslabón: es un cuerpo rígido que define la relación entre dos ejes de articulación adyacentes de un manipulador
+                </p>
+                <img class="imgquiz" src="../css/images/Universidad/Robotica/27-10-5.PNG" />
+                <h4>Parámetros de Denavit-Hartenberg</h4>
+                <img class="imgquiz" src="../css/images/Universidad/Robotica/27-10-6.PNG" />
+                <p>
+                  Se asigna un sistema de coordenadas por cada eslabón presente, en el espacio euclídeo, se ubica en primer lugar el orígen, 
+                  este en el lugar de la articulación, luego el eje Z, se traza colineal al eje de la articulación y el eje x se coloca perpendicular 
+                  al eje de la articulación o colineal a la longitud del eslabón.
+                </p>
+                <img class="imgquiz" src="../css/images/Universidad/Robotica/27-10-7.PNG" />
+                <h4>Ejemplos</h4>
+                <img class="imgquiz" src="../css/images/Universidad/Robotica/27-10-8.PNG" />
+                <img class="imgquiz" src="../css/images/Universidad/Robotica/27-10-9.PNG" />
+                <img class="imgquiz" src="../css/images/Universidad/Robotica/27-10-10.PNG" />
+
+
+
+
+
+
+
+
             </div>
       </div>
     

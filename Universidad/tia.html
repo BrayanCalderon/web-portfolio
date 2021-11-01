@@ -27,16 +27,246 @@
 
       <div class="leftcolumn">
             <div class="card">
-                  <h2>Cosenos Directores</h2>
-                <h5>Title description, Dec 7, 2017</h5>
-                <div class="fakeimg" style="height: 200px">Image</div>
-                <p>Some text..</p>
+                  <h2>Conceptos Basicos</h2>
+                <h4>Imagen Digital Bi-Dimensional</h4>
+                <p>
+                  Están compuestas por entidades geometricas simples, se pueden cambiar de escala sin afectar su resolución
+                </p>
+                <h4>BitMap</h4>
+                <p>
+                  
+                </p>
             </div>
             <div class="card">
-                <h2>Matriz de Rotación</h2>
-                <h5>Title description, Sep 2, 2017</h5>
-                <div class="fakeimg" style="height: 200px">Image</div>
-                <p>Some text..</p>
+                <h2>Filtrado dominio espacial 26/10/21</h2>
+                <h4>Realce</h4>
+                <p>
+                  El principal objetivo del realce es procesar una imagen para 
+                  que el resultado sea más adecuado para una aplicación especifica.
+                  Suelen haber dos categorias para las tecnicas de realce, en el dominio espacial y 
+                  el dominio frecuencial. <br>
+                  En el dominio espacial se refieren al plano de la imagen misma, y está basada en la manipulación directa 
+                  de los pixeles. <br>
+                  En el dominio frecuencial está basado en modificar la transformada de fourier de la imagen. <br>
+                  La transformada de Fourier por tanto era un tipo de suma ponderada de señales sinusoidales para 
+                  representar una señal objetivo.
+                </p>
+                <img class="imgquiz" src="../css/images/Universidad/TIA/27-10-1.PNG" />
+                <p>
+                  Las transformadas de Fourier son una forma de realizar una convulución del dominio temporal,
+                  en el dominio frecuencial esa convolución se traduce a una multiplicaciones simple de polinomios. 
+                  Por tanto en un problema que requiere convolución es normal pasarlo al dominio frecuencial realizar la operación 
+                  pertinente y luego regresarnos mediante la transformada inversa.
+
+                </p>
+                <h4>Operaciones Puntuales - Umbralización</h4>
+                <p>
+                  La operación más simple es cuando el operador T sólo actua en un vecindario 
+                  de pixel 1x1 en la imagen de entrada, es decir F(x,y) solo depende del valor de F
+                  en (x,y). Se conoce como transformacion de escala de gris.
+                </p>
+                <img class="imgquiz" src="../css/images/Universidad/TIA/26-10-2.PNG" />
+                <p>
+                  Uno puede aplicar distintos operadores punto a punto para la umbralización, estos pueden ser: 
+                  
+                </p>
+                <img class="imgquiz" src="../css/images/Universidad/TIA/26-10-3.PNG" />
+                <h4>Ecualización del histograma</h4>
+                <p>
+                  Es una tecnica para mejorar la apariencia de las imágenes, mediante la manipulación del 
+                  histograma, buscando que este tenga una distribución uniforme en todo el rango de intensidades.
+                </p>
+                <img class="imgquiz" src="../css/images/Universidad/TIA/26-10-4.PNG" />
+                <h4>Operaciones locales</h4>
+                <p>
+                  El dominio espacial se denota por la expresión: g(x,y) = T[f(x,y)] , donde 
+                  f(x,y) es la imagen de entrada, g(x,y) es la imagen procesada y T es el opreador en f definido 
+                  sobre un vecindario (x,y)
+
+                </p>
+                <img class="imgquiz" src="../css/images/Universidad/TIA/26-10-5.PNG" />
+                <p>
+                  En general utilizan la operación de convulución en señales bidimensionales para señales discreta y periodicas. 
+
+                </p>
+                <img class="imgquiz" src="../css/images/Universidad/TIA/26-10-6.PNG" />
+                <p>
+                  En una mascara puedo hacer distintas operaciones, como puede ser una reflexión, rotación, etc. 
+                  Para el caso de rotación si tengo una matriz de 3x3 de la siguiente forma [1 2 3; 4 5 6; 7 8 9] tendré 
+                  una reflexión de la forma [9 8 7; 6 5 4; 3 2 1].
+                </p>
+                <img class="imgquiz" src="../css/images/Universidad/TIA/26-10-7.PNG" />
+
+                <p>
+                  Una vez obtenida la mascara lo que puedo hacer es multiplicar punto a punto y sumo los valores para obtener el valor del pixel 
+                  en cuestión.  <br>
+                </p>
+                <h4>Filtros lineales de suavizado</h4>
+                <p>
+                  Estos filtros en general corresponden al promedio de un vecindario 
+                  definido por una máscara, son filtros pasabajos. <br>
+                  Reducen el ruido pero también suavizan los contornos o bordes
+                </p>
+                <img class="imgquiz" src="../css/images/Universidad/TIA/26-10-8.PNG" />
+                <p>
+                  La segunda mascara tiene un comportamiento gausiano dandolemás valor al pixel central. <br>
+                  Se muestra por tanto diferentes suavizados con distintos tamaños de mascaras, de tamaño 3 5 9 15 y 35:
+                </p>
+                <img class="imgquiz" src="../css/images/Universidad/TIA/26-10-9.PNG" />
+                <p>
+                  Al aumentar el tamaño de la mascara, se puede decir que se reitera ventanas pequeñas, es decir, 
+                  que una mascara de ventana 15 reitera varias veces mascaras de ventana 3. <br>
+                  Al realizar un filtrado, información se pierde en el proceso y no se puede revertir un filtrado.
+                </p>
+                <h4>Filtro no-lineales de orden estadístico</h4>
+                <p>
+                  Son filtros cuya respuesta está basada en el orden de los pixeles contenidos
+                  en el área de la imagen
+                </p>
+                <ul>
+                  <li>Mediana</li>
+                  <li>Maximo</li>
+                  <li>Minimo</li>
+                  <li>Moda</li>
+                </ul>
+                <p>
+                  Una comparación entre filtro por promedio y mediana se ve a continuación:
+                </p>
+                <img class="imgquiz" src="../css/images/Universidad/TIA/26-10-10.PNG" />
+                <p>
+                  Claramente el filtro por mediana mejora la visualización de los elementos de la imagen a la cual 
+                  se le ha añadido ruido. Pero este resultado no es lineal debido a que no se obtiene el mismo 
+                  resultado si se aplica la mediana primero en x y luego en y y viceversa.<br>
+
+                </p>
+                <img class="imgquiz" src="../css/images/Universidad/TIA/26-10-11.PNG" />
+                <h4>Filtro de Realce</h4>
+                <p>
+                  El objetivo de estos filtros es resaltar detalles finos o realzar detalles que han sido difuminados. <br>
+                  El realce es similar a la diferenciación espacial. Derivada de primer orden en una dimensión:
+                  df/dx = f(X + 1) - f(x) <br>
+                  Derivada de segundo orden en una dimensión: d^2t/dx^2=f(x + 1) + f(x - 1) - 2f(x) 
+                </p>
+                <img class="imgquiz" src="../css/images/Universidad/TIA/26-10-12.PNG" />
+                <p>
+                  Es un filtro derivativo isotrópico, definido por:
+                </p>
+                <img class="imgquiz" src="../css/images/Universidad/TIA/26-10-13.PNG" />
+                <img class="imgquiz" src="../css/images/Universidad/TIA/26-10-14.PNG" />
+                <p>
+                  Podemos obtener distintas implementación de máscaras del laplaciano como se observa en la imagen de 
+                  arriba, sin embargo siempre la suma debe ser 0.
+                </p>
+                <img class="imgquiz" src="../css/images/Universidad/TIA/26-10-15.PNG" />
+                <p>
+                  Podemos aplicar realce a los contornos de cualquier imagen
+                
+                </p>
+                <img class="imgquiz" src="../css/images/Universidad/TIA/26-10-16.PNG" />
+                <h4>Uso de la primera derivada en realce</h4>
+                <p>
+                  Se utiliza la magnitud del gradiente. Para una función f(x,y), el gradiente de f en las coordenadas 
+                  (x,y ), está definido por: 
+                </p>
+                <img class="imgquiz" src="../css/images/Universidad/TIA/26-10-17.PNG" />
+                <h4>Filtro de Sobel</h4>
+                <p>
+                  Utiliza dos máscaras o filtros: una para detectar los bordes verticales y otra para 
+                  detectar los bordes horizontales. <br>
+                  Así, para obtener los bordes completos se realiza la suma de las imagenes que resultan con los bordes verticales y 
+                  horizontales <br>
+                </p>
+                <img class="imgquiz" src="../css/images/Universidad/TIA/26-10-18.PNG" />
+                <img class="imgquiz" src="../css/images/Universidad/TIA/26-10-19.PNG" />
+                <H4>Filtro de Prewitt</H4>
+                <p>
+                  Consta de 8 matrices que se aplican pixel a pixel 
+                  a la imagen. Luego se suman las imagenes para obtener los bordes bien marcados. 
+
+                </p>
+                <img class="imgquiz" src="../css/images/Universidad/TIA/26-10-20.PNG" />
+                <h4>Detector de Bordes de Canny</h4>
+                <p>
+                  No es una operación punto a punto como las anteriores, pero es una función completa para realizar un filtrado. <br>
+                  Utiliza un algortimo de múltiples etapas para detectar una amplia gama de bordes en las imagenes. <br>
+                </p>
+                <img class="imgquiz" src="../css/images/Universidad/TIA/26-10-21.PNG" />
+                <h4>Modelos de Color</h4>
+                <p>
+                  Los modelos de color son formas de representar las imagenes, normalmente se utiliza RGB, 
+                  , pero existen otros modelos como BRG, CYM y demás.
+                </p>
+                <img class="imgquiz" src="../css/images/Universidad/TIA/26-10-22.PNG" />
+                <p>
+                  Existen 3 planos para cada color, por tanto la adición de los planos representa el color de la imagen R+G+B . 
+                  Asignarlos como 0 un plano no evita que la imagen sea a color, para eliminar un color por completo es preferible borrar el plano.
+                  <br> 
+                  Existen dos categorías de proceso:
+                  <ul>
+                    <li>Cada componente de la imagen se procesa individualmente y finalmente 
+                      se forma la imagen de color procesada a partir de las componentes.
+                    </li>
+                    <li>
+                      Se trabaja con los píxeles en color directamente
+                    </li>
+                  </ul>
+                  En el espacio RGB cada punto de color es interpretado como un vector
+                </p>
+                <img class="imgquiz" src="../css/images/Universidad/TIA/26-10-23.PNG" />
+                
+                <h4>Suavizado de imagenes en color</h4>
+
+                <p>
+                  El filtro promedio es un filtro de suavizado definido por: 
+                </p>
+                <img class="imgquiz" src="../css/images/Universidad/TIA/26-10-24.PNG" />
+                <p>
+                  Donde S_xy las coordenadas del vecindario centrado en x,y <br>
+
+                </p>
+                <img class="imgquiz" src="../css/images/Universidad/TIA/26-10-25.PNG" />
+                
+                <h4>Realce de imágenes en color</h4>
+                <p>
+                  Empleamos la técnica que utiliza el laplaciano
+                </p>
+                <img class="imgquiz" src="../css/images/Universidad/TIA/26-10-26.PNG" />
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+
+
+
+
+
+
+
+
+                
+
+
+
+
+
             </div>
       </div>
     

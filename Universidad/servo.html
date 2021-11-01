@@ -112,11 +112,190 @@
 
             </div>
             <div class="card">
-                <h2>Matriz de Rotación</h2>
-                <h5>Title description, Sep 2, 2017</h5>
-                <div class="fakeimg" style="height: 200px">Image</div>
-                <p>Some text..</p>
+                <h2>Mecanismos, DOF Y mobilidad</h2>
+                <h4>Dinamica</h4>
+                <img class="imgpost" src="../css/images/Universidad/Servos/14-10-1.PNG" />
+                <p>
+                  Lo asociamos a Kinematics donde hacemos el estudio del movimiento sin tener en cuenta las fuerzas, y Kinetics, 
+                  donde asociamos las fuerzas debido al movimiento. <br>
+                  Una articulación que pueda moverse en algún eje se denomina como eje, por tanto un mecanismo con 2R es un mecanismo, 
+                  que es capaz de rotar o desplazarse en dos ejes. <br>
+                  En un movimiento rotacional aplicamos torque y en un movimiento traslacional aplicaremos fuerza, esto para realizar 
+                  la selección de motores. Por tanto en el estudio de Kinematics y Kinectics podremos encontrar el torque máximo, valor 
+                  necesario para seleccionar una referencia de un motor. <br>
+                  
+                </p>
+
             </div>
+
+            <div class="card">
+              <h2>Perfiles de movimiento 26/10/2021</h2>
+              <h4>Perfil triangular y trapezoidal</h4>
+              
+              <p>
+                Los perfiles de movimiento nos permiten tener un perfil acerca del movimiento que se desea realizar mediante el mecanismo, 
+                cuando hablamos de triangular y trapezoidal nos referimos a la posición. <br>
+                Calculamos la posición como la integración de la velocidad y la aceleración como la primera derivada de la velocidad,
+                y el jerk como la segunda derivada. Dwell Time se refiere al tiempo de reposo de la velocidad. <br>
+                <img class="imgquiz" src="../css/images/Universidad/Servos/26-10-1.PNG" />
+                Para el perfil trapezoidal se suele referir en tiempos de 1/3 donde el primer tercio es una velocidad en aumento, 
+                luego una velocidad maxima, y finalmente un descenso en la velocidad hasta llegar a velocidad cero. No es necesario completamente que el 
+                pefil sea simetrico, el frenado por ejemplo puede ser más veloz que la aceleración inicial. <br>
+                Este perfil de velocidad trapezoidal se puede observar de la siguiente forma de manera grafica:
+      
+              </p>
+              <img class="imgquiz" src="../css/images/Universidad/Servos/26-10-2.PNG" />
+              <h4>Jerk Limiting</h4>
+              <p>
+                Suponiendo una banda transportadora que desplaza cajas de manera apiladas cuando hay una variación en la aceleración o velocidad 
+                en la banda sin un limitante de Jerk estas cajas pueden sufrir una caida debido al cambio de aceleración, debido a esto se propone 
+                una variación más suave en los cambios de aceleración disminuyendo así lo subito del cambio.
+              </p>
+              <img class="imgquiz" src="../css/images/Universidad/Servos/26-10-3.PNG" />
+              <p>
+                Por otro lado, realizar este tipo de maniobras tiene ciertos costos computacionales, este perfil de manera suavizada,
+                se conoce en la literatura como s-type debido a su forma senoide, sin embargo este tipo de perfil al ser no lineal lleva ciertos costos,
+                y es que se puede desglosar cada zona en zonas más pequeñas, por tanto, la primera subida se puede separar en 3 subzonas, una zona, no lineal, 
+                una zona lineal de ascenso constante, y finalmente una zona de desaceleración
+              </p>
+              <img class="imgquiz" src="../css/images/Universidad/Servos/26-10-4.PNG" />
+              <p>
+                Esto claramente tiene incidencia en la aceleración, posición y jerk, obteniendo así variaciones en las demás graficas. 
+                Como cambian las zonas entonces cambian tambien su conformación polinomial, sin el limitante de Jerk tenemos una composición polinomial de 2,
+                en contraste a un perfil de tipo S que se llega a una composición polinomial de grado 4.
+              </p>
+              <h4>Inertia Mismatch</h4>
+
+              <p>
+                Uno empieza mediante el supuesto que el mecanismo sea apropiado para el motor utilizado, sin embargo el motor se apoya 
+                mediante el sistema de transmisión de potencia mecanica, ajustando las relaciones de torque y velocidad angular. El motor no ve al mecanismo 
+                como es realmente es, sino lo observa mediante el sistema de transmisión de potencia mecanica ya sea agrandando el mecanismo o reduciendolo. <br>
+              </p>
+
+              <h4>Teoria generalizada de sistemas</h4>
+              <p>
+                Proveer ciertas bases para el modelado matematico, más alla de eslabones y articulaciones se observará por las partes que la conforman, siendo así 
+                masa resorte y amortiguamente, con masa nos referimos a movimiento traslaciones o momento de inercia cuando refiere a movimiento rotacional. <br>
+                Un motor es un elemento electro magnetico mecanico debido a que actua debido a los campos magneticos generados. Debido al tamaño de los motores, 
+                aumenta la resistencia electrica lo que aumenta la temperatura asociada al motor lo que nos limitará nuestro componentes o elecciones.
+                Para motores DC pequeños la resistencia electrica suele estar aproximadamente en el orden de decimas a unidades de Ohmios.
+              </p>
+              <p>
+                Las capacitancias se oponen a los cambios de tensión y las inductancias a los cambios de corriente. En un circuito electrico, 
+                es usualmente que se trabaje en cuestión a la tensión por tanto es más frecuente encontrar capacitores que bobinas, sin embargo, en motores 
+                la corriente tambien es importante para tener en consideración. La corriente está relacionada con el torque por tanto mantener la corriente uniforme 
+                en un motor mediante un driver es necesario mantener la corriente uniforme a lo largo del movimiento.
+              </p>
+              <img class="imgquiz" src="../css/images/Universidad/Servos/26-10-5.PNG" />
+              <p>
+                A nivel mecanico la relación más cercana a resistencia electrica es la masa, representanda por un amortiguador haciendo uso de la ecuación 
+                B = F/v, donde encontramos un relación de fricción debido a sus componentes este elemento suele representarse en catalogos con las unidades Ns/m. 
+                Para la capacitancia mecanica tendremos asociado la constante K que es la constante de resorte, por tanto el resorte es analogo al capacitor electrico. 
+                Para la componente de tipo inercial mecanico lo que tendremos asociado será la masa.
+              </p>
+              <img class="imgquiz" src="../css/images/Universidad/Servos/26-10-6.PNG" />
+              <p>
+                Para la parte mecanica rotacional tendremos analogias muy parecidas al movimiento traslacional, las cuales son las siguientes:
+
+              </p>
+              <img class="imgquiz" src="../css/images/Universidad/Servos/26-10-7.PNG" />
+              <p>
+                Para el amortiguamiento tenemos asociado el torque y la velocidad angular, por tanto las unidades que refieren a esta componente viene dado por [N*m*s/rads]. 
+                Por el lado del resorte torsional tenemos las siguientes unidades K_r = [T/theta] , para el momento de inercia tenemos [Kg-m^2]. 
+              </p>
+              <img class="imgpost" src="../css/images/Universidad/Servos/26-10-8.PNG" />
+
+          </div>
+
+          <div class="card">
+            <h2>Cargas Reflejadas y Aparentes 28-10-2021</h2>
+          <h4>Sistemas de transmisión de potencia mecánica</h4>
+          <p>
+            Cuando el mecanismo y el motor están conectado directamente se llama "Direct Drive". 
+            Nuestro STPM  lo podemos caracterizar en una primera aproximación mediante una potencia de entrada y una potencia de salida. 
+            Para las variables traslacionales, tenemos Fuerza y velocidad, para movimiento rotacional tengo Torque y movimiento angular, 
+            tanto para entrada como para salida. Haciendo uso de la ley de conservación de energía la potencia suministrada a la entrada 
+            deberá ser igual a la potencia generada a la salida. <br>
+            Un conjunto de elementos a los cuales se le puede realizar un análisis de transmisión de potencia son: 
+            Cajas de engranajes, polea y correa, cadena, Tornillos de transmisión de movimiento. <br>
+            Independientemente del elemento usado para la transmisión, todos hacen uso de la relación de transmisión, por tanto, 
+            idealmente la potencia de salida es igual a la potencia de entrada, por tanto no hay pérdidas. Sin embargo, esto es falso 
+            en el mundo real, debido a que si existen pérdidas en el proceso es decir Ps < Pe <br>
+            Para tener en cuenta las pérdidas producidas en la transmisión, podemos hacer uso de la eficiencia 
+            que se representa como la relación entre las potencias, Ps/Pe. De los elementos anteriormente mencionados, los tornillos 
+            de transmisión son lo más eficientes.
+          </p>
+          <img class="imgquiz" src="../css/images/Universidad/Servos/28-10-1.PNG" />
+          <p>
+            Hay diferentes formas de tratar con la eficiencia y las pérdidas, existen dos caminos: 
+            Primer camino es trabajar sobre las condiciones ideales y al final del ejercicio ajustar el cálculo para compensar esas pérdidas inherentes. 
+            El segundo camino es ir haciendo consideraciones progresivas de los factores de eficiencia provistos por los fabricantes, este camino 
+            siempre estará viciado por la disponibilidad de los datos de cada fabricante. <br>
+            Volviendo a la condición primera podemos decir que: Ps = Pe --> Ts*ws = Te*we ---> Ts/Te = we/ws
+          </p>
+          <img class="imgquiz" src="../css/images/Universidad/Servos/28-10-2.PNG" />
+          <p>
+            Podemos hablar de un factor N de transmisión creado de la relación anterior, esta N es la relación de transmisión de potencia, 
+            a secas como relación de transmisión. La N puede ser llevada a otros ámbitos, como desplazamiento de salida y entrada, de igual forma 
+            de aceleración de entrada y salida. <br> 
+            En general, en control de movmiento usamos sistemas de transmisión de potencia mecánica con reducción de velocidad. 
+          </p>
+          <img class="imgquiz" src="../css/images/Universidad/Servos/28-10-3.PNG" />
+          <p>
+            El proceso empieza en el lado de la aplicación, "La aplicación es la reina", todo se selecciona para cumplir 
+            los requerimientos de una aplicación, por ejemplo la velocidad de producción, que se traduce en un movimiento ciclíco o 
+            repetitivo. Por tanto partiendo de la aplicación se escoge el STPM y finalmente el motor que sea valido. Este procedimiento 
+            se hace para cada eje, cumpliendo perfiles de movimeinto diferente en cada ocasión. <br>
+            El torque o par es otra variable determinante, el torque o par que necesita otorgar el STPM, estos calculos se logran gracias al entendimiento de como se mueve 
+            el mecanismo en el tiempo, por ejemplo un eslabón. <br>
+            El factor nos permite aumentar el torque proporcionado por motor, una vez calculado el torque máximo podemos dimensionar el motor, por medio del sizing. 
+          </p>
+          <img class="imgquiz" src="../css/images/Universidad/Servos/28-10-4.PNG" />
+          <p>
+            La Maniobralidad es la capacidad o caracteristica del sistema de control de ejercer un movimiento rapido y preciso sobre el motor. 
+            El rango de operación de un motor paso a paso es menor que el de un servomotor. Un motor paso a paso suele tener un rango de operación de 
+            1000 RPM, para un motor asíncrono de jaula de ardilla tiene una velocidad tipica de 1800-1600 RPM, y en motores Brushless DC  BLDC, suelen estar 
+            entre 3000-5000 RPM, por medio de la caja de transmisión tendremos una ganancia a partir de las RPM aportadas por el motor DC.
+          </p>
+          <h4>Cargas Reflejadas o Aparentes </h4>
+          <p>
+            Retomando la clasificación por componentes de nuestro sistema, podemos recordar que la masa o inercia están asociados 
+            a una aceleración, el amortiguador está asociado a la fricción y el resorte está asociado a la flexibilidad. <br>
+            <ul>
+              <li>Inercia aparente o Reflejada</li>
+              Dado un STPM, mediante el cual tiene un sistema de engranajes, tiene asociado un N.  El momento de inercia 
+              que está adjunto al mecanismo, se considera el mecanismo una carga para el motor y STPM. El torque es conveniente 
+              acompañarlo de la aceleración provista por el eje de entrada. <br>
+              Por tanto vamos a observar el mecanismo que es observado desde el motor, y por tanto en el eje del motor, el torque y aceleración
+              visto se conoce como proceso de reflejo, finalmente El torque aparente y aceleración aperente se puede medir desde el eje del motor. <br>
+              <img class="imgquiz" src="../css/images/Universidad/Servos/28-10-5.PNG" />
+              <li>Amortiguador Aparente</li>
+              En este caso haremos equivalencia entre Torque y velocidad en los ejes de la STPM, por tanto obtendremos como resultado un 
+              B_lap. A mayor N tendremos mayores perdidas, por tanto hay que tener un balance en la selección de este parametro.
+              <li>Resorte Aparente</li>
+              En este caso haremos equivalencia entre Torque y desplazamiento angular de entrada y salida.  
+              <img class="imgquiz" src="../css/images/Universidad/Servos/28-10-6.PNG" />
+              <li>Relación o razón de Inercia</li>
+              IR: Inertia Ratio, IR = J_ap/J_motor , es la relación entre la carga mecanica y la capacidad del motor, se recomienda por tanto que la relación de
+              inercia sea menor a 10 para un correcto funcionamiento.
+              <img class="imgquiz" src="../css/images/Universidad/Servos/28-10-7.PNG" />
+
+
+
+            </ul>
+          </p>
+
+
+
+
+
+          
+
+
+      </div>
+
+
+
       </div>
     
     
