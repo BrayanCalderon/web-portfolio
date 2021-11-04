@@ -279,17 +279,84 @@
               IR: Inertia Ratio, IR = J_ap/J_motor , es la relación entre la carga mecanica y la capacidad del motor, se recomienda por tanto que la relación de
               inercia sea menor a 10 para un correcto funcionamiento.
               <img class="imgquiz" src="../css/images/Universidad/Servos/28-10-7.PNG" />
-
-
-
             </ul>
           </p>
+      </div>
+
+      <div class="card">
+        <h2> 2-11-2021</h2>
+      <p>
+        La relación de Inercia es uno de los temas más importantes para el curso debido a que este es el que dimensiona por completo 
+        el motor que estará accionando el mecanismo, y hacer uso correcto de relación de Inercia, abaratará costos en un aspecto, sin embargo 
+        esta relación es importante para mantener un balance entre precisión y velocidad. Por tanto si hay una desproporción entre la carga aparente y el motor 
+        el mecanismo no funcionará de manera favorable.
+      </p>
+      <img class="imgquiz" src="../css/images/Universidad/Servos/2-11-1.PNG" />
+      <p>
+        Mientras más critica sea la aplicación, se buscará que siempre esta relación este por debajo de 10 y lo más cercano a 1. Mientras más cercano 
+        sea a 1, más preciso y veloz será el mecanismo, pero se evitará estar por debajo de 1 aunque se pueda realizar de manera matematica.
+      </p>
+      <h4>Caso de Estudio: FMS - Manufactura Flexible</h4>
+      <img class="imgquiz" src="../css/images/Universidad/Servos/2-11-2.PNG" />
+
+      <p>
+        Sea un disco giratorio que está unido a un sistema de transmisión de potencia de relación generica N y un servomotor con un 
+        encoder de sensado, buscaremos en un primer paso el dimensionamiento del motor en relación a la aplicación. <br>
+        El disco tiene ciertas estaciones de trabajo mecanizadas, donde es posible ubicar productos sobre estas estaciones. 
+        El disco tiene 7 estaciones de trabajo en total, el ángulo entre dos estaciones de trabajo será denominado como theta y se realizará 
+        siempre a favor de las manecillas del reloj. <br>
+        La primera pregunta a realizar por tanto es como realizar un perfil para alcanzar una segunda estación de trabajo dado una posición inicial, 
+        el diseño del perfil va de parte del diseñador, y es recomendable por tanto trabajar con perfiles de velocidad más que de posición. <br> 
+        Nuestro perfil de velocidad tendrá una forma trapezoidal hasta llegar a la nueva estación de trabajo, y como se repite el ciclo, se caracteriza 
+        como repetitivo. El periodo T, será la duración total de un movimiento, y una distribución tipica para la distribución trapezoidal 
+        es de 1/3, hay que asignar de igual forma un tiempo de reposo entre movimiento para que el mecanismo pueda realizar alguna operación sobre el producto. 
+      </p>
+      <img class="imgquiz" src="../css/images/Universidad/Servos/2-11-3.PNG" />
+      <p>
+        Como nuestro disco tiene 7 estaciones de trabajo, podemos hablar sobre consideraciones angulares, para movernos entre estaciones 
+        podemos definir un delta theta donde en ese caso especifico es 2*pi/7 , para pasar dos estación es 4*pi/7, para pasar a 3 estaciones es 6*pi/7, 
+        , para mayor productividad se recomienda realizar movimiento con inversión de giro para movimientos mayores de estaciones. <br>
+        Mencionando lo anterior requerimos inversión de giro del motor.  Por tanto entendiendo la aplicación podemos realizar un dimensionamiento del motor 
+        ya sabemos que necesitamos ciertas cosas para realizar lo anterior mencionando, necesitamos: controlador, driver, motor, mecanismo.
+      </p>
+      <img class="imgquiz" src="../css/images/Universidad/Servos/2-11-4.PNG" />
+      <p>
+        En algunos equipos electronicos, el controlador al momento de comunicarse con el drive puede hacerlo de varias formas, una 
+        forma es por medio de dos señales, Signo y magnitud, donde Signo es la dirección que tomará el motor,y magnitud es la velocidad a la que irá el motor. 
+        Los transistores al funcionar en tipo conmutación abierto/cerrado se enviará una señal tipo PWM para controlar la velocidad del motor, esto dando una tensión 
+        aparente al motor en su funcionamiento.
+      </p>
+      <img class="imgquiz" src="../css/images/Universidad/Servos/2-11-5.PNG" />
+      <p>
+        Haremos el ejercicio para 6*pi/7 que es mover el disco por 3 estaciones de trabajo de una sola vez. Estaremos usando el perfil trapezoidal 
+        y haremos una distribución de 1/3. Haremos una consideración de velocidad máxima, de relación N y de dimensiones del disco, como se ve a continuación.
+      </p>
+      <img class="imgquiz" src="../css/images/Universidad/Servos/2-11-6.PNG" />
+      <p>
+        Para una relación N de 100 y una velocidad máxima de 0,5 rads tendremos una velocidad máxima de 50 rads/s en nuestro motor, y la conversión en rpm 
+        son 477 revs/mins. Se recomienda no usar motores paso a paso debido a la velocidad, y por tanto se recomienda usar motores dc y motores tipos brushless. <br> 
+        Como nuestro perfil es de velocidad, para obtener el desplazamiento tendremos que hacer una integración. En términos de perfil de velocidad 
+        hay que relacionar el delta theta deseado con el perfil que se busca. 
+      </p>
+      <img class="imgquiz" src="../css/images/Universidad/Servos/2-11-7.PNG" />
+      <img class="imgquiz" src="../css/images/Universidad/Servos/2-11-8.PNG" />
+      <h4>Tipos de Cargas</h4>
+      <p>
+        Hay 4 tipos de cargas para realizar un dimensiona del motor, estas son: Inercial, Fricción, Gravitacional y de Proceso. <br> 
+        Estos tipos de cargas pueden estar o no presentes en las distintas aplicaciones, Donde las cargas de tipo inercial se refiere a los torques 
+        o fuerzas necesarios para acelerar o desacelerar un mecanismo, se puede considera como la carga principal. La carga de fricción 
+        está asociado a los torques o fuerzas necesarios para compensar el rozamiento entre las piezas. El caso de la carga gravitacional se refiere 
+        a los torques o fuerzas cuando las cargas se afectan directamente por el peso. Proceso está asociado a los torques o fuerzas que deben compensar 
+        el mecanismo. 
+      </p>
+      <img class="imgquiz" src="../css/images/Universidad/Servos/2-11-9.PNG" />
+      <h4>Análisis de tipos de cargas</h4>
+      <img class="imgquiz" src="../css/images/Universidad/Servos/2-11-10.PNG" />
+      <img class="imgquiz" src="../css/images/Universidad/Servos/2-11-11.PNG" />
 
 
+      
 
-
-
-          
 
 
       </div>

@@ -243,6 +243,54 @@
                 <img class="imgquiz" src="../css/images/Universidad/Robotica/27-10-9.PNG" />
                 <img class="imgquiz" src="../css/images/Universidad/Robotica/27-10-10.PNG" />
 
+            </div>
+            <div class="card">
+              <h2>Benavit 2/11/2021</h2>
+            <p>El resumen de los parametros se puede apreciar en la siguiente imagen:            </p>
+            <img class="imgquiz" src="../css/images/Universidad/Robotica/2-11-1.PNG" />
+              <p>
+                Mientras que los pasos para asignar un marco de referencia a un eslabón o vínculo son los siguientes: 
+              </p>
+              <img class="imgquiz" src="../css/images/Universidad/Robotica/2-11-2.PNG" />
+              <h4>Ejercicio</h4>
+              <p>
+                A continuación se presenta un ejercicio de resolución de Denavit-Hartenberg: El primer paso es, contar los eslabones móviles, 
+                las articulaciones, identificar las longitudes de los eslabones, y determinar los ejes de las articulaciones
+              </p>
+              <img class="imgquiz" src="../css/images/Universidad/Robotica/2-11-3.PNG" />
+              <p>
+                Una vez identificado esos parametros físicos, pasaremos a ubicar las normales comunes, como los ejes son paralelos 
+                la normal común se puede ubicar en cualquier lugar debido a que son paralelos, sin embargo las ubicaremos a lo largo del eslabón. 
+                Los origines luego se ubican en la interesección de los ejes de las articulaciones con las normales comunes. 
+              </p>
+              <img class="imgquiz" src="../css/images/Universidad/Robotica/2-11-4.PNG" />
+              <p>
+                Siguiente paso es ubicar los ejes asociados a cada origen, en este caso una vez seleccionados los ejes Z, los 
+                eje X se ubican en dirección de los eslabones o normal al plano perpendicular de la normal común. El sistema de coordenadas 0
+                se puede ubicar coincidente sobre 0 por convención para facilitar calculos posteriores.  De igual forma el sistema de coordenadas final 
+                , el que se ubica en el efector final de igual forma se ubica sobre el eje de la última articulación. 
+              </p>
+              <img class="imgquiz" src="../css/images/Universidad/Robotica/2-11-5.PNG" />
+              <h4>Tabla de parametros de Denavit-Hartenberg</h4>
+              <p>
+                Para construir esta tabla haremos uso de los ángulos de torsión de los eslabones, las distancias entre ejes y los parametros asociados a cada eslabón.
+              </p>
+              <img class="imgquiz" src="../css/images/Universidad/Robotica/2-11-6.PNG" />
+              <p>
+                Donde haciendo uso de la tabla de resumen de parametros mostrada en la imagen anterior, una vez es rellenada la tabla se obtiene lo siguiente
+              </p>
+              <img class="imgquiz" src="../css/images/Universidad/Robotica/2-11-7.PNG" />
+              <p>
+                Para el primer eslabón, 3 de los parametros son constantes y para este caso particular son iguales a cero, excepto el último parametro de rotación 
+                el cual es variable y tendrá un valor de q_1. <br>
+                Existe un valor adicional, llamado Offset que va de acuerdo a la posición Home del robot, por tanto si nuestro Marco base y Marco 1 no son colineales esta 
+                diferencia entre los marcos será llamado Offset.
+              </p>
+              <img class="imgquiz" src="../css/images/Universidad/Robotica/2-11-8.PNG" />
+
+
+
+
 
 
 
@@ -251,9 +299,9 @@
 
 
             </div>
-      </div>
-    
-    
+
+
+          </div>
     </div>
 
     <script src="js/script.js"></script>
