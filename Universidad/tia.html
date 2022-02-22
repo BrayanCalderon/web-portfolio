@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="../css/estilos.css" rel="stylesheet" type="text/css" />
-    <title>Robotica</title>
+    <title>TIA</title>
   </head>
   <body>
     <div class="topnav">
@@ -24,8 +24,288 @@
     </div>
 
     <div class="content">
-
       <div class="leftcolumn">
+
+          <div class="card">
+             <h2>Morfologia</h2>
+             <h4>Operaciones Morfologicas</h4>
+             <p>La morfologia es utilizada para manipular la forma de las imagenes, principalmente utilizado en imagenes binarias o en imagenes con tonalidades de grises, este proceso 
+               suele ir posterior a la segmentación.
+             </p>
+             <h4>Dilatación</h4>
+             <p>La dilatación es utilizada para aumentar la cantidad de pixeles blancos o "1" en una imagen </p>
+             <img class="imgquiz" src="../css/images/Universidad/TIA/4-01-1.PNG" />
+             
+            <img class="imgquiz" src="../css/images/Universidad/TIA/4-01-8.PNG" />
+            <p>
+              S es una matriz binaria que funciona de mascara o ventana deslizante, que se desplaza a lo largo y ancho y hacia arriba y hacia abajo de la imagen, 
+              la salida de esta operación será 0 siempre y cuando todos los elementos que se estén operando con la mascara sean cero, de lo contrario será 1. Es decir, 
+              cada vez que la estructura tome como entrada algún 1, el centro de dicha estructura será por tanto 1.
+            </p>
+            <img class="imgquiz" src="../css/images/Universidad/TIA/4-01-9.PNG" />
+            <p>
+              Como la estructura es de 3x3, estamos agregando un pixel de dilatación a toda la imagen, si la estructura fuera mayor, por ejemplo de 5x5, la imagen se dilata 2 pixeles alrededor.
+             </p>
+             <p>
+               Con una estructura de tipo cruz, el resultado puede ser más preciso en los bordes, no perdiendo tanta información de estos.
+             </p>
+             <h4>Erosion</h4>
+             <p>La erosión es utilizada para disminuir la cantidad de pixeles blancos que existen en una imagen</p>
+             <img class="imgquiz" src="../css/images/Universidad/TIA/4-01-2.PNG" />
+             <img class="imgquiz" src="../css/images/Universidad/TIA/4-01-10.PNG" />
+             <p>
+               La erosión sigue la misma idea de la dilatación, pero en este caso la erosión tiene como salida "1" si todos los elementos que están 
+               dentro de la estructura son "1", de lo contrario se colocará un "0" como resultado en el centro de la estructura.
+             </p>
+             <img class="imgquiz" src="../css/images/Universidad/TIA/4-01-11.PNG" />
+             <p>
+               Esta estructura es muy agresiva, por tanto se pierde demasiada información al pasar la estructura, una estructura de tipo cruz pueded solucionar 
+               o ser un poco más precisa a la hora de erosionar una imagen.
+             </p>
+             
+             <h4>Perimetro</h4>
+             <p>A partir de una imagen binaria, se obtiene la frontera de una imagen</p>
+             <img class="imgquiz" src="../css/images/Universidad/TIA/4-01-3.PNG" />
+             <img class="imgquiz" src="../css/images/Universidad/TIA/4-01-12.PNG" />
+             <p>
+               El perimetro, es un algoritmo simple utilizando las tecnicas anteriores, por tanto a la imagen original se le resta la operación obtenida por medio de la erosión, 
+               esta operación nos permite obtener el perimetro de una imagen.
+             </p>
+             <img class="imgquiz" src="../css/images/Universidad/TIA/4-01-13.PNG" />
+
+             <h4>Relleno</h4>
+             <p>A partir de una imagen binaria, que conforma un perimetro, se puede rellenar una sección de la imagen, tambien puede ser utilizada 
+               despues de una segmentación donde hay una sección no rellenada
+             </p>
+             <img class="imgquiz" src="../css/images/Universidad/TIA/4-01-4.PNG" />
+             <p>
+               El proceso de relleno de una imagen, suele ser un poco más complicado, sin embargo no es dificil en su interpretación, la idea principal de este algoritmo
+               es escoger un pixel semilla que puede ser el centro de nuestra sección a rellenar, la idea es hacer crecer en las 4 direcciones, y repetir de forma iterativa dicho proceso 
+               hasta llegar a la frontera o al perimetro. <br>
+               Por tanto el algortimo a seguir es el siguiente, se toma una matriz E de bordes, que es el perimetro de la sección a rellenar, una matriz X que será del tamaño de la imagen original, pero 
+               completa de ceros, (i,j) será la posición de la semilla, donde X(i,j) = 1 que será la ubiación de la semilla, defino la estructura S en forma de cruz 3x3,
+               y realizo una dilatación de dicho pixel blanco, y me aseguro que cuando se realicé la dilatación no toque el borde, por tanto aquellos pixeles que tocan el borde,
+               serán eliminados o no serán tenidos en cuenta. El algoritmo funcionará hasta que dos imagenes de salida sean iguales, es decir que no hay más dirección hacia donde crecer.
+             </p>
+             <img class="imgquiz" src="../css/images/Universidad/TIA/4-01-14.PNG" />
+             <h4>Cierre</h4>
+             <p>
+               El cierre es una operación que nos permite rellenar una sección que no se completó durante la segmentación
+             </p>
+             <img class="imgquiz" src="../css/images/Universidad/TIA/4-01-15.PNG" />
+             <img class="imgquiz" src="../css/images/Universidad/TIA/4-01-16.PNG" />
+             <p>
+               La idea principal del cierre es aplicar una dilatación capaz de rellenar todos aquellas secciones internas de la imagen, para posteriormente
+               realizar una erosión que solo disminuya los pixeles dilatados de manera exterior.
+             </p>
+             <h4>Apertura</h4>
+             <p>
+               La apertura es lo contrario al cierre, nos permite eliminar secciones no deseadas de una imagen, por tanto el primer paso es realizar una erosión seguida de una dilatación. 
+               Este proceso aveces puede conllevar perdida de información debido a la dilatación 
+             </p>
+             <img class="imgquiz" src="../css/images/Universidad/TIA/4-01-17.PNG" />
+
+
+             <h4>Limpieza</h4>
+             <p>Despues de una segmentación si existen partes que no están perfectas por medio de este operación es posible limpiar dichas impurezas</p>
+             <img class="imgquiz" src="../css/images/Universidad/TIA/4-01-5.PNG" />
+
+             <h4>Esqueletización</h4>
+             <p>
+               Produce un esqueleto de una imagen, erosionando de manera sucesiva la imagen hasta que quede el esqueleto de una imagen
+             </p>
+             <img class="imgquiz" src="../css/images/Universidad/TIA/4-01-6.PNG" />
+             <h4>Union</h4>
+             <p>
+               Cuando una linea es interrumpida se puede volver a unir utilizando dicha operación, puede ser utilizada despues de una esqueletización
+             </p>
+             <img class="imgquiz" src="../css/images/Universidad/TIA/4-01-7.PNG" />
+            
+             <h4>Gradiente Morfologico</h4>
+             <p>
+               El gradiente morfologico es la resta de ambas operaciones en imagenes que se encuentren en tonos de grises no binarias, 
+               obteniendo así una especie de bordes que son obtenidos como el gradiente de la imagen.
+             </p>
+             <img class="imgquiz" src="../css/images/Universidad/TIA/4-01-18.PNG" />
+             <img class="imgquiz" src="../css/images/Universidad/TIA/4-01-19.PNG" />
+
+
+
+
+          </div>  
+
+
+
+          <div class="card">
+            <h2>Clase 16/11/21</h2>
+            <h4>Segmentación basada en similitud/Division y mezcla de regiones </h4>
+            <p>
+              Otra forma de realizar una segmentación basada en la similitud es utilizando la divisón y mezcla de regiones, para esto, se toma toda la imagen 
+              como homogenea, al ser falso, la imagen se divide en 4 secciones y en cada sección va realizando la misma operación hasta cumplir que todo sea verdadero.
+            </p>
+            <img class="imgquiz" src="../css/images/Universidad/TIA/16-11-1.PNG" />
+            <p>
+              Luego de realizar la división es normal que se obtenga una sobresegmentación de las regiones, para esto se recomienda por tanto, 
+              crear un algoritmo de fusión de regiones que compartan el mismo nivel de gris
+            </p>
+            <img class="imgquiz" src="../css/images/Universidad/TIA/16-11-2.PNG" />
+            <p>
+              La tecnica de divisón se puede representar en un arbol de con 4 nodos hijos, debido a su división en 4 partes, usualmente se conoce 
+              como quadtree, donde la raiz de este arbol se destaca por ser la imagen original o completa.
+            </p>
+            <img class="imgquiz" src="../css/images/Universidad/TIA/16-11-3.PNG" />
+
+            <p>
+            Una tecnica que se utiliza para realizar la división es por medio de la desviación estandard, se define una std y se calcula la media, 
+              si existe un valor que supere dicha std se realiza la partición, por ejemplo: 
+            </p>
+            <img class="imgquiz" src="../css/images/Universidad/TIA/16-11-4.PNG" />
+            <p>
+              La media de la imagen original está en 134,25 y la std se encuentra en 19,9, es decir que estamos por encima de la desviación estandard que definimos
+              y por tanto realizamos una partición. La única partición que se volverá a dividir será la región C que tiene una desviación que está por encima de 10
+            </p>
+            <img class="imgquiz" src="../css/images/Universidad/TIA/16-11-5.PNG" />
+            <p>
+              Luego la región C al dividirse no tiene mayores desviaciones mayores a 10 en sus subregiones, por tanto tendremos 5 subregiones encontradas. <br>
+              El paso siguiente a la división es la mezcla, hay que volver a juntas aquellas regiones que adyacentes cuya desviación estandar no sea mayor que la definida. 
+            </p>
+            <img class="imgquiz" src="../css/images/Universidad/TIA/16-11-6.PNG" />
+            
+            <p>
+              Para realizar la fusión hay que seguir ciertas reglas y si una zona ya se ha fusionado no puede volver a fusionarse con un bloque adyacente en la priemra iteración, 
+              en siguientes iteraciones si se puede realizar. 
+            </p>
+            <img class="imgquiz" src="../css/images/Universidad/TIA/16-11-7.PNG" />
+            <p>
+              Finalmente, podemos resumir este método de la siguiente forma
+            </p>
+            <img class="imgquiz" src="../css/images/Universidad/TIA/16-11-8.PNG" />
+            <h4>Evaluación de la segmentación</h4>
+            <p>
+              
+            </p>
+
+
+
+
+
+
+
+
+
+
+
+
+          </div>
+
+          <div class="card">
+            <h2>Clase 11/11/21</h2>
+            <h4>Segmentos de una imagen</h4>
+            <p>
+              Los segmentos de una imagen R son subregiones que conforman la imagen y están totalmente conectadas, estás segmentaciones se pueden 
+              realizar entre discontinuidad y similitud
+            </p>
+            <img class="imgquiz" src="../css/images/Universidad/TIA/11-11-1.PNG" />
+            <h4>Segmentación basada en similitud/texturas</h4>
+            <p>   
+              Dada una imagen que esté representada en niveles de grises f(x,y) donde los objetos se pueden diferenciar del fondo, 
+               una forma de segmentarlos es debido a un umbral definido que separe estos dos lobulos
+            </p>
+            <img class="imgquiz" src="../css/images/Universidad/TIA/11-11-2.PNG" />
+            <p>
+              Por ejemplo:
+            </p>
+            <img class="imgquiz" src="../css/images/Universidad/TIA/11-11-3.PNG" />
+            <p>
+              En la imagen anterior se pueden encontrar 12 segmentos en la imagen, y se pueden colocar 
+              etiquetas en cada una de los segmentos. Las etiquetas a los pixeles se hacen de izquierda a derecha y de arriba hacia abajo. 
+              Las imagenes segmentadas pueden sufrir de sobresegmentación y esto se soluciona  con un procesamiento de las etiquetas, comparando 
+              los predicados de cada etiqueta y viendo si son adyacentes y del mismo nivel de gris. <br>
+              Muchas veces la segmentación binaria no es la adecuada, por tanto una segmentación o umbralización multinivel es necesaria para tener mas información de la foto 
+              o imagen. 
+            </p>
+            <img class="imgquiz" src="../css/images/Universidad/TIA/11-11-4.PNG" />
+            <p>
+              A,B,C se recomienda que sean valores lejanos que permitan visualizar de manera correcta la umbralización.
+            </p>
+            <img class="imgquiz" src="../css/images/Universidad/TIA/11-11-5.PNG" />
+            <p>
+              El siguiente paso es saber que tantos niveles de grises se puede separar una imagen, y esto puede diferir para cada imagen 
+              con los niveles de grises en su histograma, el primer problema es que los histogramas están llenos de ruidos debido a su naturaleza discretizada. <br>
+              Se puede por tanto aplicar un filtro pasabajos para reducir los niveles de ruido que existe en el histograma, se pueden aplicar mascaras de filtro como la mediana, el promedio etc.
+            </p>
+            <img class="imgquiz" src="../css/images/Universidad/TIA/11-11-6.PNG" />
+            <img class="imgquiz" src="../css/images/Universidad/TIA/11-11-7.PNG" />
+            <p>
+              Mediante un filtro gausiano, se puede dar mayor peso al valor central esto para evitar perdidas en la información de los niveles de grises,
+              como se puede ver a continuación en distintas mascaras de tamaño 3 y de tamaño 5. SIn embargo, hay distintas formas de generar esta umbralización, 
+              puede ser el método triangulo, el método de otsu, algoritmo de busqueda gaussiana, 
+            </p>
+            <img class="imgquiz" src="../css/images/Universidad/TIA/11-11-8.PNG" />
+            <h4>Umbralización por el método de Otsu</h4>
+            <p>
+              El método de otsu calcula el automaticamente el valor de umbral del histograma de imagen para una imagen bimodal.
+            </p>
+
+
+
+
+
+
+
+
+          </div>
+            
+          <div class="card">
+              <h2>Clase 4/11/21</h2>
+               <h4>Erosion</h4>
+               <p>
+                 La erosion es una tecnica de preprocesamiento morfologico que permite eliminar pixeles de los bordes de una imagen, 
+                 esto es puede ser para obtener el esqueleto de algún contorno y especificar mejor su forma.
+               </p> 
+               <img class="imgquiz" src="../css/images/Universidad/TIA/4-11-1.PNG" />
+               <h4>Dilatación</h4>
+               <p>
+                 La dilatación realiza el proceso contrario a la erosión, en este caso la dilatación nos sirve para agregar pixeles en los contornos 
+                 hallados en una imagen, permitiendonos así aumentar el grosor del cuerpo.
+               </p>
+               <img class="imgquiz" src="../css/images/Universidad/TIA/4-11-2.PNG" />
+               <h4>Apertura</h4>
+               <p>
+                 La apertura es una combinación de las dos operaciones anteriores, es una erosión seguida de una dilatación. 
+                 Esto se se realiza para eliminar información ruido que este cerca del contorno importante.
+               </p>
+               <img class="imgquiz" src="../css/images/Universidad/TIA/4-11-3.PNG" />
+               <h4>Cierre</h4>
+                <p>
+                  El cierre realiza el proceso contrario a la apertura, en este caso tenemos una dilatación seguida de una erosion. 
+                  Esto se realiza cuando se tiene ruido en la parte de la forma principal, esta operación elimina dicho ruido. 
+                </p>
+                <img class="imgquiz" src="../css/images/Universidad/TIA/4-11-4.PNG" />
+                <h4>Gradiente Morfólogico</h4>
+                <p>
+                  Es la diferencia entre la dilatación de la imagen, este tipo de tecnica nos permite 
+                  contonear una forma o un objeto.
+                </p>
+                <img class="imgquiz" src="../css/images/Universidad/TIA/4-11-5.PNG" />
+                <h4>Sombrero de copa</h4>
+                <p>
+                  Es la diferencia entre la imagen original y la imagen cuando se realiza una apertura
+                </p>
+                <h4>Sombrero Negro</h4>
+                <p>
+                  Es la diferencia entre la imagen tratada con cierre y la imagen original
+                </p>
+                <h4>Hit or miss</h4>
+                <p>
+                  Es una opeción binaria morfologica que puede ser usada para buscar patrones particulaes, 
+                  en el primer plano y el background de una imagen. Intersección entre una apertura y un cierre.
+                </p>
+                <img class="imgquiz" src="../css/images/Universidad/TIA/4-11-6.PNG" />
+                <button class="button" style="vertical-align:middle"><span><a href="notebooks/Operaciones_morfologicas.html" target="_blank">Operaciones morfologicas</a></span></button>
+
+          </div>
+
             <div class="card">
                   <h2>Conceptos Basicos</h2>
                 <h4>Imagen Digital Bi-Dimensional</h4>
@@ -240,7 +520,6 @@
               <button class="button" style="vertical-align:middle"><span><a href="notebooks/Filtro_color.html" target="_blank">Filtros de Color</a></span></button>
               <button class="button" style="vertical-align:middle"><span><a href="notebooks/Espacio_color.html" target="_blank">Espacio de Color</a></span></button>
               <button class="button" style="vertical-align:middle"><span><a href="notebooks/Histogramas.html" target="_blank">Histogramas</a></span></button>
-
             </div>
 
 

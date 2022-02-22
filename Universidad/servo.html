@@ -353,19 +353,231 @@
       <h4>Análisis de tipos de cargas</h4>
       <img class="imgquiz" src="../css/images/Universidad/Servos/2-11-10.PNG" />
       <img class="imgquiz" src="../css/images/Universidad/Servos/2-11-11.PNG" />
+      </div>
 
+      <div class="card">
+      <h2>Dimensionamiento de Motores 4-11</h2>
+      <h4>Perfil de torque Inercial</h4>
+      <p>
+        El torque inercial no es constante a través del tiempo, por tanto este está construido a partir de una función que depende del tiempo. 
+        Por tanto el torque inercial máximo estará condicionado por el alfa máximo. Todas estas operaciones están del lado de la carga 
+      </p>
+      <img class="imgquiz" src="../css/images/Universidad/Servos/4-11-1.PNG" />
+      <h4>Torque de fricción</h4>
+      <p>
+        El torque de fricción normalmente estará dado por los rodamientos que estén acoplados en los ejes, los rodamientos son casi que obligatorios para garantizar un movimiento optimo de las piezas.
+      </p>
+      <p>
+        El torque total será la suma por tanto de los torques inerciales y de fricción, este torque de fricción a groso modo se considera constante en el tiempo, debido que va relacionado con la velocidad del eje, las aceleraciones que se proporcionan se toman como impulsos. <br>
+        A la hora de dimensionar un motor hay dos métodos a la hora de abordar este problema, de forma Newtoniana y de forma Lagrangiana. En este curso se tomará el método newtoniano. 
+        Por el enfoque newtoniano se tiene ecuaciones de balance traslacionales y rotacionales. 
+      </p>
+      <img class="imgquiz" src="../css/images/Universidad/Servos/4-11-2.PNG" />
+      <p>
+        Del lado del motor para conocer el torque percibido por este tendremos que hacer una conversión que está dada por el sistema de transmisión de potencia, es decir por medio del factor N, 
+        de igual forma para el torque de fricción, esta relación no es igual a las cargas reflejadas en el motor donde es N^2
+      </p>
+      <img class="imgquiz" src="../css/images/Universidad/Servos/4-11-3.PNG" />
+      <p>
+        Las graficas en el tiempo asociadas a los torques de lado del motor se pueden ver a continuación, esta grafica de torque dinamico a través del tiempo, es lo necesario 
+        para empezar a dimensionar el motor para nuestra aplicación.  
+      </p>
+      <img class="imgquiz" src="../css/images/Universidad/Servos/4-11-4.PNG" />
+       </div>
 
+       <div class="card">
+        <h2>Torque RMS o Efectivo</h2>
+      <p>
+        El calculo para obtener el torque efectivo o RMS está dado por la siguiente ecuación
+      </p>
+      <img class="imgquiz" src="../css/images/Universidad/Servos/9-11-1.PNG" />
+      <p>
+        En resumen hay que calcular 3 parametros importantes al comienzo de un sistema servomotor 
+        <ul>
+          <li>W_max motor</li>
+          <li>T_pico motor</li>
+          <li>T_rms motor</li>
+        </ul>
+      </p>
+      </div>
       
+      <div class="card">
+        <h2>Motores Electricos 23/11</h2>
+        <img class="imgquiz" src="../css/images/Universidad/Servos/23-11-1.PNG" />
 
+        <p>
+          Los motores se permiten clasificar de distintas formas según su fabricación, 
+          esto como se puede ver en la imagen anterior. Existiendo motores de escobillas, 
+          sin escobillas, jaula de ardilla, motores paso a paso, etc. <br>
+          <ul>
+            <li>Stepping Motors</li>
+            Son motores utilizados para alcanzar precisión de posicionamiento via control digital. <br>
+            Los motores funcionan por una sincronización con el pulso de la señal de salida del controlador hacia el driver. 
+            Los motores paso a paso generan un alto torque a una baja velocidad mientras que minimizan las vibraciones, son ideales para 
+            aplicaciones que requieren un rapido posicionamiento a traves de cortas distancias.
+            <img class="imgquiz" src="../css/images/Universidad/Servos/23-11-2.PNG" />
+            <li>Servomotores</li>
+            Los servomotores son conocidos por ser altamente veloces con una alta precisión de movimiento. 
+            Siempre funcionan en lazo cerrado al tener consigo un encoder en la parte de atras, tipicamente tienen dos cables
+            uno trifasico que va conectado al driver y un segundo cable que provee la señal del encoder.<br>
+            El controlador recibe información necesaria del motor, pero no suele ser de manera directa, encontraste con el driver que si cuenta con esta eletronica 
+            para procesar estas altas velocidades. <br>
+            Los servomotores están principalmente construidos de 3 elementos principales, el motor quien genera el torque, 
+            el encoder que detecta la posición y el driver que controla el motor. Debido a su alto torque en velocidades altas, 
+            las aplicaciones utilizadas se destinan a travel de larga distancias y de alta velocidad. Posicion y velocidad son obtenidos a partir del lazo cerrado.
+            <li>Motores AC standard</li>
+            Motores AC convencionales de inducción, se fabrican usualmente con cajas reductoras, usualmente empleados en aplicaciones con velocidad constante, 
+            se puede variar la velocidad por medio de los variadores de velocidad. <br>
+            Operan por una conexión de un capacitor y se conectan directamente al flujo de energía. Los motores AC incluyen una inducción basica y de inversión. En adición 
+            <li>Motores tipo Brushless</li>
+              Son motores sin escobillas ideal para aplicaciones donde se requiere precisión de velocidad. Utilizan VFD ? 
+            
+            </ul>
+        </p>
+      </div>
+
+
+      <div class="card">
+        <h2>Selección de motores 25/11</h2>
+        <h4>Guia de Selección de motores</h5>
+        <p>
+          Existen distintas metricas para seleccionar un motor, siendo la primera de estas la aplicación a la cual va dirigido dicho
+          elementos, existen aplicaciones como:
+          <ul>
+            <li>Operacion a velocidad constante</li>
+              Se recomiendan motores tipo AC de induccion, si la velocidad no es deseada se puede utilizar un variador de frecuencia, 
+              o cambiar la relacion N para obtener la velocidad requerida. Existen ejes maestros y esclavos, los ejes esclavos suelen guardar
+              una proporcionalidad con el eje maestro, por ejemplo de 0,75%.
+            <li>Operacion a velocidad constante y control de posicion</li>
+              Los servomotores son recomendados en este tipo de aplicacion debido a la integracion de los encoders, que nos permiten 
+              tener un control tanto de la velocidad como de la posicion de los mismo, de igual forma la velocidad a la que operan dichos motores
+              suele ser de alrededor de 3000 a 5000 RPM, supliendo un alto abanico de funciones que requieren dicho funcionamiento.
+            <li>Operacion bajo una aplicacion especifica o ambiente especifico</li>
+              Existen distintas aplicaciones con necesidades distintas, los motores motores con control de Torque pueden ser los mejores 
+              para suplir esta necesidad, una aplicacion especifica puede ser las actividades de enrollado.
+              Existen normas de proteccion de los elementos, entre ellos la proteccion IP nos indica el nivel de proteccion de ingreso de elementos como polvo y 
+              de elementos liquidos, un motor con nivel de proteccion IP 65, tendra proteccion contra el polvo y contra chorros de agua.
+            <li>Operaciones con velocidad variable</li>
+              Los motores tipos Brushless son los recomendados para este tipo de aplicacion, y los servomotores son de mayor performance.
+            <li>Operaciones con alta precision de posicionamiento</li>
+              Los motores paso a paso nos permiten manejar un control de posicion adecuado, sin embargo no es la unica alternativa 
+              los servomotores y motores brushless con la sensorica apropiada puede resultar con valores de resolucion de posicionamiento muy altos. <br>
+              Largas distancias servotores, Cortas Distancias paso a paso.
+          </ul>
+          Para tener una mejor idea acerca de las velocidades de cada tipo de tecnologia en los motores, se tiene la siguiente tabla.
+        </p>
+        <img class="imgquiz" src="../css/images/Universidad/Servos/25-11-1.PNG" />
+        <h4>Motores DC principios de funcionamiento y modelado</h4>
+        <img class="imgquiz" src="../css/images/Universidad/Servos/25-11-2.PNG" />
+        <p>
+          La direccion de conduccion de electricidad suele ser muy importante para la orientacion de rotacion de un motor, 
+          por tanto se utiliza la convencion de mano derecha para esclarecer dicha direccion.
+        </p>
+        <img class="imgquiz" src="../css/images/Universidad/Servos/25-11-3.PNG" />
+        <p>
+          Se sabe de Fisica que los polos opuestos se atraen y los iguales se repelen, usando esta afirmacion 
+          se hace funcionar a la mayoria de motores electricos, y es que se ubica un conductor en presencia de un campo magnetico 
+          fijo, y cuando se hace circular corriente por medio del conductor este crea un campo magnetico que afectara al campo magnetico 
+          existente creando asi una fuerza 
+        </p>
+        <img class="imgquiz" src="../css/images/Universidad/Servos/25-11-4.PNG" />
+        <p>
+          Por tanto al tener la armadura de tal forma que pueda rotar sobre su propio eje y energizar esta, estaremos logrando un movimiento 
+          de rotacion como se puede observar en la siguiente figura.
+        </p>
+        <img class="imgquiz" src="../css/images/Universidad/Servos/25-11-5.PNG" />
+        <p>
+          Se recomienda pensar en la bobina como un plano, donde cada vez que haya mayor corriente concurriendo a traves del plano, 
+          el campo electromagnetico generado sera mayor. 
+        </p>
+        <img class="imgquiz" src="../css/images/Universidad/Servos/25-11-6.PNG" />
+        <p>
+          Para el modelado del motor DC se tienen en cuenta distintas relaciones causa-efecto que nos permiten 
+          relacionar de mejor manera dicho motor. <br>
+          
+        </p>
+
+        <div class="card">
+          <h2>Modelado Motores DC 30/11</h2>
+          <p>
+            Existen relaciones electricas que tienen consecuencias de manera mecanica, por tanto relacionar dichos efectos con sus 
+            causas es una parte importante de dicho analisis. <br>
+            El principio motor del motor, es que al generar corriente a través de la bobina, esta genera su campo magnetico afectando al campo magnetico 
+            fijo del motor, esta interacción creará un par electromagnetico que hará rotar a la bobina, generando así movimiento. <br>
+            Otro principio de asociado al motor es la fuerza contraelectromotriz, este se produce suponiendo que la bobina no este conectada y se encuentre 
+            dentro del campo magnetico fijo, cuando esta empieza a rotar, generará una tensión debido a la rotación, siendo mayor cuando las lineas de campo magnetico 
+            atraviesa de manera perpendicular al plano de la bobina.
+          </p>
+          <p>
+            Las relaciones electricas-mecanicas que nos permiten modelar de manera acercada al motor DC, empieza por medio de una tensión de alimentación 
+            v_a  que se traduce finalmente como posición en el motor o velocidad, dependiendo de la aplicación.
+          </p>
+          <img class="imgquiz" src="../css/images/Universidad/Servos/30-11-1.PNG" />
+          <p>
+            El torque de carga va contrario al torque generado por el motor, este torque puede generar pertubaciones en el sistema. <br>
+            La parte matematica del modelado de un motor DC se puede expresar de manera matematica de la siguiente forma:
+            En muchas ocasiones la tension de entrada es usada como señal PWM del sistema, pero está tensión de entrada hay que controlarla
+            de tal forma que la corriente no afecte demasiado al comportamiento deseado debido a la forma exponencial que esta adopta. <br>
+                    
+          </p>
+          <img class="imgquiz" src="../css/images/Universidad/Servos/30-11-2.PNG" />
+          <p>
+            La ecuación que asocia a la parte electrica y la parte mecanica se asocia a la idea de que a partir de una corriente, 
+            es generado un torque, dicho torque de motor será por tanto un factor de la corriente aplicada, y dicho factor es conocido 
+            como Constante de Torque.
+          </p>
+          <img class="imgquiz" src="../css/images/Universidad/Servos/30-11-3.PNG" />
+          <p>
+            Para la parte mecanica, se aplica una ecuación de balance de torques y se tiene en cuenta el factor J y B componentes mecanicos en nuestro modelado
+            Si existe caja reductora en nuestro mecanismo se tiene en cuenta, ya que eso afecta de manera inversamente proporcional a nuestros parametros.
+          </p>
+          <img class="imgquiz" src="../css/images/Universidad/Servos/30-11-4.PNG" />
+          <p>
+            Se obtiene la transformada de Laplace de la anterior ecuación, y se observa como bloques de la siguiente manera, se tiene en cuenta de igual 
+            forma el efecto generador de tensión generad a partir de la rotación obtenida en el motor.
+          </p>
+          <img class="imgquiz" src="../css/images/Universidad/Servos/30-11-5.PNG" />
+          <p>
+            Por tanto un diagrama de bloques completo del motor, está denotado de la siguiente manera. <br>
+            Se observa tanto de primer orden y de segundo orden.
+          </p>
+          <img class="imgquiz" src="../css/images/Universidad/Servos/30-11-6.PNG" />
+          <h4>Respuesta del Sistema</h4>
+          <p> 
+            La respuesta del sistema está dado en parte por la señal de entrada PWM, como está señal es suficientemente rapida
+            por encima de 20Khz, se toma como constante debido a que el sistema no alcanza a procesar esos cambios tan rapidos.
+          </p>
+          <img class="imgquiz" src="../css/images/Universidad/Servos/30-11-7.PNG" />
+
+        </div>
+
+        <div class="card">
+          <h2>Modelado de motores 02/12</h2>
+          <p>
+            Se obtuvo de manera analitica desde la clase pasada la siguiente forma de modelado:
+          </p>
+          <img class="imgquiz" src="../css/images/Universidad/Servos/02-12-1.PNG" />
+          <p>
+            Se simplifica hacia una función de primer orden, asumiendo La como 0, donde Km y Tm son parametros del motor.
+          </p>
+          <img class="imgquiz" src="../css/images/Universidad/Servos/02-12-2.PNG" />
+          <img class="imgquiz" src="../css/images/Universidad/Servos/02-12-3.PNG" />
+
+
+
+
+          
+      </div>
+
+
+        
 
 
       </div>
 
 
 
-      </div>
-    
-    
+      </div>    
     </div>
 
     <script src="js/script.js"></script>

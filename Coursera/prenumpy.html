@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="../css/estilos.css" rel="stylesheet" type="text/css" />
+    <title>Numpy</title>
+  </head>
+  <body>
+    <div class="topnav">
+      <a href="../index.html">Home</a>
+      <a class="active"  href="../coursera.html">Coursera</a>
+      <a href="../universidad.html">Universidad</a>
+      <a href="../random.html">Random</a>
+    </div>
+
+    <div class="header_algorithms">
+        <div class="caption">
+            <span class="border">Preprocessing with Numpy</span><br>
+            <span class="border">Study Material</span>
+          </div>
+
+    </div>
+
+    <div class="content">
+
+      <div class="leftcolumn">
+            <div class="card">
+                  <h2>Introduction to Numpy</h2>
+                <h4>What is an array?</h4>
+                <p>
+                    N-D array es N-Dimensional array, es un array de N dimensiones, donde podemos crear un espacio de N+1 dimensiones, 
+                    con cadenas secuenciales de arrays de tamaño N.
+                </p>
+                <img class="imgquiz" src="../css/images/coursera/numpy/1-1.PNG" />
+                <p>
+                    Podemos relacionar los arrays de tamaño 0 como valores escalares, los arrays de dimensión 1 como vectores, y los arrays 
+                    de 2 dimensiones como matrices. <br>
+                    Son bastante utiles los arrays N dimensionales porque son la forma más facil de trabajar 
+                    con algebra lineal además de poder realizar operaciones punto a punto con ellos.
+                </p>
+                <h4>Using the Numpy Documentation</h4>
+                <p>
+                    En la documentación de Numpy encontraremos toda la información relevante a las funciones, metodos y atributos de toda la clase. <br>
+                    Cuando revisamos una función por ejemplo numpy.mean() observamos que tenemos información acerca del método, de los parametros 
+                    que recibe de si son opcionales u obligatorios además de decir el tipo de retorno que genera la función.
+                </p>
+                <img class="imgquiz" src="../css/images/coursera/numpy/1-2.PNG" />
+                <h4>Ndarrays</h4>
+                <p>
+                    Son un tipo de dato especial en Python, donde se pueden guardar multiples valores numericos de manera secuencial, ademas este tipo de estructura de datos es original 
+                    de Numpy, finalmente este tipo de dato tiene propiedades de punto a punto. <br>
+                    Ndarrays se convirtió en el standard industrial para mandejo de datos. 
+
+                </p>
+                <h4>Lists vs Arrays</h4>
+                <p>
+                    La principal diferencia entre listas y Arrays es la forma en que Python accede a cada uno de estos, y es que mientras los Arrays tienen operaciones punto por punto, 
+                    las listas hacen las operaciones en su totalidad, por tanto si sumamos dos arrays tendremos un array del mismo tamaño pero con los elementos de cada uno sumados, 
+                    sin embargo si sumamos dos listas lo que se realiza es una concatenación de estas. Siendo este una de las mayores ventajas de numpy con sus arrays 
+                    al no tener que iterar sobre los arrays sino que las operaciones se hacen directamente sobre estos.
+                </p>
+
+                <!--Poner Url de los notebooks de las tareas pasados a html-->
+                
+
+
+            </div>
+            <div class="card">
+                <h2>Numpy Fundamentals</h2>
+                <h4>Indexing</h4>
+                <p>
+                  Utilizamos indices para referirnos a elementos individuales que están dentro de un array. 
+                  Estas coordinadas nos ayudan a navergar a traves del array. <br>
+                  Los indices se trabajan como indices y empiezan desde el indice 0. 
+                  Para arrays de dimensiones mayores a 1 los indices se ponen de manera secuencial, por ejemplo array_a[0][1][2] o array_a[0,1,2].
+                </p>
+                <h4>Assigning Values</h4>
+                <p>
+                  Hay distintas formas de asignar valores a un array. Se pueden asignar valores de manera individual,
+                  de forma por filas o columnas, y de forma de asignar un mismo valor a todo el array.
+                </p>
+                <h4>Elementwise Properties</h4>
+                <p>
+                  La propiedad más importante de los N-darrays de numpy es que las operaciones matematicas que se realizan 
+                  se aplican para cada uno de los elementos, evitando así iterar de manera explicita sobre los arrays. <br>
+                  Las listas y los arrays sirven para propositos diferentes, mientras que las listas son utilizadas para almacenar datos, los arrays 
+                  son utilizados para realizar operaciones matematicas por tanto, cuando manejamos listas lo hacemos como datos y no como elementos. <br>
+                  Tambien es posible realizar sumas punto a punto en arrays de distintas dimensiones siempre y cuando el largo de las filas concuerden 
+                  por tanto sí tengo un array de 1D y un array de 2D la fila del vector se suma a cada fila del array 2D.
+                </p>
+                <h4>Types of Data supported by Numpy</h4>
+                <p>
+                  Numpy puede soportar distintos tipos de datos en sus arrays, como Numpy fue creado utilizando C, tendremos por tanto todos los tipos de datos creados para C, 
+                  int,float,bool,str,complex y sus distintas variaciones, pero no solamente los tipos de datos de C sino también además nuevos tipos de datos como, 
+                  timedelta, datetime y object.
+                </p>
+                <h4>Characteristics of Numpy Functions</h4>
+                <p>
+                  Las funciones universales trabajan con los NDarrays elemento por elemento, y se puede considerar como una extensión de la propiedad
+                  de operaciones punto a punto. <br>
+                  Incluyendo operaciones matematicas, trigonometricas y de comparació, además de broadcasting, casting, etc. 
+                  <ul>
+                    <li>Broadcasting</li>
+                    Hay ocasiones donde queremos realizar operaciones punto a punto, 
+                    pero puede suceder que los elementos tienen distintos tamaños o dimensiones que no permiten realizarlo, 
+                    En esos casos podemos "broadcast" la variable más pequeña y crear una variable "broadcasted" del tamaño mayor. <br>
+                    Sin embargo existen 3 reglas importantes a la hora de realizar un broadcast de una variable y estos son:
+                    Los arrays deben tener el mismo shape, los arrays deben tener el mismo número de dimensiones y el largo de cada dimension es común o 1, y 
+                    y los arrays de menor dimension pueden alterar su shape a 1 para cumplir la segunda regla.
+                  </ul>
+                </p>
+                <img class="imgquiz" src="../css/images/coursera/numpy/2-1.PNG" />
+                <p>
+                  <ul>
+                    <li>Type Casting</li>
+                    Type casting es tomar cada elemento de un array y cambiarlo al tipo de dato deseado. 
+                    Esto es importante para normalizar el tipo de datos durante las aplicaciones creadas o analisis que se esten raelizando.
+                    <br>
+                    Tambien podemos aplicar una función a lo largo de un eje seleccionado. 
+                    Es decir que Numpy separa el NDarray en pequeños arrays de N-1 dimensiones y aplicando ahi sí la función deseada. 
+                    <br>
+                    Por ejemplo, al aplican np.mean(matrix,axis = 0) estamos buscando el promedio de cada columna del array, 
+                    suponiendo que el array es de tamaño nxn. 
+                  </ul>
+                </p>
+            </div>
+            <div class="card">
+              <h2>Working with arrays</h2>
+              <h4>Slicing</h4>
+              <p>
+                Slicing, permite crear nuevos arrays tomando porciones de valores de un array previamente creado. Esto nos permite 
+                Puede contener filas, columnas enteras del array original o solo parte de estos. <br>
+                Stepwise slicing es otra forma de realizar slicing, la diferencia es que no estamos atados a valores conjuntos, podemos obtener valores separados 
+                que están distanciados un paso que se define con anterioridad, el paso puede ser positivo o negativo, pero nunca cero.
+              </p>
+              <img class="imgquiz" src="../css/images/coursera/numpy/3-1.PNG" />
+              <h4>Conditional Slicing</h4>
+              <p>
+                Conditional Slicing es una forma especial de hacer slicing ya que tomaremos los pedazos del array en cuestión siempre y cuando se cumpla una condición.
+                Aplicar un condicional sobre un array con slicing nos devuelve el array con valores booleanos a partir de la condición. Si queremos retornar aquellos valores 
+                donde se cumple la función pasamos este array de boleanos como slicing al array y esto nos devuelve un vector 1D de todos aquellos valores que cumplen la condición.
+              </p>
+              <h4>Dimensions and the squeeze function</h4>
+              <p>
+                Cuando hacemos slicing de un array hay que tener cuidado de la forma en que lo hacemos, podemos obtener valores escalares hasta vectores de N dimensiones, dependiendo del array de entrada 
+                esto es importante debido a que existen funciones que solo aplican para tamaños o valores escalares fijos, por tanto hay que ser consistente con los valores retornados. <br>
+                El método Squeeze es un método importante ya que nos remueve todos los parentesis cuadrados inecesarios de un slicing, por tanto si hacemos un slicing que nos retorna un solo valor 
+                en un array de 2 dimensiones, squeze quitará estos brackets y retornara solo el valor escalar requerido. <br>
+                
+              </p>
+
+          </div>
+          <div class="card">
+            <h2>Generating data with Numpy</h2>
+          <h4>Arrays of 0's and 1's</h4>
+          <p>
+            Por medio de Numpy podemos inicializar distintos arrays con valores premeditados, pueden ser arrays con valores no inicializados, valores en cero, valores random, valores pseudorandom, etc. <br>
+            Por medio de _like  podemos generar array teniendo en cuenta la forma de otras matrices que se usan con _like. <br>
+            Usando np.arange() podemos crear valores secuenciales en nuestros arrays, esta función es la equivalente a range() en python, 
+            de igual forma podemos aplicar steps para dicha función. 
+          </p>
+          <h4>Random Generators</h4>
+          <p>
+            En Numpy podemos crear generadores de valores para popular nuestros arrays, esto lo hacemos por medio de generadores random. 
+            Por tanto la función numpy.random.Generator una vez importada como gen, tomará un bit generador como entrada, 
+            y creará objectos generadores. Estos objetos generadores le podemos pasar una seed como argumento, esto para obtener siempre el mismo dataset random en el tiempo. <br>
+            numpy.choice() da la idea de tomar una elección arbitraria dada una secuencia. 
+
+          </p>
+          
+      </div>
+
+      <div class="card">
+        <h2>Importing and saving data with Numpy</h2>
+        <h4>np.loadtxt() and np.genfromtxt()</h4>
+        <p>
+          Hay distintas formas de importar datos utilizando Numpy a un notebook o a una aplicación, estos formas pueden ser utilizando, 
+          np.loadtxt() y np.genfromtxt() ambos sirven para importar archivos csv, loadtxt() funciona para archivos donde los valores están listos para ser utilizados, 
+          generate indica que la función crea el dataset a partir del texto encontrado en el archivo. load es más rapido 
+          y genfromtxt es más flexible. <br>
+
+        </p>
+        <h4>Partial cleaning while importing</h4>
+        <p>
+          Para conocer mejor a nuestro dataset es importante realizar una limpieza de datos, ya que estos no suelen estar 100% completos, 
+          esto nos permite realizar operaciones de manera más sencilla y con menos errores en el proceso. genfromtxt tiene distintos argumentos que nos permiten modificar nuestro dataset, 
+          argumentos como skip_header y skip_footer nos permiten saltarnos filas tanto del inicio como del final, usecols nos permite seleccionar las columnas en las cuales estamos interesados, 
+          delimiter nos permite definir el delimitador que se está usando en el archivo csv, y finalmente unpack nos permite separar el array que retorna en vectores separados.
+        </p>
+
+        <h4>
+          String vs Object vs Number
+        </h4>
+        <p>
+          Python can interpret a dataset in different ways, we can import it like strings, objects, or numbers. 
+          Por ejemplo si importamos un dataset con np.int32 los valores faltantes serán rellenados con -1 y las notaciones cientificas serán reemplazadas por su valor entero. 
+          Si importamos el dataset como texto hay que tener cuidado debido a que entonces las operaciones se trabajarán como cadenas de texto y no como valores numericos. 
+          Y finalmente hay que evitar en lo posible añadir distintos dtypes a una importación de un dataset.
+        </p>
+        <h4>Saving Data</h4>
+        <p>
+          Cuando querramos guardar información a traves de numpy tenemos varias opciones. 
+          La primera es mediante np.save() la cual crea un archivo nativo de Numpy llamado NPY en el mismo directorio donde está guardado 
+          el script. NPY es más rapido que csv y txt, y necesita menor espacio que sus congeneres. 
+          <br>
+          Distintas formas de guardas datos son np.save(), np.savez() ,  np.savetxt()
+        </p>
+      </div>
+
+      <div class="card">
+        <h2>Titulo</h2>
+        <h4>Reshaping</h4>
+        <p>
+          Hacer Reshape a una matriz es necesario cuando esta no cumple con las dimensiones necesarias para ser tratadas en una función posterior o en un paso posterior. <br>
+          Por tanto Reshape es cambiar la forma de un objeto de cierta manera que pueda cumplir nuestras especificaciones.
+        </p>
+        
+      </div>
+
+            
+          </div>
+    </div>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>

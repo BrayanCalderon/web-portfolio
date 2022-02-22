@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="../css/estilos.css" rel="stylesheet" type="text/css" />
+    <title>Neural Networks </title>
+  </head>
+  <body>
+    <div class="topnav">
+      <a href="../index.html">Home</a>
+      <a class="active"  href="../coursera.html">Coursera</a>
+      <a href="../universidad.html">Universidad</a>
+      <a href="../random.html">Random</a>
+    </div>
+
+    <div class="header_algorithms">
+        <div class="caption">
+            <span class="border">Neural Networks</span><br>
+            <span class="border">and Deep Learning</span>
+          </div>
+
+    </div>
+
+    <div class="content">
+
+      <div class="leftcolumn">
+            <div class="card">
+                <h1>Logistic Regression as a Neural Network</h1>
+                <h2>Binary Classification</h2>
+                <p>
+                     A binary classification problem is a problem where you have an input and you desire if theres exists or not 
+                     something in the input. For example, we want to know wether or not there are cats in a photo, our ouputs is "yes" or 
+                     "no", only two options. For this kind of problem a Logistic regression is one way to solve it. Returning to the examples of cat 
+                     we can say for example we have photos with 64x64 pixels, so the first step is unroll thes pixel values, a photo is constitued by 3 
+                     color channels, RGB, so we have 64x64x3 differentes values, we are going to store it in a features vector x.
+                     <img class="imgquiz" src="../css/images/coursera/neural/2-1.PNG" />
+                     We can also know the dimension of the x vector, that is called n_x that represents the dimension of the input features. 
+                     A single training example is comprised as (x1,y1) which is the input and the output for our first training example. <br>
+                     We have also some notation, for example M is used for training set, and m is used for the number of test examples.
+                     a matrix X is used to comprised our training set, where each column is a single training piece, we also stack our outputs in 
+                     a matrix called Y. Y here will be a 1 by m dimensional matrix.
+                     <img class="imgquiz" src="../css/images/coursera/neural/2-2.PNG" />
+                    </p>
+                <h2>Logistic Regression</h2>
+                <p>
+                    Logistic regression is a learning algorithm that we use when the ouput label Y is either zero or one, so for binary 
+                    classification. So given an input feature vector X, we want an algorithm that can ouput a prediction, which we call Y hat, which 
+                    is an estimation of Y. <br>
+                    W and b are parameters that help us to train the algorithm, where W is an X dimensional vector, and b which is just a real number. So 
+                    given the input X and the parameters W and b we can generate an output. We can use a linear regression model but this does not work 
+                    because it does not output a value between 0 and 1 which is our probablity region. so we need to apply a sigmoid function to this linear 
+                    regression model, obtaining therefore a logistic regression model, for big values of Z our output of the linear regression model, we 
+                    obtain a value near to 1, and for big negative values we obtain a probability near to zero. Also there are other notation we are not going 
+                    to use in this course, and there is we compress W and B in one theta vector to train the neural network. 
+                </p>
+                    <img class="imgquiz" src="../css/images/coursera/neural/2-3.PNG" />
+                <h2>Logistic Regression Cost function</h2>
+                <p>
+                    We need to define a cost function, to ensure that our Y hat output is close to our Y output. So the first 
+                    equation we are going to review is Loss Function or Error Function, this function take each of the training pair 
+                    elements and calculate how well our model is doing. We can use squared error to measure this, but this is not a 
+                    appropiaded way to solve it, because is not going to ensure us a convex result, instead we are going to use some 
+                    logarithms results to obtain this error. <br>
+                    The second equation is indeed, the Cost function, which is the cost of our parameters, so when training our model 
+                    we neeed to reducec our cost function at most as possible to minimize errors, and it take account all the trainig set
+                    used in the model. So in conclusión Loss error is used only with a single train pair, insted of cost functions that take all 
+                    training pairs into account.
+                </p>
+                   <img class="imgquiz" src="../css/images/coursera/neural/2-4.PNG" />
+                <h2>Gradient Descent</h2>
+                <p>
+                    Now we have defined a Loss function and a Cost Function, that help us to measure how well our model is doing its job
+                    but how can we tune parameters W and b to reduce this above functions? <br>
+                    We use a technique called Gradient descent to obtain this optimization, Cost Function J can be plotted as a surface, where its 
+                    height represent the cost of the function, and other two axis represents W and B values, then we need to move downhill to reduce this cost, this point its called global optimum.
+
+                </p>
+                <img class="imgquiz" src="../css/images/coursera/neural/2-5.PNG" />
+                <p>
+                    For example, taking only one parameter of J, for example W, there is a convex function about this parameter, so the idea 
+                    behind gradient descent is update W using the slope of the function, in other words the derivative at that point, using a learning rate
+                    this learning rate, is how faster or slower our algorithm is going to update W value, later we are going to learn how to choose wisely this learning rate. <br>
+                    The goal is to achieve the global minimum of the function, and therefore we can say we have our lowest minimal cost function. So we need to do these with both 
+                    parameters W, and b, and when both parameters are optimized we obtain the global minimum in the surface created by the two parameters.
+                </p>
+                <img class="imgquiz" src="../css/images/coursera/neural/2-6.PNG" />
+                <h2>Computation Graph</h2>
+                <p>
+                    Computation graph are important when creating neural networks because we can see how computers do they operation 
+                    when calculating some functions, so we start from inside to outside, computing 1 operation at a time as we can see 
+                    in the image below. For computing derivatives we can go right to left.
+                </p>
+                <img class="imgquiz" src="../css/images/coursera/neural/2-7.PNG" />
+                <p>
+                    When doing derivatives with Computation graph we are going to do right to left, for example if we want 
+                    DJ/DV we only need to do a one step backpropagation, we cand think it like a normal derivation and express it in code 
+                    analytic derivation of DJ/DV is equal to 3, the same if we do it numerically, going back and do the calculation with a 
+                    smaller step to know how much increase the function. <br>
+                    For derivatives which are further we need to use the chain rule to obtain the derivative of the output variable with 
+                    the variable desired. For example if we want DJ/DU we need to do DJ/DV*DV/DU and we obtain DJ/DU.
+                </p>
+                <img class="imgquiz" src="../css/images/coursera/neural/2-8.PNG" />
+                <h2>Logistic Regression Gradient Descent</h2>
+                <p>
+                    Taking the intuition develop above we can use it to obtain the Gradient Descent of our logistic regression model, 
+                    so the for example if we use a input feature vector of 2, x1,x2. First we need to model our logistic regression model as 
+                    computation graph, putting x1,x2,w1,w2 and b as inputs, then Z needs to be calculated with this parameters, and then we apply 
+                    sigmoid function to this, and finally the loss function which tell us how well our model is doing. <br>
+                    Backpropagation begins with dL/da, where anallitcaly is -y/a + (1-y)/(1-a) in code we call it da, then we need to find dL/dz 
+                    where anallitcaly again is a-y this is proved by multiplying dL/da*da/dz with the chain rule. After that we need to find derivatives of 
+                    dw1, dw2 and db which are our parameters we can change. Once we got this derivatives values we can update it using the next formula:
+                    w1 = w1 - alpha*dw1, where alpha is the learning rate defined in above sections.
+                </p>
+                <img class="imgquiz" src="../css/images/coursera/neural/2-9.PNG" />
+                <p>
+                    We can now apply this gradient descent to a trainin set of m size, we need to recap that J function take all loss 
+                    functions of every training pair set and then do the average of then to calculate it. 
+                    <img class="imgquiz" src="../css/images/coursera/neural/2-10.PNG" />
+                    Then wen can use an algorithm to apply one gradient descent step to each training pair set. we start initializing 
+                    J, dw1,dw2 and db which are our cost function and parameters. Then we use a for loop to loop all the training set, 
+                    we start calculating linear regression output and then applying sigmoid function to obtain a logistic regression model, 
+                    once we have done this calculation we calculated a portion of J which is the loss function of that specificic training pair, 
+                    then we can obtain the derivative term using the equation obtain by backpropagation which is a-y. After that we sum up derivative term 
+                    of dw1, dw2, etc to db. Finally we divide our results by m the total of training pairsets and update values w1, w2, and b with our learning rate.
+
+                </p>
+                <img class="imgquiz" src="../css/images/coursera/neural/2-11.PNG" />
+                <h2>Vectorization</h2>
+                <p>
+                    Vectorization is a technique to get rid of explicit for loops in our code. With Vectorization we can reduce a lot 
+                    of computing time vs a non vectorized code. Also using vectorization we make our code more readable to people
+                    because we are working with the vector itself nor by element as used in for loop code. So if we can use vectorization in a chunk 
+                    of code it is the best option to do.
+                </p>
+                <img class="imgquiz" src="../css/images/coursera/neural/2-12.PNG" />
+                <p>
+                    With vectorization we can do a lot of element-wise operations through vector, for example we can get the log, inverse, abs, exponential and a 
+                    lot of operations we can do without a explicit for loop.
+                    <img class="imgquiz" src="../css/images/coursera/neural/2-13.PNG" />
+                    Gettin back to our logistic regression model we can get rid off of one for loop, that is the inner for loop, where 
+                    we are computing dw1 to dwn, we can not initialize this variables one by one, but instead creating a dw numpy-array which contanin 
+                    all these values. <br>
+                    then we are going to sum up each result to dw vector and at the end instead of dividing each dw element we divide dw array to m, getting a 
+                    result much faster than before.
+                    <img class="imgquiz" src="../css/images/coursera/neural/2-14.PNG" />
+                    To reduce more our logistic regression model we can get rid off of the external for loop, which is looping through all training 
+                    set, instead of computing each element we can do it globally because are all the same operation, so we have a X matrix where all 
+                    training set are putted in, so to calculate z of each elemente we need to do a simple linear regression operation, that can be 
+                    code in one line of Python, with Z = np.dot(w.T,X) + b we are creating a matrix called Z which contain all operations of each element in 
+                    X matrix and W matrix, then we can use the same logic to compute A which is a matrix where we apply the sigmoid function to each z in Z calculated before.
+                    <img class="imgquiz" src="../css/images/coursera/neural/2-15.PNG" />
+                    We can also vectorize gradient descent results to make more efficient our algorithm, dz is the result of backpropagation
+                    and we can consolidate it in a vector called dZ where all dz are going to be stored, we have A calculated and Y its an input vector 
+                    so to calculate dZ we just need to do A-Y, to calculate db we need to sum up all values we calculated before and divide it by m, 
+                    we can do it just writing 1/m*np.sum(dZ) , finally we can compute dw, also with dZ and X vector both now calculated, just write 
+                    1/m*X*dZ and thats it.
+                    <img class="imgquiz" src="../css/images/coursera/neural/2-16.PNG" />
+                    Now we can implement a single iteration of gradient descent without any for loop just using vectorization along all operations needed at the moment, 
+                    we also get a better time with this vectorized implementation, but this is only for one iteration, if we want to make multiple iterations, we need a for loop 
+                    to accomplish that, at the moment there is no way to vectorized this operation, so we need to use a for loop to get multiple iterations of gradient descent
+                    <img class="imgquiz" src="../css/images/coursera/neural/2-17.PNG" />
+                </p>
+                <h2>Broadcasting</h2>
+                <p>
+                    Broadcasting is a powerful feature given by Python, when broadcasting python can do matrix operations wether they are not the same 
+                    dimension, python automatically will expand the second matrix to match the first one and do the element-wise operations needed.
+                </p>
+                <img class="imgquiz" src="../css/images/coursera/neural/2-18.PNG" />
+                <p><a href="/Coursera/Notebooks/NeuralNetworks/Week2/NN1.html">Simple Neural Network</a></p>
+
+            </div>
+
+            <div class="card">
+                <h1>Shallow Neural Network</h1>
+                <h2>Neural network overview</h2>
+                <p>
+                    The last week we introduce a single and easy neural network conformed by one neuron, a logistic regression model. 
+                    In this week we are going to add more layers and neurons to our network, we can differentiate layers with square bracket notation
+                    where [1] refers to the first layer and so on. <br>
+                    With one neuron we only have to do a a single linear regression operation, in this case we need to do i linear regression operations with 
+                    the quantity of layers involved in the neural network. So we have to compute also differents dw, db and da for each layer.
+                </p>
+                <img class="imgquiz" src="../css/images/coursera/neural/3-1.PNG" />
+                <h2>Neural Network Representation</h2>
+                <p>
+                    When working with neural network that have more than 2 layer we can associate some name with every layer in the network. The 
+                    first layer is called Input Layer, this layer have all the input features we need to compute, the second layer and the middles one are called 
+                    hidden layers, this is because we dont know exactly which parameters each one have, and the last layer is called Ouput Layer, this layer }
+                    we can observe this parameters and know how it behaves. It is normal to not take into account the first layer, so a neural network as shown below 
+                    is called a 2 layer NN with only one hidden layer and an ouput layer. 
+                </p>
+                <img class="imgquiz" src="../css/images/coursera/neural/3-2.PNG" />
+                <p>
+                    The steps to compute a neural network with more neurons and layers are the same as we have done with only one neuron, 
+                    that is, calculate Z with wT*X+b and then apply sigmoid function to obtain a probability result. We need to do that with 
+                    all neurons in the neural network. We use square brackets superscript to differentiate layers and a subscript to differentiate 
+                    neurons in the same layer.
+                    <img class="imgquiz" src="../css/images/coursera/neural/3-3.PNG" />
+                    So, the first thought to hit this problem is to use a explicit for loop to compute all those differents neurons, 
+                    but this is not the best way to hit that, as we have said before we use vectorization in all scenarios we can use it, 
+                    and this scenario is one of them. We can group all W in one matrix, also all b in one matrix, and a in one matrix for each different layer, 
+                    then we compute them element-wise to obtain each w and b values. At the end we obtain a Z matrix with all differents results of each neurons 
+                    involved and finally apply sigmoid function to each value.
+                    <img class="imgquiz" src="../css/images/coursera/neural/3-4.PNG" />
+                    We can also know the dimensions of each matrix, taking into account the layer before, for example if we have 
+                    3 elements in our input layer, then matrix W of the hidden layer is going to be (4,3) dimensions in this example, that is 
+                    because we have 4 neurons in that layer and 3 features incoming for the input layer, b matrix is going to be (4,1) dimension, because 
+                    we only need one value for each neuron and so on with all parameters involved.
+                    <img class="imgquiz" src="../css/images/coursera/neural/3-5.PNG" />
+
+
+
+                </p>
+
+
+            </div>
+      </div>
+    
+    
+    </div>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>
