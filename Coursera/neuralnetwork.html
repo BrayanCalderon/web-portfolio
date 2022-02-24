@@ -209,8 +209,61 @@
                     because we have 4 neurons in that layer and 3 features incoming for the input layer, b matrix is going to be (4,1) dimension, because 
                     we only need one value for each neuron and so on with all parameters involved.
                     <img class="imgquiz" src="../css/images/coursera/neural/3-5.PNG" />
+                    That is ok if we are taking about one training example, but how do we do if we need to train with multiple examples? 
+                    We are going to continue with the same mentality, for Z with square bracket we are going to observe the layer itself and the 
+                    round bracket tell us the training i example.
+                    <img class="imgquiz" src="../css/images/coursera/neural/3-6.PNG" />
 
+                    So for each layer, we are going to stack up all the results obtained in a layer 
+                    and vectorized them together to get better perfeformance result. For Z case we stack vertically each neuron and horizontally each training example 
+                    used in that layer. The same with A matrix vector.
+                    <img class="imgquiz" src="../css/images/coursera/neural/3-7.PNG" />
+                </p>
+                <h2>Activation Functions</h2>
+                <p>
+                    There are many activation functions more than sigmoid, moreover, the sigmoid function is one with the worst performance,
+                    tanh is one of then, the hiperbolic tangent works like a sigmoid but it has a shift, the bounds of the functions 
+                    are in -1 to 1, with a zero mean. Also we have a ReLu functions that means Rectified Linear Unit, this function is the favorite
+                    for several people to this versability in a learning algorithm, helps an algorithm to learn more faster than other activations functions. 
+                    Finally Leaky ReLu is an special case of Relu where the negative part of the function is not zero, but, it has a little slope 
+                    with it.
+                    <img class="imgquiz" src="../css/images/coursera/neural/3-8.PNG" />
+                    It is important to use non-linear activation functions, because the linearity itself of the regression model, 
+                    no matter how much neurons we have in a neural network if all of then are using a linear activation function at the end 
+                    all of them will sum up as a single linear function so our big neural network is not better than a neural network with only 
+                    one neuron. That is the reason we use non-linear activation functions in the hidden layers. Also there are problems where 
+                    we dont need a non-linear activation functions for example in a machine learning problem where we want to predict the price 
+                    of some houses based on their features, we dont need it because the ouput needs to be a real number, nor a value between 0 and 1. 
+                    <img class="imgquiz" src="../css/images/coursera/neural/3-9.PNG" />
+                    Depending on the activation function used the derivative associated its different, so for the activation functions presented above, 
+                    we have the below derivatives expressions.
+                    <img class="imgquiz" src="../css/images/coursera/neural/3-10.PNG" />
 
+                    <img class="imgquiz" src="../css/images/coursera/neural/3-11.PNG" />
+
+                    <img class="imgquiz" src="../css/images/coursera/neural/3-12.PNG" />
+                </p>
+                <h2>Gradient Descent for Neural Networks</h2>
+                <p>
+                    We are going to start building our neural network, we need to define some parameters to start with, in this example 
+                    we need w1, b1, w2,b2 which are from hidden layer and output layer respectively. Also we need some loss functions associated 
+                    with each layer and a cost function that measure this model. <br>
+                    We are going to compute predictions based on this steps and compute this initialized parameters and repeat them until we have a good 
+                    training.
+                    <img class="imgquiz" src="../css/images/coursera/neural/3-13.PNG" />
+                    As before, we need to do some forward propagation and backpropagation to train our model, we need to compute Z and A 
+                    for each layer, in this case for two layers, then we compute derivatives with backpropagation, also for each layer as below.
+                    <img class="imgquiz" src="../css/images/coursera/neural/3-14.PNG" />
+                    <img class="imgquiz" src="../css/images/coursera/neural/3-15.PNG" />
+                </p>
+                <h2>Random Initilization</h2>
+                <p>
+                    Initialize W values is an importan step when creating a new neural network because if we just put 0, all neurons 
+                    will behave the same so no matter how many iterations we do, the result is going to be the same to all neurons and our 
+                    neural network wont work. For that reason is importan to give them random values, near to 0 to avoid slow the training process.
+                    This problem is called Symmetric neural network and occurs when all neurons have the same weights and calculate the same function. 
+                    So it is recommendable to randomize then with random function and a value of 0.01.
+                    <img class="imgquiz" src="../css/images/coursera/neural/3-16.PNG" />
 
                 </p>
 
